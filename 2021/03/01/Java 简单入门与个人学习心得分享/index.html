@@ -20,31 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="A student studying in New Zealand, majoring in computer science.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Vincent Huang Blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。 这周主要是Java的一个基础入门，我尽量不去写得太啰嗦，只会把重点给记录一下，在分享知识笔记之前我顺带说说几点我学习的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 简单入门与个人学习心得分享">
+<meta property="og:url" content="http://example.com/2021/03/01/Java%20%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/index.html">
 <meta property="og:site_name" content="Vincent Huang Blog">
-<meta property="og:description" content="A student studying in New Zealand, majoring in computer science.">
+<meta property="og:description" content="最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。 这周主要是Java的一个基础入门，我尽量不去写得太啰嗦，只会把重点给记录一下，在分享知识笔记之前我顺带说说几点我学习的">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-01T01:37:40.712Z">
+<meta property="article:modified_time" content="2021-03-31T12:43:41.958Z">
 <meta property="article:author" content="Vincent Huang">
-<meta property="article:tag" content="Java, Python">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/03/01/Java%20%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Vincent Huang Blog</title>
+  <title>Java 简单入门与个人学习心得分享 | Vincent Huang Blog</title>
   
 
 
@@ -162,9 +164,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -180,10 +183,9 @@
       <meta itemprop="name" content="Vincent Huang Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/01/Java%20%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8%E4%B8%8E%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97%E5%88%86%E4%BA%AB/" class="post-title-link" itemprop="url">Java 简单入门与个人学习心得分享</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Java 简单入门与个人学习心得分享
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -234,7 +236,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。</p>
+        <p>最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。</p>
 <p>这周主要是Java的一个基础入门，我尽量不去写得太啰嗦，只会把重点给记录一下，在分享知识笔记之前我顺带说说几点我学习的心得：</p>
 <ol>
 <li>拒绝零碎的知识获取。这点是因为我看很多人（包括我自己）喜欢直接Google拿题目的答案或是学习一个知识点，通常搜索引擎给出来的是CSDN的网页（这类行为我统称面向CSDN编程）。我觉得这不是一个好的习惯，我更加喜欢自己去翻阅书籍，对于一些api的用法直接去查手册，而不是过度依赖别人二次整理的知识（往往很多都参差不齐）同时我认为出版成册的书籍更凝聚着作者的思考，而单篇的文章是零碎的知识点，除非你很擅长将碎片拼凑，否则我还是认为看书是更好的。</li>
@@ -293,236 +295,33 @@
 <p>这两个函数的用途是为了获取成员变量，因为我们将name设置为private，所以我们在其他类是无法调用类对象的这个成员变量的，所以我们通过 getName() 方法来获取，setName() 方法来设置name的值。</p>
 <p>基本的 Java 就介绍到这里，之后的文章会更加注重于一些 Java这门语言的细节。欢迎各位朋友关注。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/17/how-to-change-css-in-new-hexo-next-theme/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Huang">
-      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vincent Huang Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/17/how-to-change-css-in-new-hexo-next-theme/" class="post-title-link" itemprop="url">how-to-change-css-in-new-hexo-next-theme</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-02-17 17:16:32 / 修改时间：19:58:16" itemprop="dateCreated datePublished" datetime="2021-02-17T17:16:32+13:00">2021-02-17</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>289</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/pull/868">PR＃868</a>已调整了自定义布局或样式的方式，取消了原始主题目录中的自定义文件（例如_custom / custom.styl），仅保留了在主题配置文件中指定自定义文件的方式。</p>
-<p>主要的改变：</p>
-<p>删除默认的自定义布局文件（layout / _custom / *）和css文件。</p>
-<p>如果您在默认的自定义布局文件中定义内容，则需要将其迁移到hexo目录中，并在custom_file_path 中进行定义。</p>
-<p>所以，如果我们想要在新版本中修改主题的css样式，我们需要用到 <a target="_blank" rel="noopener" href="https://hexo.io/docs/data-files">Data Files</a></p>
-<p>因此，我们要在 source文件下创建 __data 文件夹。所有自定义的样式文件可以放在 hexo_/source_/_data </p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/02/17/how-to-change-css-in-new-hexo-next-theme/" rel="prev" title="how-to-change-css-in-new-hexo-next-theme">
+      <i class="fa fa-chevron-left"></i> how-to-change-css-in-new-hexo-next-theme
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/12/19/Java%20File%20Class/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vincent Huang">
-      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Vincent Huang Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/19/Java%20File%20Class/" class="post-title-link" itemprop="url">Java File 类</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-12-19 14:36:40" itemprop="dateCreated datePublished" datetime="2020-12-19T14:36:40+13:00">2020-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-17 14:35:26" itemprop="dateModified" datetime="2021-02-17T14:35:26+13:00">2021-02-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>声明</strong>：这是一篇学习笔记，可能会有错误。如有错误，还请各位大神指出。</p>
-<p>File 类是文件和目录路径名的抽象表示。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class File</span><br><span class="line">extends Object</span><br><span class="line">implements Serializable, Comparable&lt;File&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>一般来说，我们想创建一个File类的实例，我们可以通过以下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>但注意的是，这样并不会创建名为 a.txt 的文件。如果我们想创建文件我们需要使用下面的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  b = file.createNewFile();</span><br><span class="line">  System.out.println(b);</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码，我们创建了一个File类的实例，名为file。之后我们调用File类的方法 createNewFile()，这个方法可能会抛出异常，所以我们需要用 try-catch 语句。同时这个方法会返回一个布尔值，如果指定的文件不存在且已成功创建，则返回true；如果指定的文件已存在则返回false。</p>
-<p>注意的是，下面两行代码含义是一样的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;./a.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
-<p>创建出来的文件会出现在与工程项目中src文件夹同级的文件夹中。</p>
-<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><table>
-<thead>
-<tr>
-<th align="left">构造方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">File(File parent, String child)</td>
-<td>创建一个新的File类的实例，parent是File类型的父路径，child是子路径</td>
-</tr>
-<tr>
-<td align="left">File(String pathname)</td>
-<td>通过将一个字符串描述的路径，创建一个新的File类的实例</td>
-</tr>
-<tr>
-<td align="left">File(String parent, String child)</td>
-<td>创建一个新的File类的实例，parent是父路径，child是子路径</td>
-</tr>
-<tr>
-<td align="left">File(URI uri)</td>
-<td>通过将URI转换成抽象路径，创建一个新的File类的实例</td>
-</tr>
-</tbody></table>
-<p>前文中已经给出一个代码示例了，下面给出其他的几个。</p>
-<p>File(File parent, String child)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">File parentPath = <span class="keyword">new</span> File(<span class="string">&quot;./data&quot;</span>);</span><br><span class="line">String childPath = <span class="string">&quot;Art.txt&quot;</span>;</span><br><span class="line">File path = <span class="keyword">new</span> File(parentPath, childPath);</span><br><span class="line"></span><br><span class="line">System.out.println(path.getPath());	<span class="comment">//输出path的路径</span></span><br></pre></td></tr></table></figure>
-
-
-<p>File(String parent, String child)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String parentPath = <span class="string">&quot;./data&quot;</span>;</span><br><span class="line">String childPath = <span class="string">&quot;Art.txt&quot;</span>;</span><br><span class="line">File path = <span class="keyword">new</span> File(parentPath, childPath);</span><br><span class="line"></span><br><span class="line">System.out.println(path.getPath());</span><br></pre></td></tr></table></figure>
-
-
-<p>File(URI uri)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">URI filePath = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  filePath = <span class="keyword">new</span> URI(<span class="string">&quot;file:/Users/xxx/xxx/xxxx/./data/Art.txt&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (URISyntaxException e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">System.out.println(file.getName());</span><br></pre></td></tr></table></figure>
-
-
-<p>为了让以上代码创建成功，在项目文件夹我创建了一个文件夹名为 data， 其中放了一个文件 Art.txt</p>
-<h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><p>前面已经描述了createNewFile()的使用，但是需要注意的一点是：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;./data/a.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  file.createNewFile();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果data文件夹不存在，会抛出IOException异常。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
