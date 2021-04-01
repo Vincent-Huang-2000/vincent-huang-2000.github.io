@@ -210,7 +210,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>717</span>
+              <span>735</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -228,10 +228,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="COSC262-Lab-2"><a href="#COSC262-Lab-2" class="headerlink" title="COSC262 Lab 2"></a>COSC262 Lab 2</h1><h2 id="Recursion-divide-and-conquer"><a href="#Recursion-divide-and-conquer" class="headerlink" title="Recursion, divide-and-conquer"></a>Recursion, divide-and-conquer</h2><h3 id="Part-A-Recursive-programming"><a href="#Part-A-Recursive-programming" class="headerlink" title="Part A: Recursive programming"></a>Part A: Recursive programming</h3><h5 id="The-Collatz-Conjecture"><a href="#The-Collatz-Conjecture" class="headerlink" title="The Collatz Conjecture"></a>The Collatz Conjecture</h5><p>Take any natural number $n$. If $n$ is even, divide it by 2 to get $.\frac{n}{2}$. If 𝑛n is odd, multiply it by 3 and add 1 to obtain $3n+1$. The Collatz conjecture claims that no matter what number you start with, you will always eventually reach 1. For example for $n = 22$, the following sequence of numbers will be generated:</p>
+          <h1 id="cosc262-lab-2">COSC262 Lab 2</h1>
+<h2 id="recursion-divide-and-conquer">Recursion, divide-and-conquer</h2>
+<h3 id="part-a-recursive-programming">Part A: Recursive programming</h3>
+<h5 id="the-collatz-conjecture">The Collatz Conjecture</h5>
+<p>Take any natural number <span class="math inline">\(n\)</span>. If <span class="math inline">\(n\)</span> is even, divide it by 2 to get <span class="math inline">\(.\frac{n}{2}\)</span>. If 𝑛n is odd, multiply it by 3 and add 1 to obtain <span class="math inline">\(3n+1\)</span>. The Collatz conjecture claims that no matter what number you start with, you will always eventually reach 1. For example for <span class="math inline">\(n = 22\)</span>, the following sequence of numbers will be generated:</p>
 <p>22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1</p>
-<p>The Collatz conjecture has been tested on all values up to $10^{18}$ and it holds. No one has managed to prove the Collatz conjecture. That is why it is still called a conjecture and not a theorem.</p>
-<h4 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h4><h5 id="Cycle-length"><a href="#Cycle-length" class="headerlink" title="Cycle length"></a>Cycle length</h5><p>For a number $n$, the Collatz cycle-length of $n$ is the number of numbers generated in the Collatz sequence up to 1 (including $n$ and 1). In the example above, the cycle length of 22 is 16.</p>
+<p>The Collatz conjecture has been tested on all values up to <span class="math inline">\(10^{18}\)</span> and it holds. No one has managed to prove the Collatz conjecture. That is why it is still called a conjecture and not a theorem.</p>
+<h4 id="question-1">Question 1</h4>
+<h5 id="cycle-length">Cycle length</h5>
+<p>For a number <span class="math inline">\(n\)</span>, the Collatz cycle-length of <span class="math inline">\(n\)</span> is the number of numbers generated in the Collatz sequence up to 1 (including <span class="math inline">\(n\)</span> and 1). In the example above, the cycle length of 22 is 16.</p>
 
       
     </div>
@@ -319,7 +325,7 @@
       
           <p>最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。</p>
 <p>这周主要是Java的一个基础入门，我尽量不去写得太啰嗦，只会把重点给记录一下，在分享知识笔记之前我顺带说说几点我学习的心得：</p>
-<ol>
+<ol type="1">
 <li>拒绝零碎的知识获取。这点是因为我看很多人（包括我自己）喜欢直接Google拿题目的答案或是学习一个知识点，通常搜索引擎给出来的是CSDN的网页（这类行为我统称面向CSDN编程）。我觉得这不是一个好的习惯，我更加喜欢自己去翻阅书籍，对于一些api的用法直接去查手册，而不是过度依赖别人二次整理的知识（往往很多都参差不齐）同时我认为出版成册的书籍更凝聚着作者的思考，而单篇的文章是零碎的知识点，除非你很擅长将碎片拼凑，否则我还是认为看书是更好的。</li>
 <li>最好能先自己独立思考再与他人交流，构建自己的思考模式，而不是照搬别人的答案。我认为这点很重要，因为出来工作的话，主要还是自己工作，其次是与同事协作。但若无法独立完成工作，与同事协作就无从说起。</li>
 <li>掌握自学的能力。但这前提是得满足前两点，我所认为是自学绝对不单单是看网站上的博客或是B站上的教程，而更多的是理论+实践的结合。就拿学习Java来说，理论是学习Java的语法，实践是在IDE写一行又一行的代码，查看不同代码输出的结果，尝试诱发异常以及寻找它们的解决办法。自学说白了就是在老师没讲的情况下，自己也能学到知识。这是与他人拉开差距的重要的能力。</li>
@@ -363,7 +369,7 @@
 <li><strong>public</strong> : 对所有类可见。使用对象：类、接口、变量、方法</li>
 <li><strong>protected</strong> : 对同一包内的类和所有子类可见。使用对象：变量、方法。 <strong>注意：不能修饰类（外部类）</strong>。</li>
 </ul>
-<p>（来源：<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-modifier-types.html%EF%BC%89">https://www.runoob.com/java/java-modifier-types.html）</a></p>
+<p>（来源：https://www.runoob.com/java/java-modifier-types.html）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String id, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.id = id;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来，介绍Java中的构造方法（构造器），在上面的例子中，</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -371,8 +377,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student student01 &#x3D; new Student();</span><br></pre></td></tr></table></figure>
 <p>其中，数值型数据会被设置为 0、 布尔型数据设置 为 false、 所有对象变量将设置为 null。如果在编写一个类时没有编写构造器， 那么系统就会提供一个无参数构造器。 这个构造器将所有的实例域设置为默认值。 （引用自Java核心技术 卷1）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 <p>这两个函数的用途是为了获取成员变量，因为我们将name设置为private，所以我们在其他类是无法调用类对象的这个成员变量的，所以我们通过 getName() 方法来获取，setName() 方法来设置name的值。</p>
 <p>基本的 Java 就介绍到这里，之后的文章会更加注重于一些 Java这门语言的细节。欢迎各位朋友关注。</p>
 
@@ -450,7 +454,7 @@
 <p>删除默认的自定义布局文件（layout / _custom / *）和css文件。</p>
 <p>如果您在默认的自定义布局文件中定义内容，则需要将其迁移到hexo目录中，并在custom_file_path 中进行定义。</p>
 <p>所以，如果我们想要在新版本中修改主题的css样式，我们需要用到 <a target="_blank" rel="noopener" href="https://hexo.io/docs/data-files">Data Files</a></p>
-<p>因此，我们要在 source文件下创建 __data 文件夹。所有自定义的样式文件可以放在 hexo_/source_/_data </p>
+<p>因此，我们要在 source文件下创建 __data 文件夹。所有自定义的样式文件可以放在 hexo_/source_/_data</p>
 
       
     </div>
@@ -539,8 +543,6 @@
           <p><strong>声明</strong>：这是一篇学习笔记，可能会有错误。如有错误，还请各位大神指出。</p>
 <p>File 类是文件和目录路径名的抽象表示。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class File</span><br><span class="line">extends Object</span><br><span class="line">implements Serializable, Comparable&lt;File&gt;</span><br></pre></td></tr></table></figure>
-
-
 <p>一般来说，我们想创建一个File类的实例，我们可以通过以下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>但注意的是，这样并不会创建名为 a.txt 的文件。如果我们想创建文件我们需要使用下面的代码：</p>
@@ -549,45 +551,47 @@
 <p>注意的是，下面两行代码含义是一样的。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;./a.txt&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>创建出来的文件会出现在与工程项目中src文件夹同级的文件夹中。</p>
-<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><table>
+<h2 id="构造方法">构造方法</h2>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
 <thead>
-<tr>
-<th align="left">构造方法</th>
+<tr class="header">
+<th style="text-align: left;">构造方法</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">File(File parent, String child)</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">File(File parent, String child)</td>
 <td>创建一个新的File类的实例，parent是File类型的父路径，child是子路径</td>
 </tr>
-<tr>
-<td align="left">File(String pathname)</td>
+<tr class="even">
+<td style="text-align: left;">File(String pathname)</td>
 <td>通过将一个字符串描述的路径，创建一个新的File类的实例</td>
 </tr>
-<tr>
-<td align="left">File(String parent, String child)</td>
+<tr class="odd">
+<td style="text-align: left;">File(String parent, String child)</td>
 <td>创建一个新的File类的实例，parent是父路径，child是子路径</td>
 </tr>
-<tr>
-<td align="left">File(URI uri)</td>
+<tr class="even">
+<td style="text-align: left;">File(URI uri)</td>
 <td>通过将URI转换成抽象路径，创建一个新的File类的实例</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>前文中已经给出一个代码示例了，下面给出其他的几个。</p>
 <p>File(File parent, String child)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">File parentPath = <span class="keyword">new</span> File(<span class="string">&quot;./data&quot;</span>);</span><br><span class="line">String childPath = <span class="string">&quot;Art.txt&quot;</span>;</span><br><span class="line">File path = <span class="keyword">new</span> File(parentPath, childPath);</span><br><span class="line"></span><br><span class="line">System.out.println(path.getPath());	<span class="comment">//输出path的路径</span></span><br></pre></td></tr></table></figure>
-
-
 <p>File(String parent, String child)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String parentPath = <span class="string">&quot;./data&quot;</span>;</span><br><span class="line">String childPath = <span class="string">&quot;Art.txt&quot;</span>;</span><br><span class="line">File path = <span class="keyword">new</span> File(parentPath, childPath);</span><br><span class="line"></span><br><span class="line">System.out.println(path.getPath());</span><br></pre></td></tr></table></figure>
-
-
 <p>File(URI uri)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">URI filePath = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  filePath = <span class="keyword">new</span> URI(<span class="string">&quot;file:/Users/xxx/xxx/xxxx/./data/Art.txt&quot;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (URISyntaxException e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">System.out.println(file.getName());</span><br></pre></td></tr></table></figure>
-
-
 <p>为了让以上代码创建成功，在项目文件夹我创建了一个文件夹名为 data， 其中放了一个文件 Art.txt</p>
-<h2 id="方法总结"><a href="#方法总结" class="headerlink" title="方法总结"></a>方法总结</h2><p>前面已经描述了createNewFile()的使用，但是需要注意的一点是：</p>
+<h2 id="方法总结">方法总结</h2>
+<p>前面已经描述了createNewFile()的使用，但是需要注意的一点是：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">&quot;./data/a.txt&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  file.createNewFile();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果data文件夹不存在，会抛出IOException异常。</p>
 

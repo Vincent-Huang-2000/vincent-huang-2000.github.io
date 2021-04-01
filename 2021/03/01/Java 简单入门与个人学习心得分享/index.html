@@ -234,7 +234,7 @@
       
         <p>最近陆陆续续写了几篇小文章，练练手感，但自我觉得写得太粗糙了。我只能把原因归于平时学习紧张，不过我还是会尽量保证质量的！起码等到放假的时候我就把所有文章整理一次。重新弄起这个公众号的原因很简单，一方面是为了记录学校所教的知识，巩固自己的知识，另一方面也希望可以帮助到有需要的同学。</p>
 <p>这周主要是Java的一个基础入门，我尽量不去写得太啰嗦，只会把重点给记录一下，在分享知识笔记之前我顺带说说几点我学习的心得：</p>
-<ol>
+<ol type="1">
 <li>拒绝零碎的知识获取。这点是因为我看很多人（包括我自己）喜欢直接Google拿题目的答案或是学习一个知识点，通常搜索引擎给出来的是CSDN的网页（这类行为我统称面向CSDN编程）。我觉得这不是一个好的习惯，我更加喜欢自己去翻阅书籍，对于一些api的用法直接去查手册，而不是过度依赖别人二次整理的知识（往往很多都参差不齐）同时我认为出版成册的书籍更凝聚着作者的思考，而单篇的文章是零碎的知识点，除非你很擅长将碎片拼凑，否则我还是认为看书是更好的。</li>
 <li>最好能先自己独立思考再与他人交流，构建自己的思考模式，而不是照搬别人的答案。我认为这点很重要，因为出来工作的话，主要还是自己工作，其次是与同事协作。但若无法独立完成工作，与同事协作就无从说起。</li>
 <li>掌握自学的能力。但这前提是得满足前两点，我所认为是自学绝对不单单是看网站上的博客或是B站上的教程，而更多的是理论+实践的结合。就拿学习Java来说，理论是学习Java的语法，实践是在IDE写一行又一行的代码，查看不同代码输出的结果，尝试诱发异常以及寻找它们的解决办法。自学说白了就是在老师没讲的情况下，自己也能学到知识。这是与他人拉开差距的重要的能力。</li>
@@ -278,7 +278,7 @@
 <li><strong>public</strong> : 对所有类可见。使用对象：类、接口、变量、方法</li>
 <li><strong>protected</strong> : 对同一包内的类和所有子类可见。使用对象：变量、方法。 <strong>注意：不能修饰类（外部类）</strong>。</li>
 </ul>
-<p>（来源：<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-modifier-types.html%EF%BC%89">https://www.runoob.com/java/java-modifier-types.html）</a></p>
+<p>（来源：https://www.runoob.com/java/java-modifier-types.html）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, String id, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.id = id;</span><br><span class="line">  <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>接下来，介绍Java中的构造方法（构造器），在上面的例子中，</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -286,8 +286,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student student01 &#x3D; new Student();</span><br></pre></td></tr></table></figure>
 <p>其中，数值型数据会被设置为 0、 布尔型数据设置 为 false、 所有对象变量将设置为 null。如果在编写一个类时没有编写构造器， 那么系统就会提供一个无参数构造器。 这个构造器将所有的实例域设置为默认值。 （引用自Java核心技术 卷1）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 <p>这两个函数的用途是为了获取成员变量，因为我们将name设置为private，所以我们在其他类是无法调用类对象的这个成员变量的，所以我们通过 getName() 方法来获取，setName() 方法来设置name的值。</p>
 <p>基本的 Java 就介绍到这里，之后的文章会更加注重于一些 Java这门语言的细节。欢迎各位朋友关注。</p>
 

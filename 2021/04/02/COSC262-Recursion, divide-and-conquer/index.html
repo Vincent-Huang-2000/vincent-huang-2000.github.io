@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="COSC262 Lab 2Recursion, divide-and-conquerPart A: Recursive programmingThe Collatz ConjectureTake any natural number $n$. If $n$ is even, divide it by 2 to get $.\frac{n}{2}$. If 𝑛n is odd, multiply">
+  <meta name="description" content="COSC262 Lab 2 Recursion, divide-and-conquer Part A: Recursive programming The Collatz Conjecture Take any natural number \(n\). If \(n\) is even, divide it by 2 to get \(.\frac{n}{2}\). If 𝑛n is odd,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="COSC262 - Recursion, divide-and-conquer">
 <meta property="og:url" content="http://example.com/2021/04/02/COSC262-Recursion,%20divide-and-conquer/index.html">
 <meta property="og:site_name" content="Vincent&#39;s Blog">
-<meta property="og:description" content="COSC262 Lab 2Recursion, divide-and-conquerPart A: Recursive programmingThe Collatz ConjectureTake any natural number $n$. If $n$ is even, divide it by 2 to get $.\frac{n}{2}$. If 𝑛n is odd, multiply">
+<meta property="og:description" content="COSC262 Lab 2 Recursion, divide-and-conquer Part A: Recursive programming The Collatz Conjecture Take any natural number \(n\). If \(n\) is even, divide it by 2 to get \(.\frac{n}{2}\). If 𝑛n is odd,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-01T22:10:53.210Z">
 <meta property="article:modified_time" content="2021-04-01T22:25:55.198Z">
@@ -213,7 +213,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-file-word-o"></i>
               </span>
-              <span>717</span>
+              <span>735</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -231,10 +231,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="COSC262-Lab-2"><a href="#COSC262-Lab-2" class="headerlink" title="COSC262 Lab 2"></a>COSC262 Lab 2</h1><h2 id="Recursion-divide-and-conquer"><a href="#Recursion-divide-and-conquer" class="headerlink" title="Recursion, divide-and-conquer"></a>Recursion, divide-and-conquer</h2><h3 id="Part-A-Recursive-programming"><a href="#Part-A-Recursive-programming" class="headerlink" title="Part A: Recursive programming"></a>Part A: Recursive programming</h3><h5 id="The-Collatz-Conjecture"><a href="#The-Collatz-Conjecture" class="headerlink" title="The Collatz Conjecture"></a>The Collatz Conjecture</h5><p>Take any natural number $n$. If $n$ is even, divide it by 2 to get $.\frac{n}{2}$. If 𝑛n is odd, multiply it by 3 and add 1 to obtain $3n+1$. The Collatz conjecture claims that no matter what number you start with, you will always eventually reach 1. For example for $n = 22$, the following sequence of numbers will be generated:</p>
+        <h1 id="cosc262-lab-2">COSC262 Lab 2</h1>
+<h2 id="recursion-divide-and-conquer">Recursion, divide-and-conquer</h2>
+<h3 id="part-a-recursive-programming">Part A: Recursive programming</h3>
+<h5 id="the-collatz-conjecture">The Collatz Conjecture</h5>
+<p>Take any natural number <span class="math inline">\(n\)</span>. If <span class="math inline">\(n\)</span> is even, divide it by 2 to get <span class="math inline">\(.\frac{n}{2}\)</span>. If 𝑛n is odd, multiply it by 3 and add 1 to obtain <span class="math inline">\(3n+1\)</span>. The Collatz conjecture claims that no matter what number you start with, you will always eventually reach 1. For example for <span class="math inline">\(n = 22\)</span>, the following sequence of numbers will be generated:</p>
 <p>22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1</p>
-<p>The Collatz conjecture has been tested on all values up to $10^{18}$ and it holds. No one has managed to prove the Collatz conjecture. That is why it is still called a conjecture and not a theorem.</p>
-<h4 id="Question-1"><a href="#Question-1" class="headerlink" title="Question 1"></a>Question 1</h4><h5 id="Cycle-length"><a href="#Cycle-length" class="headerlink" title="Cycle length"></a>Cycle length</h5><p>For a number $n$, the Collatz cycle-length of $n$ is the number of numbers generated in the Collatz sequence up to 1 (including $n$ and 1). In the example above, the cycle length of 22 is 16.</p>
+<p>The Collatz conjecture has been tested on all values up to <span class="math inline">\(10^{18}\)</span> and it holds. No one has managed to prove the Collatz conjecture. That is why it is still called a conjecture and not a theorem.</p>
+<h4 id="question-1">Question 1</h4>
+<h5 id="cycle-length">Cycle length</h5>
+<p>For a number <span class="math inline">\(n\)</span>, the Collatz cycle-length of <span class="math inline">\(n\)</span> is the number of numbers generated in the Collatz sequence up to 1 (including <span class="math inline">\(n\)</span> and 1). In the example above, the cycle length of 22 is 16.</p>
 
     </div>
 
@@ -316,7 +322,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#COSC262-Lab-2"><span class="nav-number">1.</span> <span class="nav-text">COSC262 Lab 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Recursion-divide-and-conquer"><span class="nav-number">1.1.</span> <span class="nav-text">Recursion, divide-and-conquer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-A-Recursive-programming"><span class="nav-number">1.1.1.</span> <span class="nav-text">Part A: Recursive programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#The-Collatz-Conjecture"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">The Collatz Conjecture</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Question-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Question 1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Cycle-length"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">Cycle length</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cosc262-lab-2"><span class="nav-number">1.</span> <span class="nav-text">COSC262 Lab 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#recursion-divide-and-conquer"><span class="nav-number">1.1.</span> <span class="nav-text">Recursion, divide-and-conquer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#part-a-recursive-programming"><span class="nav-number">1.1.1.</span> <span class="nav-text">Part A: Recursive programming</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#the-collatz-conjecture"><span class="nav-number">1.1.1.0.1.</span> <span class="nav-text">The Collatz Conjecture</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#question-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Question 1</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cycle-length"><span class="nav-number">1.1.1.1.1.</span> <span class="nav-text">Cycle length</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
