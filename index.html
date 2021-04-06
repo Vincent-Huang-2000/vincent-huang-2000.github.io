@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -160,6 +160,94 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/8b0191d1cee6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/8b0191d1cee6/" class="post-title-link" itemprop="url">Github 删除以前提交的所有记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-06 11:00:00 / 修改时间：11:15:05" itemprop="dateCreated datePublished" datetime="2021-04-06T11:00:00+12:00">2021-04-06</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>369</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>有的时候想把项目之前提交的记录给清除，该如何做呢？</p>
+<ol type="1">
+<li><p>先把项目 Clone 到本地</p>
+<p><code>git clone 项目地址</code></p></li>
+<li><p>Checkout</p>
+<p><code>git checkout --orphan latest_branch</code></p></li>
+<li><p>Add all the files</p>
+<p><code>git add -A</code></p></li>
+<li><p>Commit the changes</p>
+<p><code>git commit -am "commit message"</code></p></li>
+<li><p>Delete the branch</p>
+<p><code>git branch -D main</code></p></li>
+<li><p>Rename the current branch to main</p>
+<p><code>git branch -m main</code></p></li>
+<li><p>Finally, force update your repository</p>
+<p><code>git push -f origin main</code></p></li>
+</ol>
+<p>来源：https://stackoverflow.com/questions/13716658/how-to-delete-all-commit-history-in-github</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -635,7 +723,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -648,7 +736,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -674,6 +762,24 @@
     <footer class="footer">
       <div class="footer-inner">
         
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/index.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/index.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
 
         
 
