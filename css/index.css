@@ -1957,8 +1957,6 @@ input::placeholder {
   background: var(--anzhiyu-background);
   background-attachment: local;
   background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -3926,8 +3924,6 @@ body[data-type="music"] .s-sticker div {
   z-index: -999;
   background-attachment: local;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   width: 200%;
@@ -4060,8 +4056,6 @@ body:has(#console.show) #nav-music {
   -o-transition: background-image 0.5s ease-in-out;
   -ms-transition: background-image 0.5s ease-in-out;
   transition: background-image 0.5s ease-in-out;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   background-color: transparent !important;
 }
@@ -4907,8 +4901,6 @@ h1.page-title + .tag-cloud-list {
   border-bottom-left-radius: 8px;
   background-color: #307af6;
   background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   height: 100%;
 }
@@ -5746,8 +5738,6 @@ h1.page-title + .tag-cloud-list {
   background: -o-linear-gradient(115deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
   background: -ms-linear-gradient(115deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
   background: linear-gradient(-25deg, var(--anzhiyu-main), var(--anzhiyu-main-op-deep), var(--anzhiyu-main), var(--anzhiyu-main-op-deep));
-  -webkit-background-size: 400%;
-  -moz-background-size: 400%;
   background-size: 400%;
   -webkit-animation: gradient 15s ease infinite;
   -moz-animation: gradient 15s ease infinite;
@@ -5850,8 +5840,6 @@ h1.page-title + .tag-cloud-list {
 }
 @media screen and (max-width: 992px) {
   #aside-content > .card-info {
-    -webkit-background-size: 100% 70%;
-    -moz-background-size: 100% 70%;
     background-size: 100% 70%;
   }
 }
@@ -6213,8 +6201,6 @@ h1.page-title + .tag-cloud-list {
   background: linear-gradient(180deg, var(--anzhiyu-card-bg-none) 0%, var(--anzhiyu-card-bg) 25%);
   background-attachment: scroll;
   background-position: bottom;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
