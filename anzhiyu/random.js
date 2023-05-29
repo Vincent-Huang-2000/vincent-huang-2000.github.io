@@ -1,0 +1,1 @@
+var posts=["2022/07/6afaeaedc357/","2021/02/8e9da1a3b478/","2020/12/626ab36213c9/","2021/03/f78536a6c402/","2021/04/7d5726201d15/","2023/03/12093ec9a984/","2021/04/1ac45388d378/","2023/05/ea8bb341026a/","2023/05/3fc452b17087/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
