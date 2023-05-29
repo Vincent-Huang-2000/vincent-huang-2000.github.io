@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="您好，欢迎访问我的博客。 我是一名即将毕业的计算机科学的学生。 对软件开发有深厚的兴趣，热爱摄影，喜好国学。 平时剪剪视频，看看书，悠悠哉哉～ 为天地立心，为生民立命，为往圣继绝学，为万世开太平。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About me">
-<meta property="og:url" content="http://example.com/about/index.html">
+  <meta name="description" content="MapReduce是Google提出的一个软件架构，用于大规模数据集的并行运算，是为了解决大规模数据处理的问题。 MapReduce的基本思想是将大规模数据分割成多个小数据块，分发到不同的机器中进行并行处理。 具体来说，MapReduce通过将数据分成多个小块，然后将这些小块分发给多个计算节点进行处理，最后将处理结果汇总起来，从而实现高效的大规模数据处理。 MapReduce 大概可以分为 Map">
+<meta property="og:type" content="article">
+<meta property="og:title" content="什么是MapReduce">
+<meta property="og:url" content="http://example.com/2023/05/ea8bb341026a/index.html">
 <meta property="og:site_name" content="Vincent&#39;s Blog">
-<meta property="og:description" content="您好，欢迎访问我的博客。 我是一名即将毕业的计算机科学的学生。 对软件开发有深厚的兴趣，热爱摄影，喜好国学。 平时剪剪视频，看看书，悠悠哉哉～ 为天地立心，为生民立命，为往圣继绝学，为万世开太平。">
+<meta property="og:description" content="MapReduce是Google提出的一个软件架构，用于大规模数据集的并行运算，是为了解决大规模数据处理的问题。 MapReduce的基本思想是将大规模数据分割成多个小数据块，分发到不同的机器中进行并行处理。 具体来说，MapReduce通过将数据分成多个小块，然后将这些小块分发给多个计算节点进行处理，最后将处理结果汇总起来，从而实现高效的大规模数据处理。 MapReduce 大概可以分为 Map">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-05T01:06:00.000Z">
-<meta property="article:modified_time" content="2023-03-05T01:06:48.958Z">
+<meta property="article:published_time" content="2023-05-06T04:19:03.000Z">
+<meta property="article:modified_time" content="2023-05-06T04:31:34.805Z">
 <meta property="article:author" content="Vincent Huang">
 <meta property="article:tag" content="Java, Python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/about/">
+<link rel="canonical" href="http://example.com/2023/05/ea8bb341026a/">
 
 
 <script id="page-configurations">
@@ -41,13 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>About me | Vincent's Blog
-</title>
+  <title>什么是MapReduce | Vincent's Blog</title>
   
 
 
@@ -160,48 +159,96 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/ea8bb341026a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          什么是MapReduce
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">About me
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2023-05-06 16:19:03 / 修改时间：16:31:34" itemprop="dateCreated datePublished" datetime="2023-05-06T16:19:03+12:00">2023-05-06</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              <span>367</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>MapReduce是Google提出的一个软件架构，用于大规模数据集的并行运算，是为了解决大规模数据处理的问题。</p>
+<p><font color="#dd0000">MapReduce的基本思想是将大规模数据分割成多个小数据块，分发到不同的机器中进行并行处理。</font></p>
+<p>具体来说，MapReduce通过将数据分成多个小块，然后将这些小块分发给多个计算节点进行处理，最后将处理结果汇总起来，从而实现高效的大规模数据处理。</p>
+<p>MapReduce 大概可以分为 Map 和 Reduce 过程。Map 就好比拆分数据的过程，Reduce 就是将拆分的数据合并的过程。</p>
+<p>【MapReduce 视频讲解】 https://www.bilibili.com/video/BV1rS4y1n7PC/?share_source=copy_web&amp;vd_source=82be819a4e22d622eff6b514b96cb0bc</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/12093ec9a984/" rel="prev" title="Spark基础函数指南(python版)">
+      <i class="fa fa-chevron-left"></i> Spark基础函数指南(python版)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <p>您好，欢迎访问我的博客。</p>
-<p>我是一名即将毕业的计算机科学的学生。</p>
-<p>对软件开发有深厚的兴趣，热爱摄影，喜好国学。</p>
-<p>平时剪剪视频，看看书，悠悠哉哉～</p>
-<p>为天地立心，为生民立命，为往圣继<em>绝学</em>，为万世开太平。</p>
-
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -312,11 +359,11 @@
     </label>
     <select class="lang-select" data-canonical="">
       
-        <option value="zh-CN" data-href="/about/index.html" selected="">
+        <option value="zh-CN" data-href="/2023/05/ea8bb341026a/" selected="">
           简体中文
         </option>
       
-        <option value="en" data-href="/en/about/index.html" selected="">
+        <option value="en" data-href="/en/2023/05/ea8bb341026a/" selected="">
           English
         </option>
       
