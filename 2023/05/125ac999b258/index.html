@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="MPI，全称为消息传递接口（Message Passing Interface），是一种在并行计算环境中使用的编程模型。通过MPI，不同的进程可以在计算机集群中或者单个机器的多个处理器上进行通信和数据交换。Python中，我们通常使用mpi4py库来进行MPI编程。 首先，你需要安装mpi4py库。可以通过以下命令来安装： 1pip install mpi4py 基本的MPI程序会包含以下要素：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GPT4教你Python上使用mpi4py进行并行计算">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2023/05/125ac999b258/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="MPI，全称为消息传递接口（Message Passing Interface），是一种在并行计算环境中使用的编程模型。通过MPI，不同的进程可以在计算机集群中或者单个机器的多个处理器上进行通信和数据交换。Python中，我们通常使用mpi4py库来进行MPI编程。 首先，你需要安装mpi4py库。可以通过以下命令来安装： 1pip install mpi4py 基本的MPI程序会包含以下要素：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-29T07:49:20.000Z">
+<meta property="article:modified_time" content="2023-07-31T07:23:49.898Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="统计, 机器学习, 大数据">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2023/05/125ac999b258/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>GPT4教你Python上使用mpi4py进行并行计算 | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/05/125ac999b258/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GPT4教你Python上使用mpi4py进行并行计算
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-05-29 19:49:20" itemprop="dateCreated datePublished" datetime="2023-05-29T19:49:20+12:00">2023-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-31 19:23:49" itemprop="dateModified" datetime="2023-07-31T19:23:49+12:00">2023-07-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url" rel="index"><span itemprop="name">大数据</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>MPI，全称为消息传递接口（Message Passing Interface），是一种在并行计算环境中使用的编程模型。通过MPI，不同的进程可以在计算机集群中或者单个机器的多个处理器上进行通信和数据交换。Python中，我们通常使用<code>mpi4py</code>库来进行MPI编程。</p>
+<p>首先，你需要安装<code>mpi4py</code>库。可以通过以下命令来安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mpi4py</span><br></pre></td></tr></table></figure>
+<p>基本的MPI程序会包含以下要素：</p>
+<ul>
+<li>初始化和结束MPI环境</li>
+<li>获取进程的个数和进程的排名</li>
+<li>进程间的通信</li>
+</ul>
+<p>以下是一个基础的<code>mpi4py</code>示例程序，它可以获取MPI环境中进程的数量和当前进程的排名，并在控制台上输出这些信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mpi4py <span class="keyword">import</span> MPI</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    <span class="comment"># 初始化MPI环境</span></span><br><span class="line">    comm = MPI.COMM_WORLD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取当前进程的排名</span></span><br><span class="line">    rank = comm.Get_rank()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取进程的总数</span></span><br><span class="line">    size = comm.Get_size()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">f&quot;I am process <span class="subst">&#123;rank&#125;</span> of <span class="subst">&#123;size&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>你可以通过以下命令来运行这个程序：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpirun -n 4 python mpi_example.py</span><br></pre></td></tr></table></figure>
+<p>这个命令会启动4个进程来运行你的程序。每个进程都会打印出自己的排名和总的进程数量。</p>
+<p>进程间的通信是MPI的关键要素。以下是一个例子，演示了如何使用<code>mpi4py</code>进行发送和接收操作：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mpi4py <span class="keyword">import</span> MPI</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    comm = MPI.COMM_WORLD</span><br><span class="line">    rank = comm.Get_rank()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> rank == <span class="number">0</span>:</span><br><span class="line">        data = &#123;<span class="string">&quot;key&quot;</span>: <span class="string">&quot;value&quot;</span>&#125;</span><br><span class="line">        comm.send(data, dest=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">elif</span> rank == <span class="number">1</span>:</span><br><span class="line">        data = comm.recv(source=<span class="number">0</span>)</span><br><span class="line">        print(<span class="string">f&quot;Received data: <span class="subst">&#123;data&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>在这个程序中，进程0会发送一个字典到进程1，然后进程1会接收这个字典并打印出来。</p>
+<p>注意，以上代码示例只是简单的介绍，MPI还有更多复杂和强大的功能，例如：集群计算，广播，散播，收集等等，需要根据实际的需求和场景进行学习和使用。</p>
+<p><code>comm = MPI.COMM_WORLD</code> 这行代码中，<code>comm</code> 是一个通信对象（Communicator），它是 MPI 编程中的一个关键概念。</p>
+<p>在 MPI 中，所有的进程都属于一个进程组，并且每个进程都有一个唯一的标识符（也称为 "排名" 或 "等级"）。<code>MPI.COMM_WORLD</code> 是一个全局的通信器，它包含了所有的进程，且进程排名是从0开始的连续整数。</p>
+<p><code>comm</code> 作为一个通信器对象，提供了一系列方法来进行进程间通信，如发送和接收数据、广播数据、收集数据等。以下是一些常用方法：</p>
+<ul>
+<li><code>comm.send(data, dest)</code>：将 <code>data</code> 发送到目标进程 <code>dest</code>。</li>
+<li><code>comm.recv(source)</code>：从源进程 <code>source</code> 接收数据。</li>
+<li><code>comm.bcast(data, root)</code>：如果当前进程是 <code>root</code>，则将 <code>data</code> 广播到所有其他进程。如果当前进程不是 <code>root</code>，则接收 <code>root</code> 广播的数据。</li>
+<li><code>comm.scatter(data, root)</code>：如果当前进程是 <code>root</code>，则将 <code>data</code> 列表中的元素均匀地分配给所有进程。如果当前进程不是 <code>root</code>，则接收来自 <code>root</code> 的数据。</li>
+<li><code>comm.gather(data, root)</code>：所有进程将自己的 <code>data</code> 发送到 <code>root</code> 进程，<code>root</code> 进程收集所有数据并返回一个列表。</li>
+</ul>
+<p>其中 <code>comm.Get_rank()</code> 和 <code>comm.Get_size()</code> 分别用于获取当前进程的排名和总进程数。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/c595d3a69a01/" rel="prev" title="Python MPI Message Passing">
+      <i class="fa fa-chevron-left"></i> Python MPI Message Passing
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/06/a6f73cd985a5/" rel="next" title="Authentication 与 Authorisation 的区别是什么？">
+      Authentication 与 Authorisation 的区别是什么？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2023/05/125ac999b258/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2023/05/125ac999b258/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

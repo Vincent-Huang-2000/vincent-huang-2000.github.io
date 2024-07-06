@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这页PPT介绍的是“广义距离”（Generalised distance）的概念。 老规矩，先来总结：广义距离是一个多维度的度量，它衡量了一个点在考虑变量之间相关性的情况下，与均值向量的偏离程度。 为什么要了解这些概念？因为广义距离是多元统计分析中的基础工具，它可以帮助你理解和处理多维数据集中各观测值的行为，尤其是它们如何相对于整体数据分布的中心位置分布。 这些概念之间的联系： 标准化距离在一维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广义距离（Generalised distance）">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="这页PPT介绍的是“广义距离”（Generalised distance）的概念。 老规矩，先来总结：广义距离是一个多维度的度量，它衡量了一个点在考虑变量之间相关性的情况下，与均值向量的偏离程度。 为什么要了解这些概念？因为广义距离是多元统计分析中的基础工具，它可以帮助你理解和处理多维数据集中各观测值的行为，尤其是它们如何相对于整体数据分布的中心位置分布。 这些概念之间的联系： 标准化距离在一维">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/image_1713575342224_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/image_1713581496888_0.png">
+<meta property="article:published_time" content="2024-04-21T21:29:00.000Z">
+<meta property="article:modified_time" content="2024-07-05T12:53:16.705Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="统计, 机器学习, 大数据">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/image_1713575342224_0.png">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>广义距离（Generalised distance） | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          广义距离（Generalised distance）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-22 09:29:00" itemprop="dateCreated datePublished" datetime="2024-04-22T09:29:00+12:00">2024-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:53:16" itemprop="dateModified" datetime="2024-07-06T00:53:16+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">统计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2024/04/0b4be3cd57d7/image_1713575342224_0.png" class="" title="image.png">
+<p>这页PPT介绍的是“广义距离”（Generalised distance）的概念。</p>
+<p>老规矩，先来总结：广义距离是一个多维度的度量，它衡量了一个点在考虑变量之间相关性的情况下，与均值向量的偏离程度。</p>
+<p>为什么要了解这些概念？因为广义距离是多元统计分析中的基础工具，它可以帮助你理解和处理多维数据集中各观测值的行为，尤其是它们如何相对于整体数据分布的中心位置分布。</p>
+<p>这些概念之间的联系：</p>
+<p><strong>标准化距离</strong>在一维空间内量化单个数据点与均值的偏离程度。</p>
+<p><strong>广义距离</strong>扩展了这一概念到多维空间，它不仅考虑单个数据点在每个维度上的偏离，而且还考虑了各个维度间的相关性。</p>
+<p>这两个概念都基于距离的概念，它们将距离从物理空间的直观理解推广到统计分布的上下文中。</p>
+<p>应用场景：</p>
+<p><strong>异常值检测</strong>：在多元数据中，可以使用广义距离来识别那些与平均分布模式显著不同的观测值。</p>
+<p><strong>聚类分析</strong>：在对数据进行分组时，广义距离可以帮助确定哪些观测值彼此相似，并因此应该被分类到同一个群体。</p>
+<p><strong>多变量控制图</strong>：在质量管理中，利用广义距离可以监控多个相关过程变量的稳定性。</p>
+<p><strong>判别分析</strong>：当需要根据观测数据将个体分类到不同预设类别中时，广义距离可以作为分类决策的依据。</p>
+<p><strong>多元正态分布的性质</strong>：在多元正态分布中，观测值到均值向量的广义距离服从卡方分布，这个性质可用于假设检验和置信区间的建立。</p>
+<p>首先，我们从标准的一维情形开始，即单变量的情况： <span class="math display">\[
+  \frac{(x - \mu)^2}{\sigma^2}
+\]</span></p>
+<p>这个公式是测量单个数据点 $ x $ 与均值 $ $ 之间距离的一个方法，但这个距离是以标准差的单位来衡量的。它被称为标准化距离或z得分（z-score），表示数据点 $ x $ 距离均值 $ $ 有多少个标准差。公式的本质是量化 $ x $ 偏离均值的程度。</p>
+<p>在多元统计中，我们不只考虑一个变量，而是多个变量。在这种情况下，我们会有一个 $  $ 的向量 $ x $ ，它表示一个数据点在多个维度上的值，以及一个 $  $ 的向量 $ $ ，它表示这些维度上的均值。同时，我们也会有一个 $ $ 的协方差矩阵 $ $ ，它不仅包含各变量的方差，还包括不同变量之间的协方差。</p>
+<p>详细参考： 广义距离公式计算</p>
+<p>广义距离是这样定义的：</p>
+<p><span class="math display">\[(x - \mu)&#39; \Sigma^{-1} (x - \mu)\]</span></p>
+<p>这里， $ ^{-1} $ 是协方差矩阵的逆矩阵，而 $ (x - )' $ 是 $ (x - ) $ 的转置。</p>
+<p>这个公式的几何意义是，在多维空间中测量数据点 $ x $ 到均值 $ $ 的距离，但是考虑了不同变量之间的相关性。通过协方差矩阵（Covariance Matrix）的逆，我们能够调整每个维度上的距离，以反映变量之间的相关性。</p>
+<p>在实际应用中，广义距离可以用于多元正态分布下的异常值检测，聚类分析等。当 $ x $ 在多维空间中的位置远离 $ $ ，并且考虑到了变量之间的协方差后，这个距离会相应增大，反映出 $ x $ 是一个不寻常的观测值。</p>
+<p>需要注意的是，广义距离只有在协方差矩阵 $ $ 可逆时才有定义，这通常要求数据中的观测数要大于变量数，以确保 $ $ 不是奇异的。</p>
+<img src="/2024/04/0b4be3cd57d7/image_1713581496888_0.png" class="" title="image.png">
+<p>这页PPT继续讲解了多维空间中的正态分布和广义距离的概念。 首先，我们定义一个 $  $ 维向量 $ $ ，它代表随机向量 $ X $ 的期望值或均值，这个期望值向量的每一个分量 $ _i $ 对应 $ X $ 的每一个维度的均值。</p>
+<p>其次， $ $ 维协方差矩阵 $ $ 代表随机向量 $ X $ 的方差-协方差矩阵。在这个矩阵中，对角线上的元素 $ ^2_{ii} $ 代表第 $ i $ 个随机变量的方差，而非对角线上的元素 $ _{ij} $ 代表不同随机变量之间的协方差，描述它们的线性相关程度。</p>
+<p>接下来，PPT介绍了 $ $ -维正态分布的概率密度函数：</p>
+<p><span class="math display">\[ f(x) = \frac{1}{(2\pi)^{\rho/2} |\Sigma|^{1/2}} e^{-\frac{1}{2}(x-\mu)&#39;\Sigma^{-1}(x-\mu)} \]</span></p>
+<p>这里：</p>
+<p>$ (2)^{/2} $ 和 $ ||^{1/2} $ 是归一化常数的一部分，确保概率密度函数的整体积分为1。</p>
+<p>$ e<sup>{-(x-)'</sup>{-1}(x-)} $ 是多元正态分布的核心部分，类似于一维正态分布中的 $ e^{-} $ ，但是它包含了多个变量和它们之间的协方差。</p>
+<p>这个多元正态分布的形状由均值向量 $ $ 和协方差矩阵 $ $ 决定。均值向量确定了分布的中心位置，而协方差矩阵不仅影响了分布的形状和宽度，还反映了各个变量之间的相关性。如果 $ $ 是对角矩阵（即各变量间无协方差），那么多元正态分布将退化为各变量独立的一维正态分布的乘积。</p>
+<h2 id="附录">附录</h2>
+<p>广义距离公式计算</p>
+<p>在二维空间中，让我们假设有一个均值向量 $ $ 和一个协方差矩阵 $ $ 如下：</p>
+<p>均值向量 $ $ : <span class="math display">\[ \begin{bmatrix} 0 \\ 0 \end{bmatrix} \]</span></p>
+<p>协方差矩阵 $ $ : <span class="math display">\[ \begin{bmatrix} 1 &amp; 0.5 \\ 0.5 &amp; 2 \end{bmatrix} \]</span></p>
+<p>其中，对角线上的值 1 和 2 分别是两个变量的方差，非对角线上的值 0.5 是这两个变量的协方差，表示它们之间存在一定的正相关关系。</p>
+假设我们有一个观测向量 $ x $ ，它在这两个维度上的值为 $
+<span class="math display">\[\begin{bmatrix} 1 \\ 3 \end{bmatrix}\]</span>
+<p>$ 。我们可以计算这个观测向量与均值向量 $ $ 之间的广义距离： 广义距离公式： <span class="math display">\[ (x - \mu)&#39; \Sigma^{-1} (x - \mu) \]</span></p>
+<p>我们将继续计算 $ $ 的逆矩阵，然后计算 $ x $ 与 $ $ 之间的广义距离。</p>
+<p>计算出来的协方差矩阵 $ $ 的逆矩阵 $ ^{-1} $ 是：</p>
+<p><span class="math display">\[ \Sigma^{-1} = \begin{bmatrix} 1.14285714 &amp; -0.28571429 \\ -0.28571429 &amp; 0.57142857 \end{bmatrix} \]</span></p>
+而观测向量 $ x =
+<span class="math display">\[\begin{bmatrix} 1 \\ 3 \end{bmatrix}\]</span>
+$ 与均值向量 $ =
+<span class="math display">\[\begin{bmatrix} 0 \\ 0 \end{bmatrix}\]</span>
+<p>$ 之间的广义距离是 4.57142857142857。</p>
+<p>所以，如果将 $ x $ 和 $ $ 代入广义距离公式： <span class="math display">\[ (x - \mu)&#39; \Sigma^{-1} (x - \mu) = \begin{bmatrix} 1 &amp; 3 \end{bmatrix} \begin{bmatrix} 1.14285714 &amp; -0.28571429 \\ -0.28571429 &amp; 0.57142857 \end{bmatrix} \begin{bmatrix} 1 \\ 3 \end{bmatrix} \]</span></p>
+<p>我们得到了一个数值，该数值反映了 $ x $ 在这个多维空间中的位置相对于 $ $ 的偏离程度，并且已经考虑了变量间的相关性。这个距离较大，可能意味着 $ x $ 是一个异常值。</p>
+<p>如何通过协方差矩阵的逆，来调整每个维度上的距离？</p>
+<p>协方差矩阵 $ $ 的逆 $ ^{-1} $ 在广义距离公式中起到调整各维度权重的作用。具体来说：</p>
+<ol type="1">
+<li><p><strong>方差的调整</strong>：在对角线上，协方差矩阵 $ $ 的逆 $ ^{-1} $ 中的元素是各个变量方差的倒数。方差大的变量在广义距离中的权重会减小，因为它们本身允许更大的变动。反之，方差小的变量权重会增大。</p></li>
+<li><p><strong>协方差的调整</strong>：在协方差矩阵 $ $ 的逆 $ ^{-1} $ 中，非对角线上的元素代表变量之间的协方差关系。正协方差表明两个变量同时增加或减少，而负协方差则相反。当我们使用 $ ^{-1} $ ，实际上是在调整每个维度上的距离，使其反映出这些变量之间的相关性。</p>
+<ol start="3" type="1">
+<li><strong>距离的调整</strong>：在计算广义距离时，观测向量 $ x $ 和均值向量 $ $ 之间的偏差 $ (x - ) $ 会乘以 $ ^{-1} $ 。这个乘法操作实际上是在重新缩放和旋转原始空间中的偏差，以考虑变量间的相关性。结果是，如果两个变量高度相关，它们共同的偏离会被认为不如单独在一个维度上的偏离那么异常。</li>
+</ol></li>
+</ol>
+<p>例如，如果两个变量 $ X_1 $ 和 $ X_2 $ 正相关，那么一个在 $ X_1 $ 上高而在 $ X_2 $ 上低的值可能会被视为异常，因为我们预期这两个变量会一起增加或减少。 $ ^{-1} $ 会调整这种偏离的权重，确保广义距离反映出了这种异常。</p>
+<p>这样， $ ^{-1} $ 不仅在数值上调整了各维度的重要性，还考虑到了它们之间的关系，这使得广义距离能够在多维空间中更准确地测量点与分布中心的偏离程度。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/61d9a5089dd3/" rel="prev" title="R语言List学习笔记">
+      <i class="fa fa-chevron-left"></i> R语言List学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/c770a3b0d697/" rel="next" title="STAT313 chap1&2 Nonparametric Regression">
+      STAT313 chap1&2 Nonparametric Regression <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">附录</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2024/04/0b4be3cd57d7/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2024/04/0b4be3cd57d7/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

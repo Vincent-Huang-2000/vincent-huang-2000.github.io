@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="image.png   image.png  好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y &#x3D; f(X) + $ ，其中: $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STAT313 chap1&amp;2 Nonparametric Regression">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2024/05/c770a3b0d697/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="image.png   image.png  好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y &#x3D; f(X) + $ ，其中: $">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/STAT313-chap1-2-Nonparametric-Regression/image_1714106848496_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714106862723_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714107566829_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714107848967_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108051756_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108121342_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108223196_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714110052913_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714110070118_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714111265453_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714111877735_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714112554077_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714106862723_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714107566829_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714107848967_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108051756_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108121342_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714108223196_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714110052913_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714110070118_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714111265453_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714111877735_0.png">
+<meta property="og:image" content="https://vincent-huang-2000.github.io/2024/05/assets/image_1714112554077_0.png">
+<meta property="article:published_time" content="2024-05-08T03:33:35.000Z">
+<meta property="article:modified_time" content="2024-06-24T23:40:30.242Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="STAT313">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vincent-huang-2000.github.io/2024/05/STAT313-chap1-2-Nonparametric-Regression/image_1714106848496_0.png">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2024/05/c770a3b0d697/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>STAT313 chap1&2 Nonparametric Regression | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/05/c770a3b0d697/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          STAT313 chap1&2 Nonparametric Regression
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-08 15:33:35" itemprop="dateCreated datePublished" datetime="2024-05-08T15:33:35+12:00">2024-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-25 11:40:30" itemprop="dateModified" datetime="2024-06-25T11:40:30+12:00">2024-06-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">统计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure>
+<img src="../STAT313-chap1-2-Nonparametric-Regression/image_1714106848496_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="../assets/image_1714106862723_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y = f(X) + $ ，其中:</p>
+<p>$ Y $ 是因变量，或者说是我们想要预测或估计的变量。</p>
+<p>$ f(X) $ 是一个未知函数，它描述了X和Y之间的关系。在非参数回归中，这个函数的形式不是预先设定的。</p>
+<p>$ $ 是误差项，表示除了X影响Y之外的随机扰动。这个误差项有一个重要的属性，即条件期望 $ E[| X] = 0 $ ，这意味着误差项在给定X的条件下，它的平均值是0，即误差是随机的，不会系统地偏离某一个值。</p>
+<p>非参数回归的目的是估计函数 $ f $ ，即找到一个函数 $  $ ，这个函数可以很好地拟合数据中的Y和X之间的关系，而不需要指定 $ f $ 的具体形式。例如，我们不需要假设 $ f $ 是线性的，或者是任何特定的数学形式。 非参数回归的一大优势是它的灵活性，因为它不需要强加任何特定的模型形式，它可以捕捉数据中的复杂关系。但这也意味着我们需要有足够的数据来准确估计这种关系，而且估计出的模型可能不如参数模型那么容易解释。</p>
+<p>205名加拿大工人估计回归函数</p>
+<figure>
+<img src="../assets/image_1714107566829_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>这张幻灯片显示了一个非参数回归的例子，其中研究的是年龄与收入（取对数）之间的关系。让我们一步步分析：</p>
+<p>在图中，每一个蓝点代表一个数据点，可能是一名工人的年龄和对应的收入。</p>
+<p>曲线是通过非参数回归方法估计出来的，它试图捕捉年龄和收入之间的关系。这条曲线不是直线，这说明非参数回归没有假设这两个变量之间关系是线性的。</p>
+<p>曲线表明在年龄较小的时候，收入增长较快（曲线左侧的斜率较大）。到了中年，似乎有一个收入的下降（曲线中间的“低谷”），然后随着年龄的增长，收入增长放缓（曲线右侧的斜率较小）。</p>
+<p>幻灯片的注释提到：</p>
+<p>非参数估计器捕获了中间的低谷和左侧的陡增。这意味着非参数回归能够描述数据的实际变化，即使这种变化不是一个简单的线性趋势。</p>
+<p>与参数回归相比，非参数回归的拟合要好得多。这是因为参数回归，比如线性回归，可能无法捕捉复杂的模式，如中间的低谷或变化的斜率。</p>
+<p>没有必要预先知道关于函数形式的信息。也就是说，在非参数回归中，我们不需要预先设定 $ Y $ 和 $ X $ 之间的关系（例如， $ Y $ 是 $ X $ 的线性函数，或者 $ Y $ 是 $ X $ 的多项式等），非参数方法能够从数据本身“学习”这种关系。</p>
+<p>通过这个例子，我们可以看到非参数回归分析的一个显著优势：它能够适应数据中存在的任何关系的形状，而不是限定在某些预设的函数形式中。这就给予了非参数方法极大的灵活性和适应性，允许它在应对真实世界复杂数据时表现得更好。</p>
+<h2 id="density-estimation">Density estimation</h2>
+<p>现在让我们来看一下密度估计。</p>
+<p>密度估计是统计学中的一个概念，用于估计一个未知的概率密度函数（pdf），这个函数描述了一个连续随机变量的概率分布。</p>
+<p>假设我们有一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这些样本来自于一个连续随机变量 <span class="math inline">\(X\)</span> 。这里的“随机样本”意味着每一个样本 <span class="math inline">\(X_i\)</span> 都是独立同分布的，即每个样本都是独立于其他样本抽取的，并且每个样本都服从相同的分布，这种性质我们称为i.i.d.（独立同分布）。我们想要从这个样本中学习 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<p>要了解概率密度函数，我们首先需要复习概率密度函数和累积分布函数（cdf）。概率密度函数给出了随机变量取特定值的概率密度，而累积分布函数 <span class="math inline">\(F_X(x)\)</span> 给出了随机变量 <span class="math inline">\(X\)</span> 取值小于或等于 <span class="math inline">\(x\)</span> 的概率，即 <span class="math inline">\(P(X \leq x)\)</span> 。累积分布函数 <span class="math inline">\(F_X\)</span> 是单调递增的，其值在0到1之间，对于所有的 <span class="math inline">\(x \in \mathbb{R}\)</span> ，且包含了关于 <span class="math inline">\(X\)</span> 的概率行为的全部信息。</p>
+<figure>
+<img src="../assets/image_1714107848967_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>幻灯片中的图展示了离散和连续随机变量的累积分布函数。我们可以看到离散的CDF是阶梯形的，而连续的CDF是平滑的曲线。</p>
+<p>了解这些基础之后，我们可以使用这些样本来估计 <span class="math inline">\(X\)</span> 的概率密度函数。这是非参数估计中的一个任务，因为我们不假设概率密度函数 <span class="math inline">\(f_X\)</span> 有任何特定的形式，而是让数据自己告诉我们它的形状。常用的非参数密度估计方法包括核密度估计（KDE）和直方图。</p>
+<h2 id="离散和连续随机变量">离散和连续随机变量</h2>
+<figure>
+<img src="../assets/image_1714108051756_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>我们现在进入到离散和连续随机变量的讨论。 离散随机变量的特点是其可能的结果是有限个或可数无限个，比如掷骰子的结果就是典型的离散随机变量，因为它只能取1到6这几个离散的值。离散随机变量的累积分布函数（CDF）是阶梯形的，因为每个可能的结果都会导致CDF发生跳跃。</p>
+<figure>
+<img src="../assets/image_1714108121342_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>而连续随机变量则有一个概率密度函数（PDF），这个函数定义了随机变量在任何特定值上的概率密度。对于连续随机变量 <span class="math inline">\(X\)</span> ，概率密度函数 <span class="math inline">\(f_X(x)\)</span> 满足以下属性：</p>
+<p>概率 <span class="math inline">\(P(a &lt; X \leq b)\)</span> 等于 <span class="math inline">\(f_X(x)\)</span> 从 <span class="math inline">\(a\)</span> 到 <span class="math inline">\(b\)</span> 的积分。</p>
+<p>累积分布函数 <span class="math inline">\(F_X(x)\)</span> 可以通过 <span class="math inline">\(f_X(x)\)</span> 从负无穷积分到 <span class="math inline">\(x\)</span> 来得到，即 <span class="math inline">\(F_X(x) = \int_{-\infty}^x f_X(t) dt\)</span> 。</p>
+<p>概率密度函数 <span class="math inline">\(f_X(x)\)</span> 在几乎所有点上都是非负的，并且其整个定义域上的积分等于1，即 <span class="math inline">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span> 。</p>
+<p>概率密度函数可能在某些点上不连续，但累积分布函数总是连续的。</p>
+<p>连续随机变量与离散随机变量的主要区别在于其可能结果是无限且不可数的，且概率是通过密度来定义的，而不是通过具体值的概率。例如，对于掷骰子，我们可以说“掷出一个6”的概率是1/6；但是对于连续随机变量，如人的身高，我们不能说一个具体身高的概率，而是说在一定区间内的身高的概率。</p>
+<figure>
+<img src="../assets/image_1714108223196_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>现在我们来讨论概率密度函数（PDF），它是描述连续随机变量概率分布的函数。</p>
+<p>这个幻灯片展示了两个常见的概率密度函数的例子，标准正态分布和指数分布，以及它们对应的公式和样本分布。</p>
+<ol type="1">
+<li><p><strong>标准正态分布</strong>： 标准正态分布的概率密度函数表达式为 $ f_X(x) =  e^{-} $ 。它是对称的，并且其最高点在 $ x=0 $ 。这个分布在统计学中非常重要，经常用来作为其他分布的近似，或者在许多统计方法中作为基础假设。这是因为许多随机变量在大量独立因素的影响下其分布趋向于正态分布，这就是中心极限定理的内容。</p></li>
+<li><p><strong>指数分布</strong>： 指数分布的概率密度函数为 $ f_X(x) =</p>
+<span class="math display">\[\begin{cases} 
+e^{-x} &amp; \text{if } x &gt; 0 \\
+0 &amp; \text{if } x \leq 0 
+\end{cases}\]</span>
+<p>$ 。指数分布通常用来描述时间间隔，例如，某个事件发生的时间间隔。指数分布的一个关键特点是无记忆性，即未来的概率分布不依赖于已经过去的时间。</p></li>
+</ol>
+<p>在幻灯片上的图中，蓝色的点代表从相应分布中抽取的样本数据。通过这些样本点，我们可以观察到数据的分布情况。对于正态分布的样本，数据点主要集中在均值附近，即中心的峰值区域。而对于指数分布的样本，数据点随 $ x $ 值的增大而快速减少，这表明较大值出现的概率较小。</p>
+<p>幻灯片中的最后一条注释说明我们更可能观察到 $ X $ 在 $ f_X $ 较大的区域，这是因为概率密度函数的值较大意味着随机变量取该值的概率更高。所以对于正态分布，我们更可能观察到 $ X $ 接近均值的值；而对于指数分布，我们更可能观察到 $ X $ 接近零的值。</p>
+<h2 id="density-estimation-1">Density estimation</h2>
+<figure>
+<img src="../assets/image_1714110052913_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>回到密度估计，我们的任务是：观测一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这个样本来自于某个连续随机变量 <span class="math inline">\(X\)</span> ，然后估计 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<figure>
+<img src="../assets/image_1714110070118_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>参数密度估计方法需要假设随机变量 <span class="math inline">\(X\)</span> 属于某个特定的密度函数族，这个族是由一些参数决定的。</p>
+<p>最常见的假设是 <span class="math inline">\(X\)</span> 服从正态分布，正态分布的密度函数为 $ f_X(x; , ^2) =  ( - ) $ ，其中 $ $ 是均值， $ ^2 $ 是方差。</p>
+<p>在参数密度估计中，我们会用样本均值 $ {X} $ 来估计 $ $ ，用样本方差 $ S^2 $ 来估计 $ ^2 $ 。样本均值是所有样本值的平均，而样本方差是所有样本值与样本均值之差的平方的平均。</p>
+<p>然后我们可以用这些估计值来构建随机变量 <span class="math inline">\(X\)</span> 的概率密度函数的估计。这个估计的概率密度函数表达式为 $ _X =  ( - ) $ 。</p>
+<p>与非参数密度估计相比，参数密度估计的优点在于其简单性和计算效率。如果参数化的假设正确，参数方法通常可以给出非常准确的估计。然而，如果实际数据的分布与假定的参数模型不符，这种估计就可能会产生误导。这时候非参数方法就会更有优势，因为它不依赖于任何特定的分布假设，能更灵活地适应数据的真实分布。不过，非参数方法通常需要更多的数据，并且计算上可能更复杂。</p>
+<h3 id="parametric-density-estimation">Parametric density estimation</h3>
+<figure>
+<img src="../assets/image_1714111265453_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>在这张幻灯片中，我们看到的是参数密度估计的一个例子，但这里展示了当假设违背真实情况时，估计会失败的情况。具体来说，这个例子展示了对数正态分布的真实密度（黑色曲线），以及基于错误假设（即数据来自正态分布）得到的参数密度估计（红色曲线）。蓝色的点表示的是样本数据。</p>
+<p>当我们对数据进行参数密度估计时，我们通常会假设这些数据来自我们所选择的某个密度函数族。在这个例子中，原本数据是对数正态分布的，这意味着 $ X $ 本身不是正态分布，但 $ (X) $ 是正态分布的，满足 $ (X) (, ^2) $ 。然而，如果我们错误地假设 $ X $ 本身是正态分布，并基于这个错误的假设进行参数估计，那么我们得到的估计结果就会与数据的真实分布不匹配。</p>
+<p>从图中我们可以看到，基于正态分布假设的参数估计曲线（红色）不能很好地匹配样本数据点（蓝色），特别是在数据的分布更加偏向于右侧的时候。这展示了当模型假设不正确时，参数估计可能会给出误导的结果。这是为什么在实践中，在进行参数估计之前，验证数据是否满足模型的假设是非常重要的。如果我们有理由相信数据可能不满足简单的假设，那么使用非参数估计方法可能是更好的选择。</p>
+<p><img src="../assets/image_1714111877735_0.png" alt="image.png" />{:height 479, :width 678}</p>
+<p>在这张幻灯片中，展示了非参数密度估计的一个例子，以及它如何用于标准正态分布的样本数据。这里，真实的密度曲线用黑色表示，而非参数估计的密度曲线用红色表示，样本数据用蓝色点标出。</p>
+<p>非参数估计，如核密度估计（KDE），不会对数据分布做出特定的参数化假设。它使用样本数据直接估计概率密度函数，通常通过平滑处理样本点来构建密度曲线。从图中可以看出，非参数估计的曲线虽然捕捉了样本数据的分布趋势，但可能不如参数估计曲线那样紧密贴合真实的密度函数。这通常是因为非参数估计需要较大的样本量来减少估计误差和提高估计的精确度。</p>
+<p>此外，非参数估计的精确度还取决于所选取的带宽大小，带宽决定了估计曲线的平滑程度。过小的带宽可能会导致过度拟合，即曲线会在样本点间出现很多波动，而过大的带宽可能导致曲线过于平滑，从而掩盖数据中的结构。</p>
+<p>幻灯片的注释指出，虽然非参数估计工作得很好，但它可能不如参数估计精确，因为参数估计在正确的假设下能够提供非常准确的模型。而且，非参数估计通常需要更大的样本量，这是因为它依赖于数据本身来构建密度估计，而没有任何关于分布形式的先验假设。在样本量较少的情况下，非参数估计可能会受到随机波动的较大影响。</p>
+<figure>
+<img src="../assets/image_1714112554077_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="../assets/image_1714106862723_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y = f(X) + $ ，其中:</p>
+<p>$ Y $ 是因变量，或者说是我们想要预测或估计的变量。</p>
+<p>$ f(X) $ 是一个未知函数，它描述了X和Y之间的关系。在非参数回归中，这个函数的形式不是预先设定的。</p>
+<p>$ $ 是误差项，表示除了X影响Y之外的随机扰动。这个误差项有一个重要的属性，即条件期望 $ E[| X] = 0 $ ，这意味着误差项在给定X的条件下，它的平均值是0，即误差是随机的，不会系统地偏离某一个值。</p>
+<p>非参数回归的目的是估计函数 $ f $ ，即找到一个函数 $  $ ，这个函数可以很好地拟合数据中的Y和X之间的关系，而不需要指定 $ f $ 的具体形式。例如，我们不需要假设 $ f $ 是线性的，或者是任何特定的数学形式。 非参数回归的一大优势是它的灵活性，因为它不需要强加任何特定的模型形式，它可以捕捉数据中的复杂关系。但这也意味着我们需要有足够的数据来准确估计这种关系，而且估计出的模型可能不如参数模型那么容易解释。</p>
+<p>205名加拿大工人估计回归函数</p>
+<figure>
+<img src="../assets/image_1714107566829_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>这张幻灯片显示了一个非参数回归的例子，其中研究的是年龄与收入（取对数）之间的关系。让我们一步步分析：</p>
+<p>在图中，每一个蓝点代表一个数据点，可能是一名工人的年龄和对应的收入。</p>
+<p>曲线是通过非参数回归方法估计出来的，它试图捕捉年龄和收入之间的关系。这条曲线不是直线，这说明非参数回归没有假设这两个变量之间关系是线性的。</p>
+<p>曲线表明在年龄较小的时候，收入增长较快（曲线左侧的斜率较大）。到了中年，似乎有一个收入的下降（曲线中间的“低谷”），然后随着年龄的增长，收入增长放缓（曲线右侧的斜率较小）。</p>
+<p>幻灯片的注释提到：</p>
+<p>非参数估计器捕获了中间的低谷和左侧的陡增。这意味着非参数回归能够描述数据的实际变化，即使这种变化不是一个简单的线性趋势。</p>
+<p>与参数回归相比，非参数回归的拟合要好得多。这是因为参数回归，比如线性回归，可能无法捕捉复杂的模式，如中间的低谷或变化的斜率。</p>
+<p>没有必要预先知道关于函数形式的信息。也就是说，在非参数回归中，我们不需要预先设定 $ Y $ 和 $ X $ 之间的关系（例如， $ Y $ 是 $ X $ 的线性函数，或者 $ Y $ 是 $ X $ 的多项式等），非参数方法能够从数据本身“学习”这种关系。</p>
+<p>通过这个例子，我们可以看到非参数回归分析的一个显著优势：它能够适应数据中存在的任何关系的形状，而不是限定在某些预设的函数形式中。这就给予了非参数方法极大的灵活性和适应性，允许它在应对真实世界复杂数据时表现得更好。</p>
+<h2 id="density-estimation-2">Density estimation</h2>
+<p>现在让我们来看一下密度估计。</p>
+<p>密度估计是统计学中的一个概念，用于估计一个未知的概率密度函数（pdf），这个函数描述了一个连续随机变量的概率分布。</p>
+<p>假设我们有一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这些样本来自于一个连续随机变量 <span class="math inline">\(X\)</span> 。这里的“随机样本”意味着每一个样本 <span class="math inline">\(X_i\)</span> 都是独立同分布的，即每个样本都是独立于其他样本抽取的，并且每个样本都服从相同的分布，这种性质我们称为i.i.d.（独立同分布）。我们想要从这个样本中学习 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<p>要了解概率密度函数，我们首先需要复习概率密度函数和累积分布函数（cdf）。概率密度函数给出了随机变量取特定值的概率密度，而累积分布函数 <span class="math inline">\(F_X(x)\)</span> 给出了随机变量 <span class="math inline">\(X\)</span> 取值小于或等于 <span class="math inline">\(x\)</span> 的概率，即 <span class="math inline">\(P(X \leq x)\)</span> 。累积分布函数 <span class="math inline">\(F_X\)</span> 是单调递增的，其值在0到1之间，对于所有的 <span class="math inline">\(x \in \mathbb{R}\)</span> ，且包含了关于 <span class="math inline">\(X\)</span> 的概率行为的全部信息。</p>
+<figure>
+<img src="../assets/image_1714107848967_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>幻灯片中的图展示了离散和连续随机变量的累积分布函数。我们可以看到离散的CDF是阶梯形的，而连续的CDF是平滑的曲线。</p>
+<p>了解这些基础之后，我们可以使用这些样本来估计 <span class="math inline">\(X\)</span> 的概率密度函数。这是非参数估计中的一个任务，因为我们不假设概率密度函数 <span class="math inline">\(f_X\)</span> 有任何特定的形式，而是让数据自己告诉我们它的形状。常用的非参数密度估计方法包括核密度估计（KDE）和直方图。</p>
+<h2 id="离散和连续随机变量-1">离散和连续随机变量</h2>
+<figure>
+<img src="../assets/image_1714108051756_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>我们现在进入到离散和连续随机变量的讨论。 离散随机变量的特点是其可能的结果是有限个或可数无限个，比如掷骰子的结果就是典型的离散随机变量，因为它只能取1到6这几个离散的值。离散随机变量的累积分布函数（CDF）是阶梯形的，因为每个可能的结果都会导致CDF发生跳跃。</p>
+<figure>
+<img src="../assets/image_1714108121342_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>而连续随机变量则有一个概率密度函数（PDF），这个函数定义了随机变量在任何特定值上的概率密度。对于连续随机变量 <span class="math inline">\(X\)</span> ，概率密度函数 <span class="math inline">\(f_X(x)\)</span> 满足以下属性：</p>
+<p>概率 <span class="math inline">\(P(a &lt; X \leq b)\)</span> 等于 <span class="math inline">\(f_X(x)\)</span> 从 <span class="math inline">\(a\)</span> 到 <span class="math inline">\(b\)</span> 的积分。</p>
+<p>累积分布函数 <span class="math inline">\(F_X(x)\)</span> 可以通过 <span class="math inline">\(f_X(x)\)</span> 从负无穷积分到 <span class="math inline">\(x\)</span> 来得到，即 <span class="math inline">\(F_X(x) = \int_{-\infty}^x f_X(t) dt\)</span> 。</p>
+<p>概率密度函数 <span class="math inline">\(f_X(x)\)</span> 在几乎所有点上都是非负的，并且其整个定义域上的积分等于1，即 <span class="math inline">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span> 。</p>
+<p>概率密度函数可能在某些点上不连续，但累积分布函数总是连续的。</p>
+<p>连续随机变量与离散随机变量的主要区别在于其可能结果是无限且不可数的，且概率是通过密度来定义的，而不是通过具体值的概率。例如，对于掷骰子，我们可以说“掷出一个6”的概率是1/6；但是对于连续随机变量，如人的身高，我们不能说一个具体身高的概率，而是说在一定区间内的身高的概率。</p>
+<figure>
+<img src="../assets/image_1714108223196_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>现在我们来讨论概率密度函数（PDF），它是描述连续随机变量概率分布的函数。</p>
+<p>这个幻灯片展示了两个常见的概率密度函数的例子，标准正态分布和指数分布，以及它们对应的公式和样本分布。</p>
+<ol type="1">
+<li><p><strong>标准正态分布</strong>： 标准正态分布的概率密度函数表达式为 $ f_X(x) =  e^{-} $ 。它是对称的，并且其最高点在 $ x=0 $ 。这个分布在统计学中非常重要，经常用来作为其他分布的近似，或者在许多统计方法中作为基础假设。这是因为许多随机变量在大量独立因素的影响下其分布趋向于正态分布，这就是中心极限定理的内容。</p></li>
+<li><p><strong>指数分布</strong>： 指数分布的概率密度函数为 $ f_X(x) =</p>
+<span class="math display">\[\begin{cases} 
+e^{-x} &amp; \text{if } x &gt; 0 \\
+0 &amp; \text{if } x \leq 0 
+\end{cases}\]</span>
+<p>$ 。指数分布通常用来描述时间间隔，例如，某个事件发生的时间间隔。指数分布的一个关键特点是无记忆性，即未来的概率分布不依赖于已经过去的时间。</p></li>
+</ol>
+<p>在幻灯片上的图中，蓝色的点代表从相应分布中抽取的样本数据。通过这些样本点，我们可以观察到数据的分布情况。对于正态分布的样本，数据点主要集中在均值附近，即中心的峰值区域。而对于指数分布的样本，数据点随 $ x $ 值的增大而快速减少，这表明较大值出现的概率较小。</p>
+<p>幻灯片中的最后一条注释说明我们更可能观察到 $ X $ 在 $ f_X $ 较大的区域，这是因为概率密度函数的值较大意味着随机变量取该值的概率更高。所以对于正态分布，我们更可能观察到 $ X $ 接近均值的值；而对于指数分布，我们更可能观察到 $ X $ 接近零的值。</p>
+<h2 id="density-estimation-3">Density estimation</h2>
+<figure>
+<img src="../assets/image_1714110052913_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>回到密度估计，我们的任务是：观测一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这个样本来自于某个连续随机变量 <span class="math inline">\(X\)</span> ，然后估计 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<figure>
+<img src="../assets/image_1714110070118_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>参数密度估计方法需要假设随机变量 <span class="math inline">\(X\)</span> 属于某个特定的密度函数族，这个族是由一些参数决定的。</p>
+<p>最常见的假设是 <span class="math inline">\(X\)</span> 服从正态分布，正态分布的密度函数为 $ f_X(x; , ^2) =  ( - ) $ ，其中 $ $ 是均值， $ ^2 $ 是方差。</p>
+<p>在参数密度估计中，我们会用样本均值 $ {X} $ 来估计 $ $ ，用样本方差 $ S^2 $ 来估计 $ ^2 $ 。样本均值是所有样本值的平均，而样本方差是所有样本值与样本均值之差的平方的平均。</p>
+<p>然后我们可以用这些估计值来构建随机变量 <span class="math inline">\(X\)</span> 的概率密度函数的估计。这个估计的概率密度函数表达式为 $ _X =  ( - ) $ 。</p>
+<p>与非参数密度估计相比，参数密度估计的优点在于其简单性和计算效率。如果参数化的假设正确，参数方法通常可以给出非常准确的估计。然而，如果实际数据的分布与假定的参数模型不符，这种估计就可能会产生误导。这时候非参数方法就会更有优势，因为它不依赖于任何特定的分布假设，能更灵活地适应数据的真实分布。不过，非参数方法通常需要更多的数据，并且计算上可能更复杂。</p>
+<h3 id="parametric-density-estimation-1">Parametric density estimation</h3>
+<figure>
+<img src="../assets/image_1714111265453_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>在这张幻灯片中，我们看到的是参数密度估计的一个例子，但这里展示了当假设违背真实情况时，估计会失败的情况。具体来说，这个例子展示了对数正态分布的真实密度（黑色曲线），以及基于错误假设（即数据来自正态分布）得到的参数密度估计（红色曲线）。蓝色的点表示的是样本数据。</p>
+<p>当我们对数据进行参数密度估计时，我们通常会假设这些数据来自我们所选择的某个密度函数族。在这个例子中，原本数据是对数正态分布的，这意味着 $ X $ 本身不是正态分布，但 $ (X) $ 是正态分布的，满足 $ (X) (, ^2) $ 。然而，如果我们错误地假设 $ X $ 本身是正态分布，并基于这个错误的假设进行参数估计，那么我们得到的估计结果就会与数据的真实分布不匹配。</p>
+<p>从图中我们可以看到，基于正态分布假设的参数估计曲线（红色）不能很好地匹配样本数据点（蓝色），特别是在数据的分布更加偏向于右侧的时候。这展示了当模型假设不正确时，参数估计可能会给出误导的结果。这是为什么在实践中，在进行参数估计之前，验证数据是否满足模型的假设是非常重要的。如果我们有理由相信数据可能不满足简单的假设，那么使用非参数估计方法可能是更好的选择。</p>
+<p><img src="../assets/image_1714111877735_0.png" alt="image.png" />{:height 479, :width 678}</p>
+<p>在这张幻灯片中，展示了非参数密度估计的一个例子，以及它如何用于标准正态分布的样本数据。这里，真实的密度曲线用黑色表示，而非参数估计的密度曲线用红色表示，样本数据用蓝色点标出。</p>
+<p>非参数估计，如核密度估计（KDE），不会对数据分布做出特定的参数化假设。它使用样本数据直接估计概率密度函数，通常通过平滑处理样本点来构建密度曲线。从图中可以看出，非参数估计的曲线虽然捕捉了样本数据的分布趋势，但可能不如参数估计曲线那样紧密贴合真实的密度函数。这通常是因为非参数估计需要较大的样本量来减少估计误差和提高估计的精确度。</p>
+<p>此外，非参数估计的精确度还取决于所选取的带宽大小，带宽决定了估计曲线的平滑程度。过小的带宽可能会导致过度拟合，即曲线会在样本点间出现很多波动，而过大的带宽可能导致曲线过于平滑，从而掩盖数据中的结构。</p>
+<p>幻灯片的注释指出，虽然非参数估计工作得很好，但它可能不如参数估计精确，因为参数估计在正确的假设下能够提供非常准确的模型。而且，非参数估计通常需要更大的样本量，这是因为它依赖于数据本身来构建密度估计，而没有任何关于分布形式的先验假设。在样本量较少的情况下，非参数估计可能会受到随机波动的较大影响。</p>
+<figure>
+<img src="../assets/image_1714112554077_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/STAT313/" rel="tag"># STAT313</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/04/0b4be3cd57d7/" rel="prev" title="广义距离（Generalised distance）">
+      <i class="fa fa-chevron-left"></i> 广义距离（Generalised distance）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/99eb3765b1cd/" rel="next" title="机器学习的解决问题流程">
+      机器学习的解决问题流程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#density-estimation"><span class="nav-number">1.</span> <span class="nav-text">Density estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%92%8C%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">离散和连续随机变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#density-estimation-1"><span class="nav-number">3.</span> <span class="nav-text">Density estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parametric-density-estimation"><span class="nav-number">3.1.</span> <span class="nav-text">Parametric density estimation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#density-estimation-2"><span class="nav-number">4.</span> <span class="nav-text">Density estimation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%92%8C%E8%BF%9E%E7%BB%AD%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F-1"><span class="nav-number">5.</span> <span class="nav-text">离散和连续随机变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#density-estimation-3"><span class="nav-number">6.</span> <span class="nav-text">Density estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#parametric-density-estimation-1"><span class="nav-number">6.1.</span> <span class="nav-text">Parametric density estimation</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2024/05/c770a3b0d697/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2024/05/c770a3b0d697/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="A student studying in New Zealand, majoring in computer science.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vincent&#39;s Blog">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/page/2/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="A student studying in New Zealand, majoring in computer science.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="统计, 机器学习, 大数据">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/c4f2eaabfc4c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/c4f2eaabfc4c/" class="post-title-link" itemprop="url">泊松回归（Poisson Regression）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-25 10:56:17 / 修改时间：11:22:03" itemprop="dateCreated datePublished" datetime="2024-06-25T10:56:17+12:00">2024-06-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">统计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>泊松回归（Poisson Regression）是一种统计建模方法，主要用于处理计数数据的回归分析。它是一种广义线性模型（GLM），特别适用于目标变量为非负整数（即计数数据）的情况。泊松回归的基础是泊松分布，适用于事件在固定时间或空间内发生的次数的建模。以下是泊松回归的关键特点和使用场景：</p>
+<h2 id="泊松分布">泊松分布</h2>
+<p>泊松回归假设目标变量 $ Y $ 服从泊松分布，其概率质量函数为： <span class="math display">\[ P(Y = y) = \frac{\lambda^y e^{-\lambda}}{y!} \]</span> 其中， $ $ 是泊松分布的参数，即事件发生的平均次数。</p>
+<h2 id="模型形式">模型形式</h2>
+<p>泊松回归模型假设目标变量的对数期望值与解释变量 $ X $ 的线性组合有关： <span class="math display">\[ \log(\lambda) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p \]</span> 其中， $ $ 是目标变量的期望值， $ _0, _1, _2, , _p $ 是待估计的回归系数。</p>
+<h2 id="链接函数">链接函数</h2>
+<p>泊松回归使用对数链接函数（log link function）将线性预测器 $ = _0 + _1 X_1 + _2 X_2 + + _p X_p $ 转化为泊松分布参数 $ $ ： <span class="math display">\[ \lambda = e^{\eta} \]</span></p>
+<h2 id="使用场景">使用场景</h2>
+<p><strong>事件计数数据</strong>：例如，单位时间内某地发生的交通事故次数、一天内一个商店的顾客人数等。</p>
+<p><strong>稀疏事件</strong>：例如，某种罕见疾病的发病率、制造过程中产品的缺陷数等。</p>
+<p><strong>离散非负整数数据</strong>：例如，调查中某种行为的发生次数、体育比赛中的得分等。</p>
+<h2 id="优点">优点</h2>
+<p><strong>自然处理零值</strong>：泊松回归适合处理数据中包含大量零值的情况。</p>
+<p><strong>解释性强</strong>：回归系数 $ $ 可以直接解释为自变量变化对目标变量期望值的影响。</p>
+<h2 id="限制">限制</h2>
+<p><strong>均值-方差相等假设</strong>：泊松回归假设目标变量的均值和方差相等（即泊松分布的特性），这在某些情况下可能不成立。当数据表现出过度离散（即方差大于均值）时，负二项回归（Negative Binomial Regression）可能是更好的选择。</p>
+<p><strong>不适用于负值</strong>：泊松回归无法处理负值，因为计数数据本身不可能为负。</p>
+<h2 id="扩展">扩展</h2>
+<p>对于存在过度离散的数据，可以使用以下方法进行处理：</p>
+<p><strong>负二项回归（Negative Binomial Regression）</strong>：通过引入额外的参数来处理数据的过度离散现象。</p>
+<p><strong>零膨胀泊松回归（Zero-Inflated Poisson Regression）</strong>：适用于包含大量零值且数据分布不均匀的情况。</p>
+<p>泊松回归在实际应用中非常广泛，特别是在社会科学、生命科学、工程等领域。它提供了一种有效的方式来建模和分析计数数据，帮助研究人员和数据分析师理解和预测事件的发生频率。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/9718319218df/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/9718319218df/" class="post-title-link" itemprop="url">sklearn数据归一化和标准化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 10:56:00" itemprop="dateCreated datePublished" datetime="2024-06-25T10:56:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-28 23:20:41" itemprop="dateModified" datetime="2024-06-28T23:20:41+12:00">2024-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>数据归一化和标准化是数据预处理中常用的技术，用于将数据转换到特定范围或分布，使得模型训练更加稳定和高效。以下是这两种方法的详细讲解及实现代码。</p>
+<h3 id="数据归一化normalization">数据归一化（Normalization）</h3>
+<p>数据归一化是将数据按比例缩放，使之落入一个特定的范围（通常是[0, 1]或者[-1, 1]）。常用的归一化方法包括最小-最大归一化。</p>
+<h4 id="最小-最大归一化">最小-最大归一化</h4>
+<p>公式： <span class="math display">\[ x&#39; = \frac{x - x_{min}}{x_{max} - x_{min}} \]</span></p>
+<h4 id="代码示例">代码示例：</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建示例数据</span></span><br><span class="line">data = &#123;</span><br><span class="line">  <span class="string">&#x27;Feature1&#x27;</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>],</span><br><span class="line">  <span class="string">&#x27;Feature2&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化MinMaxScaler</span></span><br><span class="line">scaler = MinMaxScaler()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行归一化处理</span></span><br><span class="line">df_normalized = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;归一化后的数据：&quot;</span>)</span><br><span class="line">print(df_normalized)</span><br></pre></td></tr></table></figure>
+<h3 id="数据标准化standardization">数据标准化（Standardization）</h3>
+<p>数据标准化是将数据调整到均值为0，标准差为1的正态分布。这通常是通过将每个数据点减去均值，然后除以标准差来实现的。</p>
+<h4 id="z-score标准化">Z-score标准化</h4>
+<p>公式： <span class="math display">\[ x&#39; = \frac{x - \mu}{\sigma} \]</span></p>
+<h4 id="代码示例-1">代码示例：</h4>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建示例数据</span></span><br><span class="line">data = &#123;</span><br><span class="line">  <span class="string">&#x27;Feature1&#x27;</span>: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>],</span><br><span class="line">  <span class="string">&#x27;Feature2&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化StandardScaler</span></span><br><span class="line">scaler = StandardScaler()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行标准化处理</span></span><br><span class="line">df_standardized = pd.DataFrame(scaler.fit_transform(df), columns=df.columns)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;标准化后的数据：&quot;</span>)</span><br><span class="line">print(df_standardized)</span><br></pre></td></tr></table></figure>
+<h3 id="使用归一化和标准化的场景">使用归一化和标准化的场景</h3>
+<ul>
+<li><strong>归一化</strong>：通常在不涉及距离计算的机器学习算法中使用，例如神经网络和线性回归，因为它可以加快收敛速度。</li>
+<li><strong>标准化</strong>：通常在涉及距离计算的机器学习算法中使用，例如K近邻（KNN）和支持向量机（SVM），因为这些算法对数据的分布敏感。</li>
+</ul>
+<p>通过上述方法，可以将数据进行归一化或标准化处理，使得数据在模型训练过程中表现更好，提高模型的性能和稳定性。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/99eb3765b1cd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/99eb3765b1cd/" class="post-title-link" itemprop="url">机器学习的解决问题流程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 10:54:00" itemprop="dateCreated datePublished" datetime="2024-06-25T10:54:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-28 23:01:22" itemprop="dateModified" datetime="2024-06-28T23:01:22+12:00">2024-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>机器学习的解决问题流程一般包括以下几个步骤：</p>
+<h2 id="一定义问题">一、定义问题</h2>
+<p>首先明确要解决的问题是什么，以及这个问题的业务背景和目标。例如，是要进行分类、回归、聚类还是降维。</p>
+<p>定义问题是机器学习项目的首要步骤，它奠定了整个项目的基础和方向。一个明确、具体的问题定义能够帮助团队聚焦在核心目标上，并确保所有后续工作都有明确的指引。以下是如何详细、深入地定义一个问题的步骤和要点：</p>
+<h3 id="了解业务背景">1. 了解业务背景</h3>
+<h4 id="目的">目的</h4>
+<p>理解问题所在的业务领域及其背景，有助于识别问题的本质。</p>
+<h4 id="步骤">步骤</h4>
+<p>与业务相关人员（如产品经理、业务专家）沟通，了解业务流程、痛点和目标。</p>
+<p>调查相关行业的标准和规范，明确行业特定的需求和挑战。</p>
+<h3 id="明确目标">2. 明确目标</h3>
+<h4 id="目的-1">目的</h4>
+<p>确定项目的主要目标和子目标，确保所有参与者对项目期望有一致的理解。</p>
+<h4 id="步骤-1">步骤</h4>
+<p>讨论并确定最终产品的预期效果，如提高客户满意度、增加销售额、降低成本等。</p>
+<p>定义具体、可衡量的目标（SMART原则：Specific, Measurable, Achievable, Relevant, Time-bound），例如“提高客户留存率10%”或“将预测误差降低到5%以下”。</p>
+<h3 id="确定问题类型">3. 确定问题类型</h3>
+<h4 id="目的-2">目的</h4>
+<p>根据目标明确要解决的问题是分类、回归、聚类、降维还是其他类型的问题。</p>
+<h4 id="步骤-2">步骤</h4>
+<p>确定输出结果的类型：离散值（分类）还是连续值（回归）。</p>
+<p>如果是分类问题，确定是二分类、多分类还是多标签分类。</p>
+<p>如果是聚类问题，明确是硬聚类还是软聚类。</p>
+<h3 id="界定范围">4. 界定范围</h3>
+<h4 id="目的-3">目的</h4>
+<p>明确问题的范围和边界，防止范围过大导致项目复杂度增加或不可控。</p>
+<h4 id="步骤-3">步骤</h4>
+<p>列出项目的边界条件，明确哪些是项目要解决的，哪些是项目不涉及的。</p>
+<p>确定时间范围和资源限制，例如“在6个月内完成模型开发并部署”或“利用现有的硬件资源进行计算”。</p>
+<h3 id="确定评估标准">5. 确定评估标准</h3>
+<h4 id="目的-4">目的</h4>
+<p>定义项目成功的标准和衡量指标，以便在后续阶段进行评估。</p>
+<h4 id="步骤-4">步骤</h4>
+<p>确定关键绩效指标（KPIs），如准确率、精确率、召回率、F1值、均方误差等。</p>
+<p>定义业务层面的评估标准，例如“提升销售额”或“减少客户投诉”。</p>
+<h3 id="确定数据需求">6. 确定数据需求</h3>
+<h4 id="目的-5">目的</h4>
+<p>确认所需的数据类型和数据源，确保数据的可用性和质量。</p>
+<h4 id="步骤-5">步骤</h4>
+<p>确定需要收集哪些数据，包括历史数据、实时数据等。</p>
+<p>确认数据源，如数据库、外部API、传感器等，并评估数据的可访问性和质量。</p>
+<p>确定数据的粒度和频率，例如每日数据还是每分钟数据。</p>
+<h3 id="风险评估">7. 风险评估</h3>
+<h4 id="目的-6">目的</h4>
+<p>识别可能影响项目成功的风险，并制定应对策略。</p>
+<h4 id="步骤-6">步骤</h4>
+<p>列出潜在风险，如数据质量问题、算法选择不当、资源不足等。</p>
+<p>制定风险管理计划，包括风险的监控、预防措施和应急预案。</p>
+<h3 id="项目计划">8. 项目计划</h3>
+<h4 id="目的-7">目的</h4>
+<p>制定详细的项目计划和时间表，确保项目按时、按质完成。</p>
+<h4 id="步骤-7">步骤</h4>
+<p>确定各个阶段的任务和时间节点，如数据收集、模型开发、模型评估、模型部署等。</p>
+<p>分配团队成员的职责和任务，确保每个环节都有专人负责。</p>
+<h3 id="文档化">9. 文档化</h3>
+<h4 id="目的-8">目的</h4>
+<p>将问题定义的各个方面记录下来，形成书面的项目计划和问题定义文档，确保所有参与者都能参考。</p>
+<h4 id="步骤-8">步骤</h4>
+<p>编写详细的项目需求文档，包含以上各个方面的内容。</p>
+<p>定期更新文档，记录项目的进展和变化。</p>
+<h3 id="沟通与反馈">10. 沟通与反馈</h3>
+<h4 id="目的-9">目的</h4>
+<p>与所有相关方保持沟通，确保项目的各个阶段都能得到及时的反馈和调整。</p>
+<h4 id="步骤-9">步骤</h4>
+<p>定期举行会议，汇报项目进展和问题，听取相关方的意见和建议。</p>
+<p>根据反馈及时调整项目计划和问题定义，确保项目的灵活性和适应性。</p>
+<p>通过以上步骤，可以深入、详细地定义机器学习项目中的问题，确保项目有一个清晰的方向和明确的目标，从而提高项目的成功率和最终的业务价值。</p>
+<h2 id="二数据收集">二、数据收集</h2>
+<p>收集与问题相关的数据，这些数据可以来源于数据库、文件、API等各种途径。数据的质量和数量对模型的效果有重要影响。</p>
+<h2 id="三数据预处理">三、数据预处理</h2>
+<p>包括数据清洗、处理缺失值、异常值处理、数据变换、特征工程等步骤。数据预处理的好坏直接影响模型的效果。</p>
+<h3 id="数据清洗">1. 数据清洗</h3>
+<p>处理数据中的缺失值、异常值、重复值等问题，确保数据的质量和一致性。</p>
+<p><strong>[[缺失值处理]]</strong>：</p>
+<p><strong>删除缺失值</strong>：当缺失值占比很小且不影响整体数据时，可以直接删除包含缺失值的记录。</p>
+<p><strong>填补缺失值</strong>：用平均值、中位数、众数、前一个值、后一个值等填补缺失值。对于时间序列数据，可以使用插值方法。</p>
+<p><strong>预测缺失值</strong>：利用回归、KNN等算法预测缺失值。</p>
+<p><strong>异常值处理</strong>：</p>
+<p><strong>检测异常值</strong>：通过箱线图、z-score、IQR（四分位距）等方法检测异常值。</p>
+<p><strong>处理异常值</strong>：删除异常值、替换为合理值或使用插值方法处理异常值。</p>
+<p><strong>重复值处理</strong>：</p>
+<p>检测并删除重复的记录，确保每条数据都是唯一的。</p>
+<h3 id="数据变换">2. 数据变换</h3>
+<h4 id="目的-10">目的</h4>
+<p>对数据进行标准化、归一化、离散化等处理，使数据符合模型的输入要求。</p>
+<h4 id="步骤-10">步骤</h4>
+<p><strong>标准化（Standardization）</strong>：</p>
+<p>将数据转换为均值为0、标准差为1的标准正态分布，常用方法为z-score标准化： <span class="math display">\[
+              x&#39; = \frac{x - \mu}{\sigma}
+\]</span></p>
+<p>标准化适用于假设数据服从正态分布的算法，如线性回归、SVM等。</p>
+<p><strong>归一化（Normalization）</strong>：</p>
+<p>将数据缩放到[0, 1]或[-1, 1]范围，常用方法为最小-最大归一化： <span class="math display">\[
+              x&#39; = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
+\]</span></p>
+<p>归一化适用于基于距离度量的算法，如KNN、神经网络等。</p>
+<p><strong>离散化（Discretization）</strong>：</p>
+<p>将连续变量转换为离散变量，可以使用等宽分箱、等频分箱、K-means分箱等方法。</p>
+<p>离散化有助于处理具有非线性关系的数据。</p>
+<h3 id="特征工程">3. 特征工程</h3>
+<h4 id="目的-11">目的</h4>
+<p>提取、选择和创建特征，提高模型的表现力和泛化能力。</p>
+<h4 id="步骤-11">步骤</h4>
+<p><strong>特征提取</strong>：</p>
+<p>从原始数据中提取有用的特征，例如从时间戳提取出年、月、日、小时等。</p>
+<p><strong>特征选择</strong>：</p>
+<p><strong>过滤法（Filter）</strong>：根据统计量（如相关系数、卡方检验、互信息等）选择特征。</p>
+<p><strong>包装法（Wrapper）</strong>：使用特定的模型（如递归特征消除RFE）进行特征选择。</p>
+<p><strong>嵌入法（Embedded）</strong>：在模型训练过程中自动选择特征（如L1正则化、决策树的重要性）。</p>
+<p><strong>特征创建</strong>：</p>
+<p>通过组合、变换原始特征创建新的特征，例如特征交互、多项式特征、对数变换等。</p>
+<p><strong>特征删除</strong>：</p>
+<p>查看特征的方差，如果特征的方差很小，说明大多数样本的取值相同，这样的特征对模型的贡献很小。因此可以删除。（需要特征是数值型才可以）</p>
+<h3 id="类别编码">4. 类别编码</h3>
+<h4 id="目的-12">目的</h4>
+<p>将类别型数据转换为数值型数据，适应模型的输入要求。</p>
+<h4 id="步骤-12">步骤</h4>
+<p><strong>标签编码（Label Encoding）</strong>：</p>
+<p>将类别值转换为整数值，每个类别对应一个唯一的整数。</p>
+<p>适用于有序类别数据，但不适用于无序类别数据，因为会引入虚假的顺序关系。</p>
+<p><strong>独热编码（One-Hot Encoding）</strong>：</p>
+<p>将每个类别转换为一个二进制向量，其中一个位置为1，其余位置为0。</p>
+<p>适用于无序类别数据，但会导致高维数据，稀疏表示。</p>
+<p><strong>目标编码（Target Encoding）</strong>：</p>
+<p>将类别值替换为其对应的目标变量的平均值，适用于高基数类别数据，但需要防止过拟合。</p>
+<h3 id="数据分割">5. 数据分割</h3>
+<h4 id="目的-13">目的</h4>
+<p>将数据集分为训练集、验证集和测试集，以便模型训练、调优和评估。</p>
+<h4 id="步骤-13">步骤</h4>
+<p><strong>训练集</strong>：用于训练模型，占数据集的60%-80%。</p>
+<p><strong>验证集</strong>：用于模型选择和超参数调优，占数据集的10%-20%。</p>
+<p><strong>测试集</strong>：用于评估模型的泛化能力，占数据集的10%-20%。</p>
+<p><strong>交叉验证</strong>：通过K折交叉验证等方法，充分利用数据进行训练和评估，提高模型的稳定性和可靠性。</p>
+<h3 id="数据平衡">6. 数据平衡</h3>
+<h4 id="目的-14">目的</h4>
+<p>处理类别不平衡问题，防止模型偏向于多数类。</p>
+<h4 id="步骤-14">步骤</h4>
+<p><strong>欠采样（Under-sampling）</strong>：减少多数类样本数量，使其与少数类样本数量接近。</p>
+<p><strong>过采样（Over-sampling）</strong>：增加少数类样本数量，使其与多数类样本数量接近，常用方法如SMOTE（合成少数类过采样技术）。</p>
+<p><strong>使用惩罚项</strong>：在模型训练中引入类别权重，增加对少数类样本的关注。</p>
+<h3 id="数据增强">7. 数据增强</h3>
+<h4 id="目的-15">目的</h4>
+<p>通过数据变换生成新的样本，增强数据集的多样性和规模。</p>
+<h4 id="步骤-15">步骤</h4>
+<p><strong>图像数据增强</strong>：旋转、平移、缩放、翻转、颜色变换等。</p>
+<p><strong>时间序列数据增强</strong>：加噪声、时间切片、滑动窗口等。</p>
+<p><strong>文本数据增强</strong>：同义词替换、随机插入、随机删除等。</p>
+<p>通过上述详细步骤，数据预处理可以确保输入数据的质量和适用性，为模型的训练和预测奠定坚实基础。</p>
+<h3 id="数据分割-1">4. 数据分割</h3>
+<p>将数据集分为训练集、验证集和测试集，一般的比例是8:1:1或7:2:1，以便对模型进行训练、验证和评估。</p>
+<h3 id="模型选择">5. 模型选择</h3>
+<p>根据问题类型选择合适的机器学习算法。例如，分类问题可以选择逻辑回归、支持向量机、随机森林等；回归问题可以选择线性回归、决策树、梯度提升等。</p>
+<h3 id="模型训练">6. 模型训练</h3>
+<p>使用训练集数据训练模型，通过调整模型参数（例如学习率、正则化参数等）使模型能够较好地拟合训练数据。</p>
+<h3 id="模型评估">7. 模型评估</h3>
+<p>使用验证集数据评估模型的性能，通过指标如准确率、精确率、召回率、F1值、均方误差等来判断模型的好坏，并进行超参数调优。</p>
+<h3 id="模型优化">8. 模型优化</h3>
+<p>根据评估结果对模型进行调整和优化，可能涉及到重新选择特征、调整模型参数、选择其他算法等。</p>
+<h3 id="模型测试">9. 模型测试</h3>
+<p>使用测试集对最终模型进行测试，评估其在未见过的数据上的表现，以确保模型的泛化能力。</p>
+<h3 id="模型部署">10. 模型部署</h3>
+<p>将模型部署到生产环境中，集成到实际应用中，使其能够处理实际业务中的数据。</p>
+<h3 id="模型监控与维护">11. 模型监控与维护</h3>
+<p>对部署后的模型进行持续监控，确保其性能稳定。如果模型性能下降，可能需要重新训练模型或更新数据。</p>
+<h3 id="模型迭代">12. 模型迭代</h3>
+<p>根据实际情况和业务需求，不断迭代和改进模型，以适应新的数据和变化的需求。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/05/c770a3b0d697/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/c770a3b0d697/" class="post-title-link" itemprop="url">STAT313 chap1&2 Nonparametric Regression</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-05-08 15:33:35" itemprop="dateCreated datePublished" datetime="2024-05-08T15:33:35+12:00">2024-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-25 11:40:30" itemprop="dateModified" datetime="2024-06-25T11:40:30+12:00">2024-06-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">统计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure>
+<img src="../STAT313-chap1-2-Nonparametric-Regression/image_1714106848496_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="../assets/image_1714106862723_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y = f(X) + $ ，其中:</p>
+<p>$ Y $ 是因变量，或者说是我们想要预测或估计的变量。</p>
+<p>$ f(X) $ 是一个未知函数，它描述了X和Y之间的关系。在非参数回归中，这个函数的形式不是预先设定的。</p>
+<p>$ $ 是误差项，表示除了X影响Y之外的随机扰动。这个误差项有一个重要的属性，即条件期望 $ E[| X] = 0 $ ，这意味着误差项在给定X的条件下，它的平均值是0，即误差是随机的，不会系统地偏离某一个值。</p>
+<p>非参数回归的目的是估计函数 $ f $ ，即找到一个函数 $  $ ，这个函数可以很好地拟合数据中的Y和X之间的关系，而不需要指定 $ f $ 的具体形式。例如，我们不需要假设 $ f $ 是线性的，或者是任何特定的数学形式。 非参数回归的一大优势是它的灵活性，因为它不需要强加任何特定的模型形式，它可以捕捉数据中的复杂关系。但这也意味着我们需要有足够的数据来准确估计这种关系，而且估计出的模型可能不如参数模型那么容易解释。</p>
+<p>205名加拿大工人估计回归函数</p>
+<figure>
+<img src="../assets/image_1714107566829_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>这张幻灯片显示了一个非参数回归的例子，其中研究的是年龄与收入（取对数）之间的关系。让我们一步步分析：</p>
+<p>在图中，每一个蓝点代表一个数据点，可能是一名工人的年龄和对应的收入。</p>
+<p>曲线是通过非参数回归方法估计出来的，它试图捕捉年龄和收入之间的关系。这条曲线不是直线，这说明非参数回归没有假设这两个变量之间关系是线性的。</p>
+<p>曲线表明在年龄较小的时候，收入增长较快（曲线左侧的斜率较大）。到了中年，似乎有一个收入的下降（曲线中间的“低谷”），然后随着年龄的增长，收入增长放缓（曲线右侧的斜率较小）。</p>
+<p>幻灯片的注释提到：</p>
+<p>非参数估计器捕获了中间的低谷和左侧的陡增。这意味着非参数回归能够描述数据的实际变化，即使这种变化不是一个简单的线性趋势。</p>
+<p>与参数回归相比，非参数回归的拟合要好得多。这是因为参数回归，比如线性回归，可能无法捕捉复杂的模式，如中间的低谷或变化的斜率。</p>
+<p>没有必要预先知道关于函数形式的信息。也就是说，在非参数回归中，我们不需要预先设定 $ Y $ 和 $ X $ 之间的关系（例如， $ Y $ 是 $ X $ 的线性函数，或者 $ Y $ 是 $ X $ 的多项式等），非参数方法能够从数据本身“学习”这种关系。</p>
+<p>通过这个例子，我们可以看到非参数回归分析的一个显著优势：它能够适应数据中存在的任何关系的形状，而不是限定在某些预设的函数形式中。这就给予了非参数方法极大的灵活性和适应性，允许它在应对真实世界复杂数据时表现得更好。</p>
+<h2 id="density-estimation">Density estimation</h2>
+<p>现在让我们来看一下密度估计。</p>
+<p>密度估计是统计学中的一个概念，用于估计一个未知的概率密度函数（pdf），这个函数描述了一个连续随机变量的概率分布。</p>
+<p>假设我们有一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这些样本来自于一个连续随机变量 <span class="math inline">\(X\)</span> 。这里的“随机样本”意味着每一个样本 <span class="math inline">\(X_i\)</span> 都是独立同分布的，即每个样本都是独立于其他样本抽取的，并且每个样本都服从相同的分布，这种性质我们称为i.i.d.（独立同分布）。我们想要从这个样本中学习 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<p>要了解概率密度函数，我们首先需要复习概率密度函数和累积分布函数（cdf）。概率密度函数给出了随机变量取特定值的概率密度，而累积分布函数 <span class="math inline">\(F_X(x)\)</span> 给出了随机变量 <span class="math inline">\(X\)</span> 取值小于或等于 <span class="math inline">\(x\)</span> 的概率，即 <span class="math inline">\(P(X \leq x)\)</span> 。累积分布函数 <span class="math inline">\(F_X\)</span> 是单调递增的，其值在0到1之间，对于所有的 <span class="math inline">\(x \in \mathbb{R}\)</span> ，且包含了关于 <span class="math inline">\(X\)</span> 的概率行为的全部信息。</p>
+<figure>
+<img src="../assets/image_1714107848967_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>幻灯片中的图展示了离散和连续随机变量的累积分布函数。我们可以看到离散的CDF是阶梯形的，而连续的CDF是平滑的曲线。</p>
+<p>了解这些基础之后，我们可以使用这些样本来估计 <span class="math inline">\(X\)</span> 的概率密度函数。这是非参数估计中的一个任务，因为我们不假设概率密度函数 <span class="math inline">\(f_X\)</span> 有任何特定的形式，而是让数据自己告诉我们它的形状。常用的非参数密度估计方法包括核密度估计（KDE）和直方图。</p>
+<h2 id="离散和连续随机变量">离散和连续随机变量</h2>
+<figure>
+<img src="../assets/image_1714108051756_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>我们现在进入到离散和连续随机变量的讨论。 离散随机变量的特点是其可能的结果是有限个或可数无限个，比如掷骰子的结果就是典型的离散随机变量，因为它只能取1到6这几个离散的值。离散随机变量的累积分布函数（CDF）是阶梯形的，因为每个可能的结果都会导致CDF发生跳跃。</p>
+<figure>
+<img src="../assets/image_1714108121342_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>而连续随机变量则有一个概率密度函数（PDF），这个函数定义了随机变量在任何特定值上的概率密度。对于连续随机变量 <span class="math inline">\(X\)</span> ，概率密度函数 <span class="math inline">\(f_X(x)\)</span> 满足以下属性：</p>
+<p>概率 <span class="math inline">\(P(a &lt; X \leq b)\)</span> 等于 <span class="math inline">\(f_X(x)\)</span> 从 <span class="math inline">\(a\)</span> 到 <span class="math inline">\(b\)</span> 的积分。</p>
+<p>累积分布函数 <span class="math inline">\(F_X(x)\)</span> 可以通过 <span class="math inline">\(f_X(x)\)</span> 从负无穷积分到 <span class="math inline">\(x\)</span> 来得到，即 <span class="math inline">\(F_X(x) = \int_{-\infty}^x f_X(t) dt\)</span> 。</p>
+<p>概率密度函数 <span class="math inline">\(f_X(x)\)</span> 在几乎所有点上都是非负的，并且其整个定义域上的积分等于1，即 <span class="math inline">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span> 。</p>
+<p>概率密度函数可能在某些点上不连续，但累积分布函数总是连续的。</p>
+<p>连续随机变量与离散随机变量的主要区别在于其可能结果是无限且不可数的，且概率是通过密度来定义的，而不是通过具体值的概率。例如，对于掷骰子，我们可以说“掷出一个6”的概率是1/6；但是对于连续随机变量，如人的身高，我们不能说一个具体身高的概率，而是说在一定区间内的身高的概率。</p>
+<figure>
+<img src="../assets/image_1714108223196_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>现在我们来讨论概率密度函数（PDF），它是描述连续随机变量概率分布的函数。</p>
+<p>这个幻灯片展示了两个常见的概率密度函数的例子，标准正态分布和指数分布，以及它们对应的公式和样本分布。</p>
+<ol type="1">
+<li><p><strong>标准正态分布</strong>： 标准正态分布的概率密度函数表达式为 $ f_X(x) =  e^{-} $ 。它是对称的，并且其最高点在 $ x=0 $ 。这个分布在统计学中非常重要，经常用来作为其他分布的近似，或者在许多统计方法中作为基础假设。这是因为许多随机变量在大量独立因素的影响下其分布趋向于正态分布，这就是中心极限定理的内容。</p></li>
+<li><p><strong>指数分布</strong>： 指数分布的概率密度函数为 $ f_X(x) =</p>
+<span class="math display">\[\begin{cases} 
+e^{-x} &amp; \text{if } x &gt; 0 \\
+0 &amp; \text{if } x \leq 0 
+\end{cases}\]</span>
+<p>$ 。指数分布通常用来描述时间间隔，例如，某个事件发生的时间间隔。指数分布的一个关键特点是无记忆性，即未来的概率分布不依赖于已经过去的时间。</p></li>
+</ol>
+<p>在幻灯片上的图中，蓝色的点代表从相应分布中抽取的样本数据。通过这些样本点，我们可以观察到数据的分布情况。对于正态分布的样本，数据点主要集中在均值附近，即中心的峰值区域。而对于指数分布的样本，数据点随 $ x $ 值的增大而快速减少，这表明较大值出现的概率较小。</p>
+<p>幻灯片中的最后一条注释说明我们更可能观察到 $ X $ 在 $ f_X $ 较大的区域，这是因为概率密度函数的值较大意味着随机变量取该值的概率更高。所以对于正态分布，我们更可能观察到 $ X $ 接近均值的值；而对于指数分布，我们更可能观察到 $ X $ 接近零的值。</p>
+<h2 id="density-estimation-1">Density estimation</h2>
+<figure>
+<img src="../assets/image_1714110052913_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>回到密度估计，我们的任务是：观测一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这个样本来自于某个连续随机变量 <span class="math inline">\(X\)</span> ，然后估计 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<figure>
+<img src="../assets/image_1714110070118_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>参数密度估计方法需要假设随机变量 <span class="math inline">\(X\)</span> 属于某个特定的密度函数族，这个族是由一些参数决定的。</p>
+<p>最常见的假设是 <span class="math inline">\(X\)</span> 服从正态分布，正态分布的密度函数为 $ f_X(x; , ^2) =  ( - ) $ ，其中 $ $ 是均值， $ ^2 $ 是方差。</p>
+<p>在参数密度估计中，我们会用样本均值 $ {X} $ 来估计 $ $ ，用样本方差 $ S^2 $ 来估计 $ ^2 $ 。样本均值是所有样本值的平均，而样本方差是所有样本值与样本均值之差的平方的平均。</p>
+<p>然后我们可以用这些估计值来构建随机变量 <span class="math inline">\(X\)</span> 的概率密度函数的估计。这个估计的概率密度函数表达式为 $ _X =  ( - ) $ 。</p>
+<p>与非参数密度估计相比，参数密度估计的优点在于其简单性和计算效率。如果参数化的假设正确，参数方法通常可以给出非常准确的估计。然而，如果实际数据的分布与假定的参数模型不符，这种估计就可能会产生误导。这时候非参数方法就会更有优势，因为它不依赖于任何特定的分布假设，能更灵活地适应数据的真实分布。不过，非参数方法通常需要更多的数据，并且计算上可能更复杂。</p>
+<h3 id="parametric-density-estimation">Parametric density estimation</h3>
+<figure>
+<img src="../assets/image_1714111265453_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>在这张幻灯片中，我们看到的是参数密度估计的一个例子，但这里展示了当假设违背真实情况时，估计会失败的情况。具体来说，这个例子展示了对数正态分布的真实密度（黑色曲线），以及基于错误假设（即数据来自正态分布）得到的参数密度估计（红色曲线）。蓝色的点表示的是样本数据。</p>
+<p>当我们对数据进行参数密度估计时，我们通常会假设这些数据来自我们所选择的某个密度函数族。在这个例子中，原本数据是对数正态分布的，这意味着 $ X $ 本身不是正态分布，但 $ (X) $ 是正态分布的，满足 $ (X) (, ^2) $ 。然而，如果我们错误地假设 $ X $ 本身是正态分布，并基于这个错误的假设进行参数估计，那么我们得到的估计结果就会与数据的真实分布不匹配。</p>
+<p>从图中我们可以看到，基于正态分布假设的参数估计曲线（红色）不能很好地匹配样本数据点（蓝色），特别是在数据的分布更加偏向于右侧的时候。这展示了当模型假设不正确时，参数估计可能会给出误导的结果。这是为什么在实践中，在进行参数估计之前，验证数据是否满足模型的假设是非常重要的。如果我们有理由相信数据可能不满足简单的假设，那么使用非参数估计方法可能是更好的选择。</p>
+<p><img src="../assets/image_1714111877735_0.png" alt="image.png" />{:height 479, :width 678}</p>
+<p>在这张幻灯片中，展示了非参数密度估计的一个例子，以及它如何用于标准正态分布的样本数据。这里，真实的密度曲线用黑色表示，而非参数估计的密度曲线用红色表示，样本数据用蓝色点标出。</p>
+<p>非参数估计，如核密度估计（KDE），不会对数据分布做出特定的参数化假设。它使用样本数据直接估计概率密度函数，通常通过平滑处理样本点来构建密度曲线。从图中可以看出，非参数估计的曲线虽然捕捉了样本数据的分布趋势，但可能不如参数估计曲线那样紧密贴合真实的密度函数。这通常是因为非参数估计需要较大的样本量来减少估计误差和提高估计的精确度。</p>
+<p>此外，非参数估计的精确度还取决于所选取的带宽大小，带宽决定了估计曲线的平滑程度。过小的带宽可能会导致过度拟合，即曲线会在样本点间出现很多波动，而过大的带宽可能导致曲线过于平滑，从而掩盖数据中的结构。</p>
+<p>幻灯片的注释指出，虽然非参数估计工作得很好，但它可能不如参数估计精确，因为参数估计在正确的假设下能够提供非常准确的模型。而且，非参数估计通常需要更大的样本量，这是因为它依赖于数据本身来构建密度估计，而没有任何关于分布形式的先验假设。在样本量较少的情况下，非参数估计可能会受到随机波动的较大影响。</p>
+<figure>
+<img src="../assets/image_1714112554077_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<figure>
+<img src="../assets/image_1714106862723_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>好的，我们来谈谈非参数回归。在统计学中，非参数回归是一种不依赖于参数假设的回归分析方法。在普通的参数回归，比如线性回归中，我们假设因变量Y和自变量X之间有一个明确的参数化形式，例如，我们假设Y等于X乘以系数加上一个常数项。但在非参数回归中，我们不做这样的假设。 你给出的PPT截图中给出了非参数回归的模型， $ Y = f(X) + $ ，其中:</p>
+<p>$ Y $ 是因变量，或者说是我们想要预测或估计的变量。</p>
+<p>$ f(X) $ 是一个未知函数，它描述了X和Y之间的关系。在非参数回归中，这个函数的形式不是预先设定的。</p>
+<p>$ $ 是误差项，表示除了X影响Y之外的随机扰动。这个误差项有一个重要的属性，即条件期望 $ E[| X] = 0 $ ，这意味着误差项在给定X的条件下，它的平均值是0，即误差是随机的，不会系统地偏离某一个值。</p>
+<p>非参数回归的目的是估计函数 $ f $ ，即找到一个函数 $  $ ，这个函数可以很好地拟合数据中的Y和X之间的关系，而不需要指定 $ f $ 的具体形式。例如，我们不需要假设 $ f $ 是线性的，或者是任何特定的数学形式。 非参数回归的一大优势是它的灵活性，因为它不需要强加任何特定的模型形式，它可以捕捉数据中的复杂关系。但这也意味着我们需要有足够的数据来准确估计这种关系，而且估计出的模型可能不如参数模型那么容易解释。</p>
+<p>205名加拿大工人估计回归函数</p>
+<figure>
+<img src="../assets/image_1714107566829_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>这张幻灯片显示了一个非参数回归的例子，其中研究的是年龄与收入（取对数）之间的关系。让我们一步步分析：</p>
+<p>在图中，每一个蓝点代表一个数据点，可能是一名工人的年龄和对应的收入。</p>
+<p>曲线是通过非参数回归方法估计出来的，它试图捕捉年龄和收入之间的关系。这条曲线不是直线，这说明非参数回归没有假设这两个变量之间关系是线性的。</p>
+<p>曲线表明在年龄较小的时候，收入增长较快（曲线左侧的斜率较大）。到了中年，似乎有一个收入的下降（曲线中间的“低谷”），然后随着年龄的增长，收入增长放缓（曲线右侧的斜率较小）。</p>
+<p>幻灯片的注释提到：</p>
+<p>非参数估计器捕获了中间的低谷和左侧的陡增。这意味着非参数回归能够描述数据的实际变化，即使这种变化不是一个简单的线性趋势。</p>
+<p>与参数回归相比，非参数回归的拟合要好得多。这是因为参数回归，比如线性回归，可能无法捕捉复杂的模式，如中间的低谷或变化的斜率。</p>
+<p>没有必要预先知道关于函数形式的信息。也就是说，在非参数回归中，我们不需要预先设定 $ Y $ 和 $ X $ 之间的关系（例如， $ Y $ 是 $ X $ 的线性函数，或者 $ Y $ 是 $ X $ 的多项式等），非参数方法能够从数据本身“学习”这种关系。</p>
+<p>通过这个例子，我们可以看到非参数回归分析的一个显著优势：它能够适应数据中存在的任何关系的形状，而不是限定在某些预设的函数形式中。这就给予了非参数方法极大的灵活性和适应性，允许它在应对真实世界复杂数据时表现得更好。</p>
+<h2 id="density-estimation-2">Density estimation</h2>
+<p>现在让我们来看一下密度估计。</p>
+<p>密度估计是统计学中的一个概念，用于估计一个未知的概率密度函数（pdf），这个函数描述了一个连续随机变量的概率分布。</p>
+<p>假设我们有一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这些样本来自于一个连续随机变量 <span class="math inline">\(X\)</span> 。这里的“随机样本”意味着每一个样本 <span class="math inline">\(X_i\)</span> 都是独立同分布的，即每个样本都是独立于其他样本抽取的，并且每个样本都服从相同的分布，这种性质我们称为i.i.d.（独立同分布）。我们想要从这个样本中学习 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<p>要了解概率密度函数，我们首先需要复习概率密度函数和累积分布函数（cdf）。概率密度函数给出了随机变量取特定值的概率密度，而累积分布函数 <span class="math inline">\(F_X(x)\)</span> 给出了随机变量 <span class="math inline">\(X\)</span> 取值小于或等于 <span class="math inline">\(x\)</span> 的概率，即 <span class="math inline">\(P(X \leq x)\)</span> 。累积分布函数 <span class="math inline">\(F_X\)</span> 是单调递增的，其值在0到1之间，对于所有的 <span class="math inline">\(x \in \mathbb{R}\)</span> ，且包含了关于 <span class="math inline">\(X\)</span> 的概率行为的全部信息。</p>
+<figure>
+<img src="../assets/image_1714107848967_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>幻灯片中的图展示了离散和连续随机变量的累积分布函数。我们可以看到离散的CDF是阶梯形的，而连续的CDF是平滑的曲线。</p>
+<p>了解这些基础之后，我们可以使用这些样本来估计 <span class="math inline">\(X\)</span> 的概率密度函数。这是非参数估计中的一个任务，因为我们不假设概率密度函数 <span class="math inline">\(f_X\)</span> 有任何特定的形式，而是让数据自己告诉我们它的形状。常用的非参数密度估计方法包括核密度估计（KDE）和直方图。</p>
+<h2 id="离散和连续随机变量-1">离散和连续随机变量</h2>
+<figure>
+<img src="../assets/image_1714108051756_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>我们现在进入到离散和连续随机变量的讨论。 离散随机变量的特点是其可能的结果是有限个或可数无限个，比如掷骰子的结果就是典型的离散随机变量，因为它只能取1到6这几个离散的值。离散随机变量的累积分布函数（CDF）是阶梯形的，因为每个可能的结果都会导致CDF发生跳跃。</p>
+<figure>
+<img src="../assets/image_1714108121342_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>而连续随机变量则有一个概率密度函数（PDF），这个函数定义了随机变量在任何特定值上的概率密度。对于连续随机变量 <span class="math inline">\(X\)</span> ，概率密度函数 <span class="math inline">\(f_X(x)\)</span> 满足以下属性：</p>
+<p>概率 <span class="math inline">\(P(a &lt; X \leq b)\)</span> 等于 <span class="math inline">\(f_X(x)\)</span> 从 <span class="math inline">\(a\)</span> 到 <span class="math inline">\(b\)</span> 的积分。</p>
+<p>累积分布函数 <span class="math inline">\(F_X(x)\)</span> 可以通过 <span class="math inline">\(f_X(x)\)</span> 从负无穷积分到 <span class="math inline">\(x\)</span> 来得到，即 <span class="math inline">\(F_X(x) = \int_{-\infty}^x f_X(t) dt\)</span> 。</p>
+<p>概率密度函数 <span class="math inline">\(f_X(x)\)</span> 在几乎所有点上都是非负的，并且其整个定义域上的积分等于1，即 <span class="math inline">\(\int_{-\infty}^{\infty} f_X(x) dx = 1\)</span> 。</p>
+<p>概率密度函数可能在某些点上不连续，但累积分布函数总是连续的。</p>
+<p>连续随机变量与离散随机变量的主要区别在于其可能结果是无限且不可数的，且概率是通过密度来定义的，而不是通过具体值的概率。例如，对于掷骰子，我们可以说“掷出一个6”的概率是1/6；但是对于连续随机变量，如人的身高，我们不能说一个具体身高的概率，而是说在一定区间内的身高的概率。</p>
+<figure>
+<img src="../assets/image_1714108223196_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>现在我们来讨论概率密度函数（PDF），它是描述连续随机变量概率分布的函数。</p>
+<p>这个幻灯片展示了两个常见的概率密度函数的例子，标准正态分布和指数分布，以及它们对应的公式和样本分布。</p>
+<ol type="1">
+<li><p><strong>标准正态分布</strong>： 标准正态分布的概率密度函数表达式为 $ f_X(x) =  e^{-} $ 。它是对称的，并且其最高点在 $ x=0 $ 。这个分布在统计学中非常重要，经常用来作为其他分布的近似，或者在许多统计方法中作为基础假设。这是因为许多随机变量在大量独立因素的影响下其分布趋向于正态分布，这就是中心极限定理的内容。</p></li>
+<li><p><strong>指数分布</strong>： 指数分布的概率密度函数为 $ f_X(x) =</p>
+<span class="math display">\[\begin{cases} 
+e^{-x} &amp; \text{if } x &gt; 0 \\
+0 &amp; \text{if } x \leq 0 
+\end{cases}\]</span>
+<p>$ 。指数分布通常用来描述时间间隔，例如，某个事件发生的时间间隔。指数分布的一个关键特点是无记忆性，即未来的概率分布不依赖于已经过去的时间。</p></li>
+</ol>
+<p>在幻灯片上的图中，蓝色的点代表从相应分布中抽取的样本数据。通过这些样本点，我们可以观察到数据的分布情况。对于正态分布的样本，数据点主要集中在均值附近，即中心的峰值区域。而对于指数分布的样本，数据点随 $ x $ 值的增大而快速减少，这表明较大值出现的概率较小。</p>
+<p>幻灯片中的最后一条注释说明我们更可能观察到 $ X $ 在 $ f_X $ 较大的区域，这是因为概率密度函数的值较大意味着随机变量取该值的概率更高。所以对于正态分布，我们更可能观察到 $ X $ 接近均值的值；而对于指数分布，我们更可能观察到 $ X $ 接近零的值。</p>
+<h2 id="density-estimation-3">Density estimation</h2>
+<figure>
+<img src="../assets/image_1714110052913_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>回到密度估计，我们的任务是：观测一个随机样本 <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> ，这个样本来自于某个连续随机变量 <span class="math inline">\(X\)</span> ，然后估计 <span class="math inline">\(X\)</span> 的概率密度函数 <span class="math inline">\(f_X\)</span> 。</p>
+<figure>
+<img src="../assets/image_1714110070118_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>参数密度估计方法需要假设随机变量 <span class="math inline">\(X\)</span> 属于某个特定的密度函数族，这个族是由一些参数决定的。</p>
+<p>最常见的假设是 <span class="math inline">\(X\)</span> 服从正态分布，正态分布的密度函数为 $ f_X(x; , ^2) =  ( - ) $ ，其中 $ $ 是均值， $ ^2 $ 是方差。</p>
+<p>在参数密度估计中，我们会用样本均值 $ {X} $ 来估计 $ $ ，用样本方差 $ S^2 $ 来估计 $ ^2 $ 。样本均值是所有样本值的平均，而样本方差是所有样本值与样本均值之差的平方的平均。</p>
+<p>然后我们可以用这些估计值来构建随机变量 <span class="math inline">\(X\)</span> 的概率密度函数的估计。这个估计的概率密度函数表达式为 $ _X =  ( - ) $ 。</p>
+<p>与非参数密度估计相比，参数密度估计的优点在于其简单性和计算效率。如果参数化的假设正确，参数方法通常可以给出非常准确的估计。然而，如果实际数据的分布与假定的参数模型不符，这种估计就可能会产生误导。这时候非参数方法就会更有优势，因为它不依赖于任何特定的分布假设，能更灵活地适应数据的真实分布。不过，非参数方法通常需要更多的数据，并且计算上可能更复杂。</p>
+<h3 id="parametric-density-estimation-1">Parametric density estimation</h3>
+<figure>
+<img src="../assets/image_1714111265453_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+<p>在这张幻灯片中，我们看到的是参数密度估计的一个例子，但这里展示了当假设违背真实情况时，估计会失败的情况。具体来说，这个例子展示了对数正态分布的真实密度（黑色曲线），以及基于错误假设（即数据来自正态分布）得到的参数密度估计（红色曲线）。蓝色的点表示的是样本数据。</p>
+<p>当我们对数据进行参数密度估计时，我们通常会假设这些数据来自我们所选择的某个密度函数族。在这个例子中，原本数据是对数正态分布的，这意味着 $ X $ 本身不是正态分布，但 $ (X) $ 是正态分布的，满足 $ (X) (, ^2) $ 。然而，如果我们错误地假设 $ X $ 本身是正态分布，并基于这个错误的假设进行参数估计，那么我们得到的估计结果就会与数据的真实分布不匹配。</p>
+<p>从图中我们可以看到，基于正态分布假设的参数估计曲线（红色）不能很好地匹配样本数据点（蓝色），特别是在数据的分布更加偏向于右侧的时候。这展示了当模型假设不正确时，参数估计可能会给出误导的结果。这是为什么在实践中，在进行参数估计之前，验证数据是否满足模型的假设是非常重要的。如果我们有理由相信数据可能不满足简单的假设，那么使用非参数估计方法可能是更好的选择。</p>
+<p><img src="../assets/image_1714111877735_0.png" alt="image.png" />{:height 479, :width 678}</p>
+<p>在这张幻灯片中，展示了非参数密度估计的一个例子，以及它如何用于标准正态分布的样本数据。这里，真实的密度曲线用黑色表示，而非参数估计的密度曲线用红色表示，样本数据用蓝色点标出。</p>
+<p>非参数估计，如核密度估计（KDE），不会对数据分布做出特定的参数化假设。它使用样本数据直接估计概率密度函数，通常通过平滑处理样本点来构建密度曲线。从图中可以看出，非参数估计的曲线虽然捕捉了样本数据的分布趋势，但可能不如参数估计曲线那样紧密贴合真实的密度函数。这通常是因为非参数估计需要较大的样本量来减少估计误差和提高估计的精确度。</p>
+<p>此外，非参数估计的精确度还取决于所选取的带宽大小，带宽决定了估计曲线的平滑程度。过小的带宽可能会导致过度拟合，即曲线会在样本点间出现很多波动，而过大的带宽可能导致曲线过于平滑，从而掩盖数据中的结构。</p>
+<p>幻灯片的注释指出，虽然非参数估计工作得很好，但它可能不如参数估计精确，因为参数估计在正确的假设下能够提供非常准确的模型。而且，非参数估计通常需要更大的样本量，这是因为它依赖于数据本身来构建密度估计，而没有任何关于分布形式的先验假设。在样本量较少的情况下，非参数估计可能会受到随机波动的较大影响。</p>
+<figure>
+<img src="../assets/image_1714112554077_0.png" alt="" /><figcaption>image.png</figcaption>
+</figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/04/0b4be3cd57d7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/04/0b4be3cd57d7/" class="post-title-link" itemprop="url">广义距离（Generalised distance）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-22 09:29:00" itemprop="dateCreated datePublished" datetime="2024-04-22T09:29:00+12:00">2024-04-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:53:16" itemprop="dateModified" datetime="2024-07-06T00:53:16+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%9F%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">统计</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <img src="/2024/04/0b4be3cd57d7/image_1713575342224_0.png" class="" title="image.png">
+<p>这页PPT介绍的是“广义距离”（Generalised distance）的概念。</p>
+<p>老规矩，先来总结：广义距离是一个多维度的度量，它衡量了一个点在考虑变量之间相关性的情况下，与均值向量的偏离程度。</p>
+<p>为什么要了解这些概念？因为广义距离是多元统计分析中的基础工具，它可以帮助你理解和处理多维数据集中各观测值的行为，尤其是它们如何相对于整体数据分布的中心位置分布。</p>
+<p>这些概念之间的联系：</p>
+<p><strong>标准化距离</strong>在一维空间内量化单个数据点与均值的偏离程度。</p>
+<p><strong>广义距离</strong>扩展了这一概念到多维空间，它不仅考虑单个数据点在每个维度上的偏离，而且还考虑了各个维度间的相关性。</p>
+<p>这两个概念都基于距离的概念，它们将距离从物理空间的直观理解推广到统计分布的上下文中。</p>
+<p>应用场景：</p>
+<p><strong>异常值检测</strong>：在多元数据中，可以使用广义距离来识别那些与平均分布模式显著不同的观测值。</p>
+<p><strong>聚类分析</strong>：在对数据进行分组时，广义距离可以帮助确定哪些观测值彼此相似，并因此应该被分类到同一个群体。</p>
+<p><strong>多变量控制图</strong>：在质量管理中，利用广义距离可以监控多个相关过程变量的稳定性。</p>
+<p><strong>判别分析</strong>：当需要根据观测数据将个体分类到不同预设类别中时，广义距离可以作为分类决策的依据。</p>
+<p><strong>多元正态分布的性质</strong>：在多元正态分布中，观测值到均值向量的广义距离服从卡方分布，这个性质可用于假设检验和置信区间的建立。</p>
+<p>首先，我们从标准的一维情形开始，即单变量的情况： <span class="math display">\[
+  \frac{(x - \mu)^2}{\sigma^2}
+\]</span></p>
+<p>这个公式是测量单个数据点 $ x $ 与均值 $ $ 之间距离的一个方法，但这个距离是以标准差的单位来衡量的。它被称为标准化距离或z得分（z-score），表示数据点 $ x $ 距离均值 $ $ 有多少个标准差。公式的本质是量化 $ x $ 偏离均值的程度。</p>
+<p>在多元统计中，我们不只考虑一个变量，而是多个变量。在这种情况下，我们会有一个 $  $ 的向量 $ x $ ，它表示一个数据点在多个维度上的值，以及一个 $  $ 的向量 $ $ ，它表示这些维度上的均值。同时，我们也会有一个 $ $ 的协方差矩阵 $ $ ，它不仅包含各变量的方差，还包括不同变量之间的协方差。</p>
+<p>详细参考： 广义距离公式计算</p>
+<p>广义距离是这样定义的：</p>
+<p><span class="math display">\[(x - \mu)&#39; \Sigma^{-1} (x - \mu)\]</span></p>
+<p>这里， $ ^{-1} $ 是协方差矩阵的逆矩阵，而 $ (x - )' $ 是 $ (x - ) $ 的转置。</p>
+<p>这个公式的几何意义是，在多维空间中测量数据点 $ x $ 到均值 $ $ 的距离，但是考虑了不同变量之间的相关性。通过协方差矩阵（Covariance Matrix）的逆，我们能够调整每个维度上的距离，以反映变量之间的相关性。</p>
+<p>在实际应用中，广义距离可以用于多元正态分布下的异常值检测，聚类分析等。当 $ x $ 在多维空间中的位置远离 $ $ ，并且考虑到了变量之间的协方差后，这个距离会相应增大，反映出 $ x $ 是一个不寻常的观测值。</p>
+<p>需要注意的是，广义距离只有在协方差矩阵 $ $ 可逆时才有定义，这通常要求数据中的观测数要大于变量数，以确保 $ $ 不是奇异的。</p>
+<img src="/2024/04/0b4be3cd57d7/image_1713581496888_0.png" class="" title="image.png">
+<p>这页PPT继续讲解了多维空间中的正态分布和广义距离的概念。 首先，我们定义一个 $  $ 维向量 $ $ ，它代表随机向量 $ X $ 的期望值或均值，这个期望值向量的每一个分量 $ _i $ 对应 $ X $ 的每一个维度的均值。</p>
+<p>其次， $ $ 维协方差矩阵 $ $ 代表随机向量 $ X $ 的方差-协方差矩阵。在这个矩阵中，对角线上的元素 $ ^2_{ii} $ 代表第 $ i $ 个随机变量的方差，而非对角线上的元素 $ _{ij} $ 代表不同随机变量之间的协方差，描述它们的线性相关程度。</p>
+<p>接下来，PPT介绍了 $ $ -维正态分布的概率密度函数：</p>
+<p><span class="math display">\[ f(x) = \frac{1}{(2\pi)^{\rho/2} |\Sigma|^{1/2}} e^{-\frac{1}{2}(x-\mu)&#39;\Sigma^{-1}(x-\mu)} \]</span></p>
+<p>这里：</p>
+<p>$ (2)^{/2} $ 和 $ ||^{1/2} $ 是归一化常数的一部分，确保概率密度函数的整体积分为1。</p>
+<p>$ e<sup>{-(x-)'</sup>{-1}(x-)} $ 是多元正态分布的核心部分，类似于一维正态分布中的 $ e^{-} $ ，但是它包含了多个变量和它们之间的协方差。</p>
+<p>这个多元正态分布的形状由均值向量 $ $ 和协方差矩阵 $ $ 决定。均值向量确定了分布的中心位置，而协方差矩阵不仅影响了分布的形状和宽度，还反映了各个变量之间的相关性。如果 $ $ 是对角矩阵（即各变量间无协方差），那么多元正态分布将退化为各变量独立的一维正态分布的乘积。</p>
+<h2 id="附录">附录</h2>
+<p>广义距离公式计算</p>
+<p>在二维空间中，让我们假设有一个均值向量 $ $ 和一个协方差矩阵 $ $ 如下：</p>
+<p>均值向量 $ $ : <span class="math display">\[ \begin{bmatrix} 0 \\ 0 \end{bmatrix} \]</span></p>
+<p>协方差矩阵 $ $ : <span class="math display">\[ \begin{bmatrix} 1 &amp; 0.5 \\ 0.5 &amp; 2 \end{bmatrix} \]</span></p>
+<p>其中，对角线上的值 1 和 2 分别是两个变量的方差，非对角线上的值 0.5 是这两个变量的协方差，表示它们之间存在一定的正相关关系。</p>
+假设我们有一个观测向量 $ x $ ，它在这两个维度上的值为 $
+<span class="math display">\[\begin{bmatrix} 1 \\ 3 \end{bmatrix}\]</span>
+<p>$ 。我们可以计算这个观测向量与均值向量 $ $ 之间的广义距离： 广义距离公式： <span class="math display">\[ (x - \mu)&#39; \Sigma^{-1} (x - \mu) \]</span></p>
+<p>我们将继续计算 $ $ 的逆矩阵，然后计算 $ x $ 与 $ $ 之间的广义距离。</p>
+<p>计算出来的协方差矩阵 $ $ 的逆矩阵 $ ^{-1} $ 是：</p>
+<p><span class="math display">\[ \Sigma^{-1} = \begin{bmatrix} 1.14285714 &amp; -0.28571429 \\ -0.28571429 &amp; 0.57142857 \end{bmatrix} \]</span></p>
+而观测向量 $ x =
+<span class="math display">\[\begin{bmatrix} 1 \\ 3 \end{bmatrix}\]</span>
+$ 与均值向量 $ =
+<span class="math display">\[\begin{bmatrix} 0 \\ 0 \end{bmatrix}\]</span>
+<p>$ 之间的广义距离是 4.57142857142857。</p>
+<p>所以，如果将 $ x $ 和 $ $ 代入广义距离公式： <span class="math display">\[ (x - \mu)&#39; \Sigma^{-1} (x - \mu) = \begin{bmatrix} 1 &amp; 3 \end{bmatrix} \begin{bmatrix} 1.14285714 &amp; -0.28571429 \\ -0.28571429 &amp; 0.57142857 \end{bmatrix} \begin{bmatrix} 1 \\ 3 \end{bmatrix} \]</span></p>
+<p>我们得到了一个数值，该数值反映了 $ x $ 在这个多维空间中的位置相对于 $ $ 的偏离程度，并且已经考虑了变量间的相关性。这个距离较大，可能意味着 $ x $ 是一个异常值。</p>
+<p>如何通过协方差矩阵的逆，来调整每个维度上的距离？</p>
+<p>协方差矩阵 $ $ 的逆 $ ^{-1} $ 在广义距离公式中起到调整各维度权重的作用。具体来说：</p>
+<ol type="1">
+<li><p><strong>方差的调整</strong>：在对角线上，协方差矩阵 $ $ 的逆 $ ^{-1} $ 中的元素是各个变量方差的倒数。方差大的变量在广义距离中的权重会减小，因为它们本身允许更大的变动。反之，方差小的变量权重会增大。</p></li>
+<li><p><strong>协方差的调整</strong>：在协方差矩阵 $ $ 的逆 $ ^{-1} $ 中，非对角线上的元素代表变量之间的协方差关系。正协方差表明两个变量同时增加或减少，而负协方差则相反。当我们使用 $ ^{-1} $ ，实际上是在调整每个维度上的距离，使其反映出这些变量之间的相关性。</p>
+<ol start="3" type="1">
+<li><strong>距离的调整</strong>：在计算广义距离时，观测向量 $ x $ 和均值向量 $ $ 之间的偏差 $ (x - ) $ 会乘以 $ ^{-1} $ 。这个乘法操作实际上是在重新缩放和旋转原始空间中的偏差，以考虑变量间的相关性。结果是，如果两个变量高度相关，它们共同的偏离会被认为不如单独在一个维度上的偏离那么异常。</li>
+</ol></li>
+</ol>
+<p>例如，如果两个变量 $ X_1 $ 和 $ X_2 $ 正相关，那么一个在 $ X_1 $ 上高而在 $ X_2 $ 上低的值可能会被视为异常，因为我们预期这两个变量会一起增加或减少。 $ ^{-1} $ 会调整这种偏离的权重，确保广义距离反映出了这种异常。</p>
+<p>这样， $ ^{-1} $ 不仅在数值上调整了各维度的重要性，还考虑到了它们之间的关系，这使得广义距离能够在多维空间中更准确地测量点与分布中心的偏离程度。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/08/61d9a5089dd3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/61d9a5089dd3/" class="post-title-link" itemprop="url">R语言List学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-06 18:58:30" itemprop="dateCreated datePublished" datetime="2023-08-06T18:58:30+12:00">2023-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-28 23:27:46" itemprop="dateModified" datetime="2024-06-28T23:27:46+12:00">2024-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>List 在 R语言中是一种非常重要的数据结构，因为它允许存储不同类型和大小的数据项。但是R语言中的 <code>list</code> 和其他很多编程语言中的 <code>list</code> 或 <code>array</code> 不完全相同。在R中，<code>list</code> 被设计为一个<strong>通用的容器</strong>，可以包含任何类型的对象，包括其他的 <code>list</code>。因此，它更接近其他编程语言中的<strong>结构或对象</strong>，但它仍然保持了序列的特点。</p>
+<p>上面的通用的容器指的是是 <code>list</code> 可以包含R中的任何类型的对象，不受限于某一种数据类型。它可以包括向量、矩阵、函数、其他 <code>list</code> 等，这使得 <code>list</code> 非常适合作为数据的组织和存储结构。而“序列”在这里的意思是，尽管 <code>list</code> 可以包含多种数据类型，但它仍然是一个有序的集合，即其中的元素是按照一定的顺序排列的。例如，当你创建一个 <code>list</code> 时，第一个元素是你添加的第一个元素，第二个是第二个，以此类推。因此，你可以通过索引号来访问 <code>list</code> 中的元素。</p>
+<h2 id="创建list">创建List</h2>
+<p>使用 <code>list()</code> 函数可以创建一个List。</p>
+<p>例如：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; my_list &lt;- <span class="built_in">list</span>(item1=<span class="number">1</span>, item2=<span class="string">&quot;hello&quot;</span>, item3=<span class="built_in">c</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">&gt; my_list</span><br><span class="line">$item1</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line"></span><br><span class="line">$item2</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;hello&quot;</span></span><br><span class="line"></span><br><span class="line">$item3</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>又或者是：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; listobj &lt;- <span class="built_in">list</span>(x = <span class="built_in">c</span>(<span class="number">3</span>, <span class="number">7</span>, <span class="number">2</span>),</span><br><span class="line">+                 A = diag(<span class="built_in">c</span>(<span class="number">9</span>, <span class="number">2</span>, <span class="number">1</span>)))</span><br><span class="line">&gt; print(listobj)</span><br><span class="line">$x</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">7</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">$A</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">9</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="访问-list-中的子集">访问 List 中的子集</h2>
+<p>在R语言中，访问List中的元素或子集有点与其他编程语言中的操作不同。尽管多数语言使用<code>[]</code>来访问数组或列表的元素，但在R中，由于List可以包含不同类型的元素，因此提供了两种方法来访问这些元素：<code>[]</code> 和<code>[[]]</code> 。</p>
+<p>考虑以下的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; listobj &lt;- <span class="built_in">list</span>(x = <span class="built_in">c</span>(<span class="number">3</span>, <span class="number">7</span>, <span class="number">2</span>),</span><br><span class="line">+                 A = diag(<span class="built_in">c</span>(<span class="number">9</span>, <span class="number">2</span>, <span class="number">1</span>)))</span><br><span class="line">&gt; listobj</span><br><span class="line">$x</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">7</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">$A</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">9</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>要取出 <code>listobj</code> 的第二个元素并保持其在列表中，我们可以使用<code>[]</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; (x1 &lt;- listobj[<span class="number">2</span>])</span><br><span class="line">$A</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">9</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>注意，使用 <code>[]</code> 得到的结果是一个列表，其中包含原始列表的第二个元素。如果想要直接访问并提取出这个元素，而不是得到一个子列表，可以使用 <code>[[]]</code> 。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; (x2 &lt;- listobj[[<span class="number">2</span>]])</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">9</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>可以用 <code>class()</code> 来看看类型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">class</span>(x1)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;list&quot;</span></span><br><span class="line">&gt; <span class="built_in">class</span>(x2)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;matrix&quot;</span> <span class="string">&quot;array&quot;</span> </span><br></pre></td></tr></table></figure>
+<p>可以通过 <code>[[...]]</code> 或 <code>$</code> 来访问 List 中的元素。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; my_list &lt;- <span class="built_in">list</span>(item1=<span class="number">1</span>, item2=<span class="string">&quot;hello&quot;</span>, item3=<span class="built_in">c</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">&gt; my_list[[<span class="number">1</span>]]     <span class="comment"># 返回 1</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line">&gt; my_list$item2    <span class="comment"># 返回 &quot;hello&quot;</span></span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;hello&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这里补充一下，对于 data.frame 来说，也可以使用 <code>[]</code> 或 <code>[[]]</code> 。</p>
+<p>见例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; dfr &lt;- data.frame(x = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>),</span><br><span class="line">+                   y = <span class="built_in">c</span>(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>),</span><br><span class="line">+                   z = factor(<span class="built_in">c</span>(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>)))</span><br><span class="line">&gt; dfr[<span class="number">2</span>]</span><br><span class="line">      y</span><br><span class="line">1  <span class="literal">TRUE</span></span><br><span class="line">2 <span class="literal">FALSE</span></span><br><span class="line">3 <span class="literal">FALSE</span></span><br><span class="line">4  <span class="literal">TRUE</span></span><br><span class="line">&gt; dfr[[<span class="number">2</span>]]</span><br><span class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></span><br></pre></td></tr></table></figure>
+<p>我们还可以通过为每个维度提供索引向量来提取列和行。那么当 drop=FALSE 时，得到的对象是一个向量，类似于从矩阵中提取行和列。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; dfr[,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>]  <span class="literal">TRUE</span> <span class="literal">FALSE</span> <span class="literal">FALSE</span>  <span class="literal">TRUE</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/08/197d59b49329/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/197d59b49329/" class="post-title-link" itemprop="url">R语言矩阵学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-06 18:58:00" itemprop="dateCreated datePublished" datetime="2023-08-06T18:58:00+12:00">2023-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:54:24" itemprop="dateModified" datetime="2024-07-06T00:54:24+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>R语言中使用矩阵（matrix）</p>
+<h2 id="创建矩阵">创建矩阵</h2>
+<p>可以使用 <code>matrix()</code> 函数来创建一个矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个3x3矩阵</span></span><br><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">9</span>, nrow = <span class="number">3</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2] [,3]</span><br><span class="line">[1,]    1    4    7</span><br><span class="line">[2,]    2    5    8</span><br><span class="line">[3,]    3    6    9</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵的维度和结构">矩阵的维度和结构</h2>
+<ul>
+<li><code>nrow(mat)</code> 和 <code>ncol(mat)</code> 分别获取矩阵的行数和列数。</li>
+<li><code>dim(mat)</code> 获取矩阵的维度。</li>
+<li><code>str(mat)</code> 查看矩阵的结构。</li>
+</ul>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2]</span><br><span class="line">[1,]    1    4</span><br><span class="line">[2,]    2    5</span><br><span class="line">[3,]    3    6</span><br></pre></td></tr></table></figure>
+<p>查看这个矩阵的维度：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dim</span>(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1] 3 2</span><br></pre></td></tr></table></figure>
+<p>查看矩阵的结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int [1:3, 1:2] 1 2 3 4 5 6</span><br></pre></td></tr></table></figure>
+<h2 id="访问矩阵的元素">访问矩阵的元素</h2>
+<p>获取第二行第一列的元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">&gt; mat</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[2, 1]</span><br><span class="line">[1] 2</span><br></pre></td></tr></table></figure>
+<p>注意这里的第一行不像是其他编程语言从0开始。</p>
+<p>还可以选择某一行的所有元素（默认情况下，会将这些看作一个向量）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[<span class="number">3</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span></span><br><span class="line">&gt; mat[<span class="number">2</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>或者是选择某一列的所有元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[,<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">&gt; mat[,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>或者是选择除了某一行的所有元素，例如下面就是选择除了第一行的所有元素，返回的是一个矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[-<span class="number">1</span>,]</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>上面的选择元素，都是将某一行或者某一列所有的元素，看成一个向量，而不是一个矩阵。通过 <code>dim()</code> 可以查看到维度不存在（NULL），这说明 <code>x</code> 是一个向量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; A &lt;- matrix(1:6, nrow&#x3D;3)</span><br><span class="line">&gt; A[,2]</span><br><span class="line">[1] 4 5 6</span><br><span class="line">&gt; x &lt;- A[,2]</span><br><span class="line">&gt; dim(x)</span><br><span class="line">NULL</span><br></pre></td></tr></table></figure>
+<h2 id="保持矩阵结构">保持矩阵结构</h2>
+<p>先来看一个例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; A &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow=<span class="number">3</span>)</span><br><span class="line">&gt; x2 &lt;- A[, <span class="number">2</span>]</span><br><span class="line">&gt; x2</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">&gt; <span class="built_in">dim</span>(x2)</span><br><span class="line"><span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<p>上面的 <code>x2</code> 不是一个矩阵。</p>
+<p>如果我们希望保留矩阵的结构，则需要用 <code>drop</code> ：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; x2 &lt;- A[, <span class="number">2</span>, drop=<span class="literal">FALSE</span>]</span><br><span class="line">&gt; <span class="built_in">dim</span>(x2)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>使用了 <code>drop=FALSE</code> 之后，<code>x2</code> 仍然是一个矩阵。</p>
+<h2 id="矩阵的运算">矩阵的运算</h2>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat1 &lt;- matrix(<span class="number">1</span>:<span class="number">4</span>, nrow = <span class="number">2</span>)</span><br><span class="line">mat2 &lt;- matrix(<span class="number">5</span>:<span class="number">8</span>, nrow = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>先打印出来矩阵</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(mat1)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line"></span><br><span class="line">&gt; print(mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">5</span>    <span class="number">7</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">6</span>    <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩阵相加</span></span><br><span class="line">&gt; print(mat1 + mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">6</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">8</span>   <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩阵乘法（内积）</span></span><br><span class="line">&gt; print(mat1 %*% mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   <span class="number">23</span>   <span class="number">31</span></span><br><span class="line">[<span class="number">2</span>,]   <span class="number">34</span>   <span class="number">46</span></span><br></pre></td></tr></table></figure>
+<h2 id="应用在矩阵上的函数">应用在矩阵上的函数</h2>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2]</span><br><span class="line">[1,]    1    4</span><br><span class="line">[2,]    2    5</span><br><span class="line">[3,]    3    6</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算每列的总和</span></span><br><span class="line">&gt; colSums(mat)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">6</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算每行的平均值</span></span><br><span class="line">&gt; rowMeans(mat)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2.5</span> <span class="number">3.5</span> <span class="number">4.5</span></span><br></pre></td></tr></table></figure>
+<p>此外还有一些常用的</p>
+<h3 id="diag">diag()</h3>
+<p><code>diag()</code> 函数在处理矩阵时有两个主要用途：</p>
+<ul>
+<li>当它的参数是一个矩阵时，它会返回矩阵的对角线元素组成的向量。</li>
+<li>当它的参数是一个数值或向量时，它会返回一个以该数值或向量为对角线的对角矩阵。</li>
+</ul>
+<p>举一个参数为矩阵的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="number">1</span>:<span class="number">9</span>, nrow=<span class="number">3</span>)</span><br><span class="line">&gt; diag(B)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">5</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>参数为数值：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; diag(<span class="number">5</span>)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>] [,<span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>参数为向量的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- <span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">&gt; diag(B)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">3</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="det">det()</h3>
+<p><code>det()</code> 函数计算给定矩阵的行列式。</p>
+<p>行列式是一个可以从方阵（即行数和列数相同的矩阵）中得到的数值，它在线性代数中具有多种重要的应用，如判断矩阵是否可逆、求解线性方程组等。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; B</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; det(B)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="solve">solve()</h3>
+<p>此函数可求解 <code>x</code> 的方程 <code>a %*% x = b</code>，其中 <code>b</code> 可以是向量或矩阵。换言之，就是求逆矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; solve(B)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   -<span class="number">2</span>  <span class="number">1.5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span> -<span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="dim">dim()</h3>
+<p>用于获取或设置指定矩阵、数组或 DataFrame 的维数。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; <span class="built_in">dim</span>(B)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="绑定矩阵">绑定矩阵</h2>
+<p>还是用上面的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mat1 &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>)</span><br><span class="line">mat2 &lt;- matrix(<span class="number">6</span>:<span class="number">11</span>, nrow = <span class="number">3</span>)</span><br><span class="line">&gt; print(mat1)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line">&gt; print(mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将两个矩阵按行绑定</span></span><br><span class="line">&gt; rbind(mat1, mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">6</span>,]    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将两个矩阵按列绑定</span></span><br><span class="line">&gt; cbind(mat1, mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span>    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span>    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span>    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h2 id="转置矩阵">转置矩阵</h2>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">&gt; print(mat)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>t()</code> 函数来转置矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; t(mat)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/08/28cc012fe1f4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/28cc012fe1f4/" class="post-title-link" itemprop="url">R语言的向量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-06 18:56:00" itemprop="dateCreated datePublished" datetime="2023-08-06T18:56:00+12:00">2023-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-25 11:17:58" itemprop="dateModified" datetime="2024-06-25T11:17:58+12:00">2024-06-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最简单的访问元素的方法是使用 <code>[]</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">2.1</span>, <span class="number">1.5</span>, <span class="number">6.7</span>, <span class="number">3.8</span>, <span class="number">4.2</span>)</span><br><span class="line">&gt; x[<span class="number">3</span>]  </span><br><span class="line">[<span class="number">1</span>] <span class="number">6.7</span></span><br></pre></td></tr></table></figure>
+<p>比如上面的代码，访问的是第三个元素。</p>
+<p>同样使用上面的 <code>x</code>，可以使用下面的代码单独将第三个和第五个元素单独拿出来。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; x[<span class="built_in">c</span>(<span class="number">3</span>, <span class="number">5</span>)] </span><br><span class="line">[<span class="number">1</span>] <span class="number">6.7</span> <span class="number">4.2</span></span><br></pre></td></tr></table></figure>
+<p>也可以用逻辑组成的向量，</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; x[<span class="built_in">c</span>(<span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>)]</span><br><span class="line">[<span class="number">1</span>] <span class="number">6.7</span> <span class="number">4.2</span></span><br></pre></td></tr></table></figure>
+<p>可以通过使用负数来“反选”，<code>-1</code> 就是不选择第一个元素，所以下面的代码不会选择第 1、2、4个元素。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; x[<span class="built_in">c</span>(-<span class="number">1</span>, -<span class="number">2</span>, -<span class="number">4</span>)] </span><br><span class="line">[<span class="number">1</span>] <span class="number">6.7</span> <span class="number">4.2</span></span><br></pre></td></tr></table></figure>
+<p>还有一种访问向量中元素的方式：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">7</span>)</span><br><span class="line">&gt; print(x)</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">7</span> <span class="number">2</span> <span class="number">9</span> <span class="number">7</span></span><br><span class="line">&gt; x[<span class="built_in">c</span>(<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>)]</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">7</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<p><code>x[c(3,5,1)]</code> 会按顺序访问 <code>x</code> 中的第三、五、一个元素。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; x &lt;- <span class="built_in">c</span>(a=<span class="number">1</span>,b=<span class="number">2</span>,<span class="built_in">c</span>=<span class="number">3</span>)</span><br><span class="line">&gt; x[x&lt;=<span class="number">2</span>]</span><br><span class="line">a b </span><br><span class="line">1 <span class="number">2</span> </span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/08/005cecf347d6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/08/005cecf347d6/" class="post-title-link" itemprop="url">R语言 data.frames 学习笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-08-06 18:55:00 / 修改时间：19:02:45" itemprop="dateCreated datePublished" datetime="2023-08-06T18:55:00+12:00">2023-08-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>R语言的矩阵只能包含数值类或逻辑类元素；相反，我们可能对一个对象感兴趣，该对象在其列中有多种类型的变量。具有不同类的多个向量可以组合成类 data.frame 的对象。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; dfr &lt;- data.frame(x = <span class="built_in">c</span>(<span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>),</span><br><span class="line">+                   y = <span class="built_in">c</span>(<span class="literal">TRUE</span>, <span class="literal">FALSE</span>, <span class="literal">FALSE</span>, <span class="literal">TRUE</span>),</span><br><span class="line">+                   z = factor(<span class="built_in">c</span>(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>)))</span><br><span class="line">&gt; print(dfr)</span><br><span class="line">  x     y z</span><br><span class="line">1 <span class="number">5</span>  <span class="literal">TRUE</span> A</span><br><span class="line">2 <span class="number">2</span> <span class="literal">FALSE</span> B</span><br><span class="line">3 <span class="number">7</span> <span class="literal">FALSE</span> A</span><br><span class="line">4 <span class="number">4</span>  <span class="literal">TRUE</span> B</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/06/59602490191d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/59602490191d/" class="post-title-link" itemprop="url">GPT-4教你设计模式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-12 22:03:11" itemprop="dateCreated datePublished" datetime="2023-06-12T22:03:11+12:00">2023-06-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-29 00:21:50" itemprop="dateModified" datetime="2024-06-29T00:21:50+12:00">2024-06-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol type="1">
+<li><p><strong>Model View Controller (MVC)</strong></p>
+<p>在MVC模式中，我们将应用程序分解为三个组件：模型（Model）、视图（View）和控制器（Controller）。</p>
+<ul>
+<li><strong>模型</strong>（Model）是数据和业务逻辑的承载者，例如用户的信息或者是一些计算方法。</li>
+<li><strong>视图</strong>（View）是用户界面，即用户看到并与之交互的部分，例如网页或者是手机应用的界面。</li>
+<li><strong>控制器</strong>（Controller）是模型和视图之间的桥梁，它处理用户的输入，然后更新模型，并反馈到视图中去。</li>
+</ul>
+<p>想象一下你在网上订购披萨。<strong>模型</strong>是披萨店（制作披萨的地方），<strong>视图</strong>是菜单（你看到的披萨选择），而<strong>控制器</strong>就像是接待员，他接受你的订单，告诉厨房要做什么，然后把做好的披萨交给你。</p></li>
+<li><p><strong>Model View Adapter (MVA)</strong></p>
+<p>MVA模式是MVC的一种变体，主要区别在于MVA通过适配器（Adapter）来连接模型和视图，而不是通过控制器。</p>
+<ul>
+<li><strong>模型</strong>（Model）与MVC中的含义相同，它包含了数据和业务逻辑。</li>
+<li><strong>视图</strong>（View）也是用户界面，用户可以通过视图与应用程序交互。</li>
+<li><strong>适配器</strong>（Adapter）的角色就像是一个翻译员，它可以理解模型和视图的语言，把模型的变化通知给视图，同时也能把视图的请求传达给模型。</li>
+</ul>
+<p>还是用披萨店的例子，这次<strong>适配器</strong>就像是一个会说多种语言的接待员，他可以理解你的语言，也可以理解厨房的语言，他可以把你的订单转化成厨房能理解的指令，同时也能把厨房的更新传达给你。</p></li>
+<li><p><strong>Model View Presenter (MVP)</strong></p>
+<p>MVP模式是另一种软件架构模式，它和MVC很相似，但主要区别在于，在MVP中，Presenter取代了Controller，并且承担了更多的责任。</p>
+<ul>
+<li><strong>模型</strong>（Model）与MVC中的含义相同，它包含了数据和业务逻辑。</li>
+<li><strong>视图</strong>（View）也是用户界面，但在MVP中，视图更加被动，它只负责展示由Presenter提供的数据，不处理任何业务逻辑。</li>
+<li><strong>Presenter</strong>是视图和模型之</li>
+</ul></li>
+</ol>
+<p>间的连接者，它处理所有的业务逻辑，接收视图的用户输入，处理并更新模型，然后再更新视图。</p>
+<p>在披萨店的例子中，<strong>Presenter</strong>就像是接待员，不仅接受你的订单，而且他还要亲自去厨房做披萨，然后再把做好的披萨展示给你。</p>
+<ol start="4" type="1">
+<li><p><strong>Model View ViewModel (MVVM)</strong></p>
+<p>MVVM是一种专为现代用户界面设计的模式，它主要被用在微软的WPF和Silverlight技术中，也被用在了Google的Android开发中。</p>
+<ul>
+<li><strong>模型</strong>（Model）与MVC中的含义相同，它包含了数据和业务逻辑。</li>
+<li><strong>视图</strong>（View）是用户界面，它可以与用户进行交互。</li>
+<li><strong>视图模型</strong>（ViewModel）是视图的抽象，它包含了视图需要的所有信息，视图的所有请求都会被转发给视图模型。</li>
+</ul>
+<p>还是用披萨店的例子，<strong>视图模型</strong>就像是一个接待员，他不仅知道菜单上所有的披萨，而且还知道你的喜好和需求，当你点餐时，他可以提供定制的建议，然后把你的需求转化为厨房能理解的指令。</p></li>
+</ol>
+<p>总的来说，这些模式的目的都是为了将业务逻辑、数据和用户界面分离，使得代码更容易理解和维护。每种模式都有其优缺点，适用于不同的情况和需求。</p>
+<p>这些设计模式通常被应用在用户界面的设计和开发中，下面是他们各自的应用场景：</p>
+<ol type="1">
+<li><p><strong>Model View Controller (MVC)</strong></p>
+<p>MVC是最常见的设计模式之一，广泛应用于各种不同的领域和技术栈中。它被用于web应用、桌面应用、移动应用等各种环境中。</p>
+<ul>
+<li>在web开发中，许多流行的框架，如Ruby on Rails，Django，Spring MVC，都采用了MVC模式。</li>
+<li>在iOS开发中，Apple官方推荐的设计模式就是MVC。</li>
+<li>在桌面应用开发中，如Java的Swing库，也使用了MVC模式。</li>
+</ul></li>
+<li><p><strong>Model View Adapter (MVA)</strong></p>
+<p>MVA是一种较少见的设计模式，其主要应用于需要将界面和数据/业务逻辑更彻底地解耦的场合。例如，在某些需要满足特定接口或协议的应用中，或者在需要通过适配器与多个不同的数据源进行交互的应用中，可能会选择使用MVA模式。</p></li>
+<li><p><strong>Model View Presenter (MVP)</strong></p>
+<p>MVP模式在Android开发中被广泛使用，因为它可以帮助开发者更好地管理和测试代码。在Android中，视图通常对应于Activity或Fragment，Presenter则包含了业务逻辑和数据处理的代码。由于Presenter不直接依赖Android的API，因此它的代码更容易进行单元测试。</p>
+<p>另外，一些基于web的应用，如使用GWT（Google Web Toolkit）开发的应用，也会选择使用MVP模式。</p></li>
+<li><p><strong>Model View ViewModel (MVVM)</strong></p>
+<p>MVVM模式主要用于Microsoft的WPF（Windows Presentation Foundation）和Silverlight技术，以及Google的Android开发中。这种模式允许开发者使用数据绑定技术，将视图和视图模型进行双向连接，从而简化了代码，并且提高了代码的可维护性。</p>
+<p>在WPF和Silverlight中，MVVM是官方推荐的设计模式。在Android中，Google也提供了Data Binding和LiveData等库，来帮助开发者实现MVVM模式。</p></li>
+</ol>
+<p>总的来说，这些模式的应用场景取决于具体的需求和技术栈。选择哪种模式，需要考虑项目的具体需求，技术栈，团队的经验等因素。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/page/2/index.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/page/2/index.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

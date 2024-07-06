@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Notes on TGI Index (Target Group Index) Introduction The Target Group Index (TGI) is a market research tool used to analyze the characteristics, behaviors, and media usage habits of specific target gr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TGI Index (Target Group Index)">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2024/07/2a367389e6e6/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="Notes on TGI Index (Target Group Index) Introduction The Target Group Index (TGI) is a market research tool used to analyze the characteristics, behaviors, and media usage habits of specific target gr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-06T01:21:39.000Z">
+<meta property="article:modified_time" content="2024-07-06T03:02:12.674Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="TGI">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2024/07/2a367389e6e6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>TGI Index (Target Group Index) | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/2a367389e6e6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TGI Index (Target Group Index)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-06 13:21:39 / 修改时间：15:02:12" itemprop="dateCreated datePublished" datetime="2024-07-06T13:21:39+12:00">2024-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-analysis/" itemprop="url" rel="index"><span itemprop="name">Data analysis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="notes-on-tgi-index-target-group-index">Notes on TGI Index (Target Group Index)</h3>
+<h4 id="introduction">Introduction</h4>
+<p>The Target Group Index (TGI) is a market research tool used to analyze the characteristics, behaviors, and media usage habits of specific target groups. Below are the key points about the TGI Index:</p>
+<ol type="1">
+<li><strong>Data Collection</strong>:
+<ul>
+<li>TGI Index is based on large-scale consumer surveys. These surveys cover various demographic information, consumer attitudes, lifestyles, purchasing behaviors, and media usage.</li>
+</ul></li>
+<li><strong>Target Group Analysis</strong>:
+<ul>
+<li>TGI helps businesses and advertising agencies identify and analyze their target groups. Through detailed data analysis, companies can understand the preferences, habits, and needs of their target audience, leading to more effective marketing strategies.</li>
+</ul></li>
+<li><strong>Media Planning</strong>:
+<ul>
+<li>TGI Index is widely used in media planning and buying. It helps advertisers understand which media their target groups use, how frequently they use them, and their level of engagement across different media, optimizing ad placements.</li>
+</ul></li>
+<li><strong>Market Segmentation</strong>:
+<ul>
+<li>Using TGI, the market can be segmented into different sub-markets, each with unique characteristics and needs. Businesses can tailor marketing strategies to these specific segments.</li>
+</ul></li>
+<li><strong>Competitive Analysis</strong>:
+<ul>
+<li>TGI can be used for competitive analysis to understand the target groups of competitors and their market strategies, providing a competitive edge.</li>
+</ul></li>
+<li><strong>Application Areas</strong>:
+<ul>
+<li>The TGI Index is applied in advertising, market research, brand management, product development, and more, helping businesses understand market dynamics and consumer behaviors better.</li>
+</ul></li>
+</ol>
+<p>By leveraging the TGI Index, companies can more precisely target their audience, improving marketing effectiveness and efficiency.</p>
+<h4 id="tgi-formula">TGI Formula</h4>
+<p>The TGI Index measures the relative concentration of a specific behavior or characteristic within a target group. The formula is as follows:</p>
+<p><span class="math display">\[\text{TGI Index} = \left( \frac{\text{Percentage of behavior in target group}}{\text{Percentage of behavior in total population}} \right) \times 100\]</span></p>
+<p>This formula can be broken down into the following steps:</p>
+<ol type="1">
+<li><strong>Determine the Percentage of Behavior in the Target Group</strong>:
+<ul>
+<li>Calculate the percentage of individuals within the specific target group who engage in a certain behavior or possess a certain characteristic. For example, if 30% of young adults aged 18-24 prefer a particular brand of drink, this percentage is 30%.</li>
+</ul></li>
+<li><strong>Determine the Percentage of Behavior in the Total Population</strong>:
+<ul>
+<li>Calculate the percentage of individuals in the entire survey sample or total population who engage in the same behavior or possess the same characteristic. For example, if 10% of the total population prefer the same brand of drink, this percentage is 10%.</li>
+</ul></li>
+<li><strong>Calculate the TGI Index</strong>:
+<ul>
+<li>Using the formula, divide the target group's percentage by the total population's percentage and multiply by 100. For example: <span class="math display">\[\text{TGI Index} = \left( \frac{30\%}{10\%} \right) \times 100 = 300\]</span></li>
+</ul></li>
+</ol>
+<h4 id="interpretation">Interpretation</h4>
+<ul>
+<li><strong>TGI Index greater than 100</strong>: Indicates the target group has a higher preference or concentration for a particular behavior or characteristic compared to the general population. The higher the index, the greater the concentration.</li>
+<li><strong>TGI Index equal to 100</strong>: Indicates the target group’s preference or behavior concentration matches that of the general population.</li>
+<li><strong>TGI Index less than 100</strong>: Indicates the target group has a lower preference or concentration for a particular behavior or characteristic compared to the general population.</li>
+</ul>
+<h4 id="example">Example</h4>
+<p>Suppose we want to analyze the preference of young adults aged 18-24 for a particular brand of drink:</p>
+<ul>
+<li>In the target group (18-24 years old), 40% like this brand.</li>
+<li>In the total population, 20% like this brand.</li>
+</ul>
+<p>The TGI Index calculation is as follows:</p>
+<p><span class="math display">\[\text{TGI Index} = \left( \frac{40\%}{20\%} \right) \times 100 = 200\]</span></p>
+<p>This indicates that young adults aged 18-24 have twice the preference for this brand of drink compared to the general population.</p>
+<p>The TGI Index provides a concise metric for marketers to identify and understand the characteristics and behaviors of their target groups, thereby optimizing market strategies and advertising placements.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TGI/" rel="tag"># TGI</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/07/60af5602c731/" rel="prev" title="新西兰的上市条件有哪些">
+      <i class="fa fa-chevron-left"></i> 新西兰的上市条件有哪些
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#notes-on-tgi-index-target-group-index"><span class="nav-number">1.</span> <span class="nav-text">Notes on TGI Index (Target Group Index)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tgi-formula"><span class="nav-number">1.2.</span> <span class="nav-text">TGI Formula</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interpretation"><span class="nav-number">1.3.</span> <span class="nav-text">Interpretation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#example"><span class="nav-number">1.4.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2024/07/2a367389e6e6/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2024/07/2a367389e6e6/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

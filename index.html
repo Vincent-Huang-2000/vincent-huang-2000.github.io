@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="A student studying in New Zealand, majoring in computer science.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vincent&#39;s Blog">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="A student studying in New Zealand, majoring in computer science.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="统计, 机器学习, 大数据">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/2a367389e6e6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/2a367389e6e6/" class="post-title-link" itemprop="url">TGI Index (Target Group Index)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-06 13:21:39 / 修改时间：15:02:12" itemprop="dateCreated datePublished" datetime="2024-07-06T13:21:39+12:00">2024-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-analysis/" itemprop="url" rel="index"><span itemprop="name">Data analysis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="notes-on-tgi-index-target-group-index">Notes on TGI Index (Target Group Index)</h3>
+<h4 id="introduction">Introduction</h4>
+<p>The Target Group Index (TGI) is a market research tool used to analyze the characteristics, behaviors, and media usage habits of specific target groups. Below are the key points about the TGI Index:</p>
+<ol type="1">
+<li><strong>Data Collection</strong>:
+<ul>
+<li>TGI Index is based on large-scale consumer surveys. These surveys cover various demographic information, consumer attitudes, lifestyles, purchasing behaviors, and media usage.</li>
+</ul></li>
+<li><strong>Target Group Analysis</strong>:
+<ul>
+<li>TGI helps businesses and advertising agencies identify and analyze their target groups. Through detailed data analysis, companies can understand the preferences, habits, and needs of their target audience, leading to more effective marketing strategies.</li>
+</ul></li>
+<li><strong>Media Planning</strong>:
+<ul>
+<li>TGI Index is widely used in media planning and buying. It helps advertisers understand which media their target groups use, how frequently they use them, and their level of engagement across different media, optimizing ad placements.</li>
+</ul></li>
+<li><strong>Market Segmentation</strong>:
+<ul>
+<li>Using TGI, the market can be segmented into different sub-markets, each with unique characteristics and needs. Businesses can tailor marketing strategies to these specific segments.</li>
+</ul></li>
+<li><strong>Competitive Analysis</strong>:
+<ul>
+<li>TGI can be used for competitive analysis to understand the target groups of competitors and their market strategies, providing a competitive edge.</li>
+</ul></li>
+<li><strong>Application Areas</strong>:
+<ul>
+<li>The TGI Index is applied in advertising, market research, brand management, product development, and more, helping businesses understand market dynamics and consumer behaviors better.</li>
+</ul></li>
+</ol>
+<p>By leveraging the TGI Index, companies can more precisely target their audience, improving marketing effectiveness and efficiency.</p>
+<h4 id="tgi-formula">TGI Formula</h4>
+<p>The TGI Index measures the relative concentration of a specific behavior or characteristic within a target group. The formula is as follows:</p>
+<p><span class="math display">\[\text{TGI Index} = \left( \frac{\text{Percentage of behavior in target group}}{\text{Percentage of behavior in total population}} \right) \times 100\]</span></p>
+<p>This formula can be broken down into the following steps:</p>
+<ol type="1">
+<li><strong>Determine the Percentage of Behavior in the Target Group</strong>:
+<ul>
+<li>Calculate the percentage of individuals within the specific target group who engage in a certain behavior or possess a certain characteristic. For example, if 30% of young adults aged 18-24 prefer a particular brand of drink, this percentage is 30%.</li>
+</ul></li>
+<li><strong>Determine the Percentage of Behavior in the Total Population</strong>:
+<ul>
+<li>Calculate the percentage of individuals in the entire survey sample or total population who engage in the same behavior or possess the same characteristic. For example, if 10% of the total population prefer the same brand of drink, this percentage is 10%.</li>
+</ul></li>
+<li><strong>Calculate the TGI Index</strong>:
+<ul>
+<li>Using the formula, divide the target group's percentage by the total population's percentage and multiply by 100. For example: <span class="math display">\[\text{TGI Index} = \left( \frac{30\%}{10\%} \right) \times 100 = 300\]</span></li>
+</ul></li>
+</ol>
+<h4 id="interpretation">Interpretation</h4>
+<ul>
+<li><strong>TGI Index greater than 100</strong>: Indicates the target group has a higher preference or concentration for a particular behavior or characteristic compared to the general population. The higher the index, the greater the concentration.</li>
+<li><strong>TGI Index equal to 100</strong>: Indicates the target group’s preference or behavior concentration matches that of the general population.</li>
+<li><strong>TGI Index less than 100</strong>: Indicates the target group has a lower preference or concentration for a particular behavior or characteristic compared to the general population.</li>
+</ul>
+<h4 id="example">Example</h4>
+<p>Suppose we want to analyze the preference of young adults aged 18-24 for a particular brand of drink:</p>
+<ul>
+<li>In the target group (18-24 years old), 40% like this brand.</li>
+<li>In the total population, 20% like this brand.</li>
+</ul>
+<p>The TGI Index calculation is as follows:</p>
+<p><span class="math display">\[\text{TGI Index} = \left( \frac{40\%}{20\%} \right) \times 100 = 200\]</span></p>
+<p>This indicates that young adults aged 18-24 have twice the preference for this brand of drink compared to the general population.</p>
+<p>The TGI Index provides a concise metric for marketers to identify and understand the characteristics and behaviors of their target groups, thereby optimizing market strategies and advertising placements.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/60af5602c731/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/60af5602c731/" class="post-title-link" itemprop="url">新西兰的上市条件有哪些</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-06 00:48:52 / 修改时间：00:50:18" itemprop="dateCreated datePublished" datetime="2024-07-06T00:48:52+12:00">2024-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%91%E8%9E%8D/" itemprop="url" rel="index"><span itemprop="name">金融</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>新西兰证券交易所（NZX）对上市公司的要求是为了确保市场的公平性、透明性和投资者的保护。以下是一些关键的上市条件：</p>
+<h3 id="财务要求">1. <strong>财务要求</strong></h3>
+<ul>
+<li><strong>盈利历史</strong>：公司通常需要有至少三年的盈利历史。具体的盈利要求可以根据不同板块（如主板或中小企业板）有所不同。</li>
+<li><strong>财务状况</strong>：公司需要有健康的财务状况和足够的营运资金以支持上市后的持续运营。</li>
+</ul>
+<h3 id="公司规模">2. <strong>公司规模</strong></h3>
+<ul>
+<li><strong>市值要求</strong>：公司需要达到一定的市值要求。通常，主板上市公司的最低市值要求为5000万新西兰元。</li>
+<li><strong>公众持股比例</strong>：公司需要有足够的公众持股量（通常至少25%的股份应由公众持有）。</li>
+</ul>
+<h3 id="公司治理">3. <strong>公司治理</strong></h3>
+<ul>
+<li><strong>董事会构成</strong>：公司需要有合适的董事会，包括至少两名独立董事。</li>
+<li><strong>公司治理结构</strong>：符合NZX公司治理准则，包括透明的管理结构、有效的内部控制和独立的审计委员会。</li>
+</ul>
+<h3 id="法律和合规">4. <strong>法律和合规</strong></h3>
+<ul>
+<li><strong>公司设立</strong>：公司必须合法成立，并符合新西兰相关公司法的要求。</li>
+<li><strong>信息披露</strong>：公司需要充分披露其业务运作、财务状况、风险因素和管理团队等信息。</li>
+<li><strong>持续披露义务</strong>：上市后，公司需要持续遵守信息披露义务，及时向市场报告重大事件和变化。</li>
+</ul>
+<h3 id="尽职调查">5. <strong>尽职调查</strong></h3>
+<ul>
+<li><strong>审计要求</strong>：公司需要提供经过独立审计的财务报表。通常，要求最近三年的审计报告。</li>
+<li><strong>法律和财务尽职调查</strong>：需要进行全面的法律和财务尽职调查，确保公司符合上市要求，并且没有重大法律纠纷或财务问题。</li>
+</ul>
+<h3 id="招股说明书">6. <strong>招股说明书</strong></h3>
+<ul>
+<li><strong>招股说明书</strong>：公司需要准备并发布详细的招股说明书，内容包括公司概况、财务信息、业务描述、风险因素等，以供潜在投资者参考。</li>
+</ul>
+<h3 id="其他要求">7. <strong>其他要求</strong></h3>
+<ul>
+<li><strong>上市协议</strong>：公司需要与NZX签订上市协议，明确双方的权利和义务。</li>
+<li><strong>市场推广</strong>：通常，公司会进行一系列市场推广活动（如路演）以吸引投资者。</li>
+</ul>
+<h3 id="具体步骤">具体步骤</h3>
+<ol type="1">
+<li><strong>前期准备</strong>：包括内部治理结构调整、财务审计、法律尽职调查等。</li>
+<li><strong>申请提交</strong>：向NZX提交上市申请和相关文件。</li>
+<li><strong>审核过程</strong>：NZX对申请进行审核，可能需要公司提供补充信息或做出调整。</li>
+<li><strong>批准与发行</strong>：NZX批准上市申请后，公司进行IPO并向公众发行股票。</li>
+<li><strong>正式上市</strong>：股票在NZX挂牌交易，成为公开交易公司。</li>
+</ol>
+<p>这些条件和步骤是为了确保上市公司的质量，保护投资者利益，维持市场的健康运作。</p>
+<blockquote>
+<p>内容由 ChatGPT 4o 生成。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/341fe6329512/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/341fe6329512/" class="post-title-link" itemprop="url">新西兰的股票市场</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-06 00:44:25 / 修改时间：00:47:08" itemprop="dateCreated datePublished" datetime="2024-07-06T00:44:25+12:00">2024-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%87%91%E8%9E%8D/" itemprop="url" rel="index"><span itemprop="name">金融</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>新西兰的股票市场主要由新西兰证券交易所（New Zealand Stock Exchange，简称NZX）组成。NZX是新西兰的主要证券交易所，提供股票、债券和衍生品等多种金融产品的交易。以下是关于新西兰股票市场的一些关键点：</p>
+<h3 id="nzx概况">1. <strong>NZX概况</strong></h3>
+<ul>
+<li><strong>成立时间</strong>：NZX的历史可以追溯到1872年，但作为一个现代的证券交易所，它是在2003年由新西兰证券委员会（New Zealand Stock Exchange）重组而成。</li>
+<li><strong>位置</strong>：总部位于惠灵顿（Wellington），新西兰的首都。</li>
+</ul>
+<h3 id="主要指数">2. <strong>主要指数</strong></h3>
+<ul>
+<li><strong>NZX 50指数</strong>：这是新西兰最重要的股市指数，由市值最大的50家公司组成，类似于美国的标普500指数（S&amp;P 500）。</li>
+</ul>
+<h3 id="交易时间">3. <strong>交易时间</strong></h3>
+<ul>
+<li><strong>交易时段</strong>：通常为周一至周五，上午10:00到下午4:45（新西兰标准时间）。</li>
+<li><strong>时区差异</strong>：由于新西兰位于南半球，其交易时间与北半球主要市场（如美国、欧洲）有显著的时差。</li>
+</ul>
+<h3 id="主要上市公司">4. <strong>主要上市公司</strong></h3>
+<p>NZX上有许多知名的本地公司和一些国际公司。以下是一些主要上市公司：</p>
+<ul>
+<li><strong>Fletcher Building Limited</strong>：新西兰最大的一家建筑和建筑材料公司。</li>
+<li><strong>Fonterra Co-operative Group</strong>：世界上最大的乳制品出口公司之一。</li>
+<li><strong>Auckland International Airport</strong>：新西兰最大的机场管理公司。</li>
+</ul>
+<h3 id="市场监管">5. <strong>市场监管</strong></h3>
+<ul>
+<li><strong>金融市场管理局（FMA）</strong>：负责监管新西兰的金融市场，包括证券交易所，确保市场的公平、透明和高效。</li>
+</ul>
+<h3 id="国际投资">6. <strong>国际投资</strong></h3>
+<ul>
+<li>新西兰市场对国际投资者具有一定吸引力，特别是对那些寻求多元化投资的投资者。新西兰经济相对稳定，政治环境较为良好。</li>
+</ul>
+<h3 id="投资者教育与保护">7. <strong>投资者教育与保护</strong></h3>
+<ul>
+<li>NZX和FMA都提供了丰富的资源帮助投资者理解市场运作，进行明智的投资决策。投资者保护机制也相对健全，确保市场参与者的权益。</li>
+</ul>
+<p>新西兰股票市场虽然规模相对较小，但它为投资者提供了一个稳定且具有潜力的投资环境。</p>
+<p>内容由 ChatGPT 4o 生成。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/db166f870f26/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/db166f870f26/" class="post-title-link" itemprop="url">To get started with quantitative trading</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-07-03 23:14:47" itemprop="dateCreated datePublished" datetime="2024-07-03T23:14:47+12:00">2024-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:51:46" itemprop="dateModified" datetime="2024-07-06T00:51:46+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Finance/" itemprop="url" rel="index"><span itemprop="name">Finance</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The following content was generated by ChatGPT 4o.</p>
+<p>To get started with quantitative trading in finance, you need to learn the following topics:</p>
+<ol type="1">
+<li><strong>Fundamental Financial Knowledge</strong>:
+<ul>
+<li>Financial markets and products (such as stocks, bonds, futures, options, etc.)</li>
+<li>Investment theory and portfolio management (e.g., CAPM model, arbitrage pricing theory, etc.)</li>
+</ul></li>
+<li><strong>Quantitative Trading Basics</strong>:
+<ul>
+<li>Concepts and processes of quantitative trading</li>
+<li>Strategy development and testing (e.g., momentum strategies, mean reversion strategies, etc.)</li>
+</ul></li>
+<li><strong>Programming and Data Analysis</strong>:
+<ul>
+<li>Programming languages (Python, R, C++, etc.)</li>
+<li>Data analysis and processing (e.g., Pandas, NumPy, and other Python libraries)</li>
+<li>Data visualization (e.g., Matplotlib, Seaborn, etc.)</li>
+</ul></li>
+<li><strong>Mathematics and Statistics</strong>:
+<ul>
+<li>Basics of probability and statistics</li>
+<li>Time series analysis</li>
+<li>Numerical methods and optimization</li>
+</ul></li>
+<li><strong>Financial Engineering and Numerical Methods</strong>:
+<ul>
+<li>Derivative pricing models (e.g., Black-Scholes model, etc.)</li>
+<li>Risk management and VaR models</li>
+<li>Quantitative risk models (e.g., GARCH models, etc.)</li>
+</ul></li>
+<li><strong>Machine Learning and Artificial Intelligence</strong>:
+<ul>
+<li>Basics of machine learning (e.g., supervised learning, unsupervised learning, reinforcement learning, etc.)</li>
+<li>Deep learning and neural networks</li>
+<li>Applications in finance (e.g., predictive models, trade signal generation, etc.)</li>
+</ul></li>
+<li><strong>Algorithms and High-Frequency Trading</strong>:
+<ul>
+<li>Trading algorithms (e.g., VWAP, TWAP, etc.)</li>
+<li>Basics of high-frequency trading and technology (e.g., low latency networks, order book, etc.)</li>
+</ul></li>
+<li><strong>Practical Experience and Projects</strong>:
+<ul>
+<li>Participating in quantitative trading competitions or internships</li>
+<li>Designing, implementing, and testing your own quantitative trading strategies</li>
+<li>Trading with real or simulated accounts</li>
+</ul></li>
+</ol>
+<p><strong>Recommended Learning Resources</strong>:</p>
+<ol type="1">
+<li>Books:
+<ul>
+<li>"Quantitative Trading: How to Build Your Own Algorithmic Trading Business" by Ernest P. Chan</li>
+<li>"Python for Finance: Analyze Big Financial Data" by Yves Hilpisch</li>
+<li>"Statistical Arbitrage" by Andrew Pole</li>
+<li>"Introduction to Machine Learning with Python" by Andreas C. Müller, Sarah Guido</li>
+</ul></li>
+<li>Online Courses and Websites:
+<ul>
+<li>Financial and data science courses on Coursera and edX</li>
+<li>Projects and practice on websites like QuantStart and Kaggle</li>
+<li>Related tutorial videos on YouTube</li>
+</ul></li>
+<li>Practical Tools and Platforms:
+<ul>
+<li>Quantitative trading platforms: such as QuantConnect, Zipline, Backtrader</li>
+<li>Data sources: such as Quandl, Yahoo Finance, Alpha Vantage</li>
+</ul></li>
+</ol>
+<p>By systematically learning these topics and combining practical experience and project work, you can gradually master the basic knowledge and skills required for quantitative trading in finance.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/07/c6ea5e8a9070/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/07/c6ea5e8a9070/" class="post-title-link" itemprop="url">《数据分析思维》书籍阅读笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-07-01 00:54:41 / 修改时间：00:55:02" itemprop="dateCreated datePublished" datetime="2024-07-01T00:54:41+12:00">2024-07-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="第一章-业务指标">第一章 业务指标</h1>
+<h2 id="如何理解数据">1.1 如何理解数据？</h2>
+<p>第一步：弄清楚数据里每一列的含义。不清楚的地方，需要与数据提供方进行沟通。</p>
+<p>第二步：对数据进行分类，方便后续分析。分为三类：</p>
+<ul>
+<li>用户数据</li>
+<li>行为数据</li>
+<li>产品数据</li>
+</ul>
+<h3 id="用户数据指标">1.2.1 用户数据指标</h3>
+<p>用户有三大类别：</p>
+<ul>
+<li>新增用户</li>
+<li>活跃用户</li>
+<li>留存用户</li>
+</ul>
+<p>针对以上三种用户产生了三种指标：</p>
+<ul>
+<li>新增用户数（年月日）</li>
+<li>活跃率 = 活跃用户数 / 总用户数</li>
+<li>留存率：评估产品功能对用户的黏性
+<ul>
+<li>留存率 = 第1天新增用户中，在第N天使用过产品的用户数 / 第1天新增用户</li>
+<li>Facebook有一个40-20-10法则，也就是新用户次日留存率为40%，第7日留存率为20%，第30日留存率为10%。</li>
+</ul></li>
+</ul>
+<h3 id="行为数据指标">1.2.2 行为数据指标</h3>
+<ol type="1">
+<li>PV 与 UV</li>
+</ol>
+<p>PV（访问次数，Page View）：一定时间内某个页面的浏览次数，用户每打开一个网页可以看作一个PV。</p>
+<p>UV（访问人数，Unique Visitor）：一定时间内访问某个页面的人数。</p>
+<p>通过比较PV或者UV的大小，可以看到用户喜欢产品的哪个功能，不喜欢哪个功能，从而根据用户行为来优化产品。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/eb5e3c977298/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/eb5e3c977298/" class="post-title-link" itemprop="url">业务数据分析笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-30 00:50:16 / 修改时间：00:55:51" itemprop="dateCreated datePublished" datetime="2024-06-30T00:50:16+12:00">2024-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="好的数据分析师的价值">好的数据分析师的价值？</h2>
+<ol type="1">
+<li>好的指标体系的搭建
+<ul>
+<li>指标</li>
+<li>报表</li>
+</ul></li>
+<li>直观传达信息
+<ul>
+<li>可视化</li>
+</ul></li>
+<li>正确且高效地传达信息
+<ul>
+<li>有时候折线图可能更加直观，需要选择好的图表来展示数据</li>
+</ul></li>
+<li>清晰了解数据分析项目客户的想法
+<ul>
+<li>我们要展示的数据是为了客户做更好地决策，因此我们需要用合适的方式表达出来。更加方便决策部分做进一步的分析。</li>
+</ul></li>
+</ol>
+<h2 id="合适的图表">合适的图表</h2>
+<img src="/2024/06/eb5e3c977298/image-20240628200007195.png" class="" title="image-20240628200007195">
+<img src="/2024/06/eb5e3c977298/image-20240628200031613.png" class="" title="image-20240628200031613">
+<img src="/2024/06/eb5e3c977298/image-20240628200041685.png" class="" title="image-20240628200041685">
+<img src="/2024/06/eb5e3c977298/image-20240628200112005.png" class="" title="image-20240628200112005">
+<p>假如 4.6% 的涨幅对于我们来说很重要，我们可以用左图进行表现。</p>
+<img src="/2024/06/eb5e3c977298/image-20240628200236320.png" class="" title="image-20240628200236320">
+<h2 id="学习建议">学习建议</h2>
+<p>技术方面：多练习</p>
+<p>思维方面：</p>
+<ol type="1">
+<li>看别人的报告，总结别人图表中的信息</li>
+<li>看指标，解读别人如何搭建指标体系</li>
+<li>利用统计学，查看数据分布。</li>
+</ol>
+<h2 id="公司的数据流">公司的数据流</h2>
+<ul>
+<li>公司核心业务
+<ul>
+<li>数据库</li>
+</ul></li>
+<li>检测业务健康度、可持续性
+<ul>
+<li>指标，指标体系搭建，报表检测，办公自动化</li>
+</ul></li>
+<li>精细化运营
+<ul>
+<li>用户分析，埋点，日志数据，BI平台，搭建BI平台</li>
+</ul></li>
+<li>新业务
+<ul>
+<li>支撑核心业务增长：数据挖掘，智能服务，推荐算法</li>
+<li>新业务线：搭建指标体系</li>
+<li>行业分析报告、数据探索：行业数据分析报告撰写与解读</li>
+</ul></li>
+</ul>
+<img src="/2024/06/eb5e3c977298/image-20240628214836136.png" class="" title="image-20240628214836136">
+<h2 id="技术栈能力">技术栈&amp;能力</h2>
+<p>从底层能力到高层：</p>
+<ul>
+<li>业务
+<ul>
+<li>一切的基础，数据业务思维</li>
+</ul></li>
+<li>数据处理的能力
+<ul>
+<li>SQL，EXCEL，BI工具，Python</li>
+</ul></li>
+<li>数据分析
+<ul>
+<li>统计学，数据分析报告，可视化</li>
+<li>用数据说话，呈现实质内容</li>
+</ul></li>
+<li>预测
+<ul>
+<li>Python机器学习</li>
+</ul></li>
+</ul>
+<h2 id="发展路径">发展路径</h2>
+<img src="/2024/06/eb5e3c977298/image-20240628220052970.png" class="" title="image-20240628220052970">
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/2d3dcdaaa5e0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/2d3dcdaaa5e0/" class="post-title-link" itemprop="url">如何写好数据分析报告</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-30 00:48:40 / 修改时间：00:56:02" itemprop="dateCreated datePublished" datetime="2024-06-30T00:48:40+12:00">2024-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="报告的类型">报告的类型</h1>
+<h2 id="周会月会的业绩综述">周会、月会的业绩综述</h2>
+<p>用描述性的统计数据去呈现业务的全貌，以及呈现关键节点发生的相关事件。一两句话总结趋势和问题点</p>
+<h2 id="复盘和效果评估">复盘和效果评估</h2>
+<p>客观合理地还原事实的依据。不要写成“追责”报告。报告的重点放在经验的总结上。</p>
+<h2 id="业务现状的分析">业务现状的分析</h2>
+<p>需要对业务进行全盘的诊断，需要花费大量时间了解产品的细节。</p>
+<p>评估客户的需求是不是得到了满足。</p>
+<p>业务目标是不是合理。</p>
+<p>达成的进度是不是符合预期。</p>
+<p>组织的形态是否良性发展。</p>
+<p>这类型的报告如何写好?</p>
+<ol type="1">
+<li>写好提纲。使用思维导图的时候，标记好每条分支的优先级，按照优先级来探索细节。</li>
+<li>牢记报告的核心思想。聚焦业务需要改进和调整的部分。</li>
+</ol>
+<h2 id="决策支持类的分析">决策支持类的分析</h2>
+<p>通常是关于某个命题的探讨，某件事做与不做的选择、得失。找到一个平衡点。</p>
+<p>数据分析师不单单是分析数据，更加需要提出自己的建议。</p>
+<p>视频链接：【干货知识｜如何写好数据分析报告】 https://www.bilibili.com/video/BV1vm4y1m7rg</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/71c8da11529e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/71c8da11529e/" class="post-title-link" itemprop="url">咨询行业相关的英文书籍推荐</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-29 00:06:40" itemprop="dateCreated datePublished" datetime="2024-06-29T00:06:40+12:00">2024-06-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-30 00:56:30" itemprop="dateModified" datetime="2024-06-30T00:56:30+12:00">2024-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%98%85%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">阅读</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以下是一些与咨询行业相关的英文书籍推荐，这些书籍涵盖了从入门到高级的各种主题，适合不同水平的读者：</p>
+<ol type="1">
+<li><strong>"The McKinsey Way" by Ethan M. Rasiel</strong>
+<ul>
+<li>这本书介绍了麦肯锡的工作方式和策略，提供了许多实用的咨询技巧和方法。</li>
+</ul></li>
+<li><strong>"The Trusted Advisor" by David H. Maister, Charles H. Green, and Robert M. Galford</strong>
+<ul>
+<li>这本书强调了咨询顾问如何建立客户信任关系，并提供了实际案例和建议。</li>
+</ul></li>
+<li><strong>"Flawless Consulting: A Guide to Getting Your Expertise Used" by Peter Block</strong>
+<ul>
+<li>这本书详细讨论了如何作为咨询顾问有效地提供建议和服务，帮助读者提高咨询能力。</li>
+</ul></li>
+<li><strong>"The Pyramid Principle: Logic in Writing and Thinking" by Barbara Minto</strong>
+<ul>
+<li>这本书介绍了金字塔原理，帮助咨询顾问提高逻辑思维和写作能力。</li>
+</ul></li>
+<li><strong>"The Management Consultant: Mastering the Art of Consultancy" by Richard Newton</strong>
+<ul>
+<li>这本书提供了关于管理咨询的全面指南，从入门到高级技巧应有尽有。</li>
+</ul></li>
+<li><strong>"The Consultant's Handbook: A Practical Guide to Delivering High-value and Differentiated Services in a Competitive Marketplace" by Samir Parikh</strong>
+<ul>
+<li>这本书详细讨论了如何在竞争激烈的市场中提供高价值的咨询服务。</li>
+</ul></li>
+<li><strong>"Case Interview Secrets: A Former McKinsey Interviewer Reveals How to Get Multiple Job Offers in Consulting" by Victor Cheng</strong>
+<ul>
+<li>这本书是针对想要进入咨询行业的人，提供了关于案例面试的深入指导。</li>
+</ul></li>
+<li><strong>"Lords of Strategy: The Secret Intellectual History of the New Corporate World" by Walter Kiechel</strong>
+<ul>
+<li>这本书讲述了战略咨询领域的历史和发展，适合对行业背景感兴趣的读者。</li>
+</ul></li>
+<li><strong>"The Boston Consulting Group on Strategy: Classic Concepts and New Perspectives" by Carl W. Stern and Michael S. Deimler</strong>
+<ul>
+<li>这本书汇集了波士顿咨询公司的一些经典战略理念和新观点。</li>
+</ul></li>
+<li><strong>"Key Management Models: The 75+ Models Every Manager Needs to Know" by Marcel Van Assen, Gerben Van den Berg, and Paul Pietersma</strong>
+<ul>
+<li>这本书介绍了管理和咨询领域中常用的模型和框架，非常实用。</li>
+</ul></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/8935c98f42dc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/8935c98f42dc/" class="post-title-link" itemprop="url">Lasso 回归</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 11:31:00" itemprop="dateCreated datePublished" datetime="2024-06-25T11:31:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:52:32" itemprop="dateModified" datetime="2024-07-06T00:52:32+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Lasso 回归（Least Absolute Shrinkage and Selection Operator，最小绝对值收缩和选择算子）是一种线性回归方法，它通过引入 L1 正则化来避免过拟合，并进行特征选择。以下是对 Lasso 回归的详细解释：</p>
+<h3 id="基本概念">基本概念</h3>
+<p>在普通的线性回归中，我们的目标是找到一组系数 $ $ ，使得以下损失函数最小化：</p>
+<p><span class="math display">\[ \text{RSS} = \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j x_{ij})^2 \]</span></p>
+<p>其中， $ y_i $ 是响应变量， $ x_{ij} $ 是第 $ i $ 个样本的第 $ j $ 个特征， $ _0 $ 是截距， $ _j $ 是第 $ j $ 个特征的系数。</p>
+<h3 id="引入-lasso-正则化">引入 Lasso 正则化</h3>
+<p>Lasso 回归通过在损失函数中加入一个 L1 正则化项来约束系数的大小：</p>
+<p><span class="math display">\[ \text{Loss} = \sum_{i=1}^n (y_i - \beta_0 - \sum_{j=1}^p \beta_j x_{ij})^2 + \lambda \sum_{j=1}^p |\beta_j| \]</span></p>
+<p>其中， $ $ 是正则化参数，用于控制正则化项的强度。</p>
+<h3 id="l1-正则化的作用">L1 正则化的作用</h3>
+<ol type="1">
+<li><p><strong>系数收缩</strong>：Lasso 回归倾向于将一些系数缩小到零或接近零。这意味着它可以产生稀疏的模型，其中许多系数是零，这样可以有效地进行特征选择。</p></li>
+<li><p><strong>防止过拟合</strong>：通过引入正则化项，Lasso 回归可以防止模型在训练数据上过拟合，提高模型在新数据上的泛化能力。</p></li>
+</ol>
+<h3 id="特征选择">特征选择</h3>
+<p>由于 Lasso 回归可以将某些特征的系数缩小到零，因此它在高维数据中非常有用，因为它可以自动进行特征选择，保留重要的特征并移除不相关的特征。</p>
+<h3 id="优缺点">优缺点</h3>
+<p><strong>优点</strong>：</p>
+<p>可以进行特征选择，得到稀疏模型。</p>
+<p>可以处理高维数据，尤其是当特征数量大于样本数量时。</p>
+<p><strong>缺点</strong>：</p>
+<p>当特征数量大于样本数量时，如果存在高度相关的特征，Lasso 回归可能会随机选择其中一个特征，而将其他特征系数设为零。</p>
+<p>对于一些问题，可能会产生欠拟合，需要仔细调整正则化参数 $ $ 。</p>
+<h3 id="实际应用">实际应用</h3>
+<p>在实际应用中，可以使用诸如 scikit-learn 这样的机器学习库来实现 Lasso 回归：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Lasso</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 Lasso 回归模型，设置正则化参数 alpha</span></span><br><span class="line">lasso = Lasso(alpha=<span class="number">0.1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">lasso.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = lasso.predict(X_test)</span><br></pre></td></tr></table></figure>
+<p>通过调整 $ $ （在 scikit-learn 中对应于 alpha），可以控制模型的稀疏性和复杂度，以找到最优的平衡点。</p>
+<h3 id="使用场景">使用场景</h3>
+<p>Lasso 回归适合在以下情况下使用：</p>
+<h3 id="高维数据">1. 高维数据</h3>
+<p>当特征数量 $ p $ 大于或接近样本数量 $ n $ 时，Lasso 回归尤其有用。这是因为 Lasso 能够通过正则化减少模型复杂度，防止过拟合。</p>
+<h3 id="需要进行特征选择">2. 需要进行特征选择</h3>
+<p>如果你怀疑有许多不相关的特征，Lasso 回归可以通过将这些不重要特征的系数缩小到零来自动进行特征选择。这对于高维数据尤其有用，因为手动选择特征非常困难。</p>
+<h3 id="防止过拟合">3. 防止过拟合</h3>
+<p>在普通线性回归中，模型可能在训练数据上表现很好但在测试数据上表现不佳，这是因为过拟合。Lasso 引入的正则化项可以限制模型的复杂度，从而提高其在新数据上的泛化能力。</p>
+<h3 id="特征之间存在多重共线性">4. 特征之间存在多重共线性</h3>
+<p>当特征之间存在多重共线性时，Lasso 回归可以帮助处理这种情况。通过收缩一些系数到零，它能减少模型对共线性特征的依赖，从而提高模型的稳健性。</p>
+<h3 id="简化模型">5. 简化模型</h3>
+<p>在某些应用中，简单的模型比复杂的模型更可取，因为它们更易于解释和部署。Lasso 回归通过自动特征选择和稀疏系数，使模型更简单和可解释。</p>
+<h3 id="在需要解释模型时">6. 在需要解释模型时</h3>
+<p>当你希望模型具有解释性，即能够明确哪些特征对预测结果有显著影响时，Lasso 回归可以提供一个稀疏的解决方案，便于理解和解释。</p>
+<h3 id="例子">例子</h3>
+<p><strong>基因数据分析</strong>：在生物信息学中，常常有成千上万的基因特征，但样本数量有限。Lasso 回归可以帮助选择与某种疾病相关的基因。</p>
+<p><strong>金融领域</strong>：在金融分析中，可能有大量的市场指标和特征，Lasso 可以帮助识别出哪些特征对预测股票价格最重要。</p>
+<p><strong>市场营销</strong>：在营销分析中，可能有许多潜在的影响因素（如广告投入、市场活动等），Lasso 回归可以帮助确定哪些因素对销售额有显著影响。</p>
+<h3 id="实践中如何选择正则化参数">实践中如何选择正则化参数 $ $</h3>
+<p>在实际应用中，选择合适的正则化参数 $ $ 是关键的一步。通常通过交叉验证（cross-validation）来选择最优的 $ $ 。例如，在使用 scikit-learn 时，可以使用 <code>GridSearchCV</code> 或 <code>LassoCV</code> 来自动选择最佳的正则化参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LassoCV</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 LassoCV 自动选择最优的正则化参数</span></span><br><span class="line">lasso_cv = LassoCV(alphas=[<span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>], cv=<span class="number">5</span>)</span><br><span class="line">lasso_cv.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最优的 alpha 值</span></span><br><span class="line">print(lasso_cv.alpha_)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用最优的 alpha 值进行预测</span></span><br><span class="line">y_pred = lasso_cv.predict(X_test)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/35033174c91d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/35033174c91d/" class="post-title-link" itemprop="url">岭回归（Ridge Regression）</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 10:58:00" itemprop="dateCreated datePublished" datetime="2024-06-25T10:58:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-30 00:57:30" itemprop="dateModified" datetime="2024-06-30T00:57:30+12:00">2024-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>岭回归（Ridge Regression），也称为Tikhonov正则化，是一种用于处理多重共线性问题的线性回归技术。岭回归通过在损失函数中加入一个L2正则化项来防止过拟合，从而提高模型的泛化能力。</p>
+<p>其核心思想是引入一个惩罚项，使得回归系数不至于过大，从而缓解多重共线性带来的不稳定性。</p>
+<p>岭回归的目标函数如下：</p>
+<p><span class="math display">\[ \min_{w} \left\{ \sum_{i=1}^{n} (y_i - \sum_{j=1}^{p} x_{ij} w_j)^2 + \lambda \sum_{j=1}^{p} w_j^2 \right\} \]</span></p>
+<p>其中：</p>
+<ul>
+<li><p>$ n $ 是样本数量。</p></li>
+<li><p>$ p $ 是特征数量。</p></li>
+<li><p>$ y_i $ 是第 $ i $ 个样本的真实值。</p></li>
+<li><p>$ x_{ij} $ 是第 $ i $ 个样本的第 $ j $ 个特征值。</p></li>
+<li><p>$ w_j $ 是第 $ j $ 个特征的回归系数。</p></li>
+<li><p>$ $ 是正则化参数，控制惩罚项的权重。</p></li>
+</ul>
+<h3 id="岭回归的优点">岭回归的优点：</h3>
+<ol type="1">
+<li><p><strong>处理多重共线性</strong>：岭回归通过正则化减少了特征之间的共线性问题，使得回归系数更加稳定。</p></li>
+<li><p><strong>防止过拟合</strong>：引入的L2正则化项可以避免模型过拟合，提高模型在测试集上的表现。</p></li>
+<li><p><strong>数值稳定性</strong>：正则化项可以改善矩阵的条件数，从而提高计算的数值稳定性。</p></li>
+</ol>
+<h3 id="岭回归的缺点">岭回归的缺点：</h3>
+<ol type="1">
+<li><p><strong>偏差引入</strong>：正则化项会引入一定的偏差，导致模型的准确度有所下降。</p></li>
+<li><p><strong>参数选择</strong>：需要选择合适的正则化参数 $ $ ，这通常需要交叉验证来确定。</p></li>
+</ol>
+<h3 id="实际应用">实际应用：</h3>
+<p>在实际应用中，岭回归广泛用于高维数据集的线性回归问题中，特别是当特征数量多于样本数量或存在多重共线性时，岭回归是一种有效的回归方法。</p>
+<p>在Python中，可以使用<code>scikit-learn</code>库中的<code>Ridge</code>类来实现岭回归。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line">ridge_reg = Ridge(alpha=<span class="number">1.0</span>)  <span class="comment"># 其中 alpha 参数就是正则化参数 λ</span></span><br><span class="line">ridge_reg.fit(X_train, y_train)</span><br><span class="line">y_pred = ridge_reg.predict(X_test)</span><br></pre></td></tr></table></figure>
+<p>通过适当调整正则化参数 $ $ ，可以找到一个平衡点，在防止过拟合的同时保证模型的准确性。</p>
+<h3 id="选择合适的正则化参数">选择合适的正则化参数</h3>
+<p>常用的方法有以下几种：</p>
+<h3 id="交叉验证cross-validation">1. 交叉验证（Cross-Validation）</h3>
+<p>交叉验证是一种常用的方法，通过在训练集上进行多次训练和验证，选择能够使验证误差最小的 $ $ 值。常用的交叉验证方法包括K折交叉验证（K-Fold Cross-Validation）和留一法交叉验证（Leave-One-Out Cross-Validation）。</p>
+<h4 id="k折交叉验证步骤">K折交叉验证步骤：</h4>
+<ol type="1">
+<li>将训练数据集分成K个不重叠的子集（折）。</li>
+<li>依次用K-1个子集进行训练，用剩下的一个子集进行验证，计算验证误差。</li>
+<li>对每个 $ $ 值重复上述过程，计算所有K次验证误差的平均值。</li>
+<li>选择验证误差最小的 $ $ 值作为最佳参数。</li>
+</ol>
+<p>在<code>scikit-learn</code>中，可以使用<code>RidgeCV</code>类来自动进行交叉验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> RidgeCV</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义候选的λ值列表</span></span><br><span class="line">alphas = [<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">100.0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用K折交叉验证选择最优的λ值</span></span><br><span class="line">ridge_cv = RidgeCV(alphas=alphas, cv=<span class="number">5</span>)  <span class="comment"># 这里的cv=5表示使用5折交叉验证</span></span><br><span class="line">ridge_cv.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最佳的λ值</span></span><br><span class="line">best_lambda = ridge_cv.alpha_</span><br><span class="line">print(<span class="string">&quot;Best λ:&quot;</span>, best_lambda)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = ridge_cv.predict(X_test)</span><br></pre></td></tr></table></figure>
+<h3 id="网格搜索grid-search">2. 网格搜索（Grid Search）</h3>
+<p>网格搜索是一种系统的超参数调优方法，通过遍历所有可能的参数组合，选择最佳的参数。可以与交叉验证结合使用，以确保选择出的参数能在不同的数据集上有良好的表现。</p>
+<p>在<code>scikit-learn</code>中，可以使用<code>GridSearchCV</code>来实现网格搜索：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义参数网格</span></span><br><span class="line">param_grid = &#123;<span class="string">&#x27;alpha&#x27;</span>: [<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">100.0</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建Ridge模型</span></span><br><span class="line">ridge = Ridge()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建GridSearchCV对象，使用交叉验证</span></span><br><span class="line">grid_search = GridSearchCV(ridge, param_grid, cv=<span class="number">5</span>)</span><br><span class="line">grid_search.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最佳参数</span></span><br><span class="line">best_lambda = grid_search.best_params_[<span class="string">&#x27;alpha&#x27;</span>]</span><br><span class="line">print(<span class="string">&quot;Best λ:&quot;</span>, best_lambda)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = grid_search.predict(X_test)</span><br></pre></td></tr></table></figure>
+<h3 id="信息准则information-criterion">3. 信息准则（Information Criterion）</h3>
+<p>信息准则（如AIC和BIC）也是选择正则化参数的一种方法，通过最小化信息准则来选择最佳的 $ $ 值。这些方法通常需要计算模型的似然函数，对计算复杂度要求较高。</p>
+<h3 id="数据驱动方法">4. 数据驱动方法</h3>
+<p>某些情况下，可以基于数据本身的特性来选择 $ $ 。例如，如果知道特征之间的相关性非常高，可以选择较大的 $ $ 以更强地正则化。如果数据量非常大，可以适当减少正则化强度。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/index.html" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/index.html" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

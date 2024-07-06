@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="机器学习的解决问题流程一般包括以下几个步骤： 一、定义问题 首先明确要解决的问题是什么，以及这个问题的业务背景和目标。例如，是要进行分类、回归、聚类还是降维。 定义问题是机器学习项目的首要步骤，它奠定了整个项目的基础和方向。一个明确、具体的问题定义能够帮助团队聚焦在核心目标上，并确保所有后续工作都有明确的指引。以下是如何详细、深入地定义一个问题的步骤和要点： 1. 了解业务背景 目的 理解问题所在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习的解决问题流程">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2024/06/99eb3765b1cd/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="机器学习的解决问题流程一般包括以下几个步骤： 一、定义问题 首先明确要解决的问题是什么，以及这个问题的业务背景和目标。例如，是要进行分类、回归、聚类还是降维。 定义问题是机器学习项目的首要步骤，它奠定了整个项目的基础和方向。一个明确、具体的问题定义能够帮助团队聚焦在核心目标上，并确保所有后续工作都有明确的指引。以下是如何详细、深入地定义一个问题的步骤和要点： 1. 了解业务背景 目的 理解问题所在">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-24T22:54:00.000Z">
+<meta property="article:modified_time" content="2024-06-28T11:01:22.004Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2024/06/99eb3765b1cd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>机器学习的解决问题流程 | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/99eb3765b1cd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习的解决问题流程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 10:54:00" itemprop="dateCreated datePublished" datetime="2024-06-25T10:54:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-28 23:01:22" itemprop="dateModified" datetime="2024-06-28T23:01:22+12:00">2024-06-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>机器学习的解决问题流程一般包括以下几个步骤：</p>
+<h2 id="一定义问题">一、定义问题</h2>
+<p>首先明确要解决的问题是什么，以及这个问题的业务背景和目标。例如，是要进行分类、回归、聚类还是降维。</p>
+<p>定义问题是机器学习项目的首要步骤，它奠定了整个项目的基础和方向。一个明确、具体的问题定义能够帮助团队聚焦在核心目标上，并确保所有后续工作都有明确的指引。以下是如何详细、深入地定义一个问题的步骤和要点：</p>
+<h3 id="了解业务背景">1. 了解业务背景</h3>
+<h4 id="目的">目的</h4>
+<p>理解问题所在的业务领域及其背景，有助于识别问题的本质。</p>
+<h4 id="步骤">步骤</h4>
+<p>与业务相关人员（如产品经理、业务专家）沟通，了解业务流程、痛点和目标。</p>
+<p>调查相关行业的标准和规范，明确行业特定的需求和挑战。</p>
+<h3 id="明确目标">2. 明确目标</h3>
+<h4 id="目的-1">目的</h4>
+<p>确定项目的主要目标和子目标，确保所有参与者对项目期望有一致的理解。</p>
+<h4 id="步骤-1">步骤</h4>
+<p>讨论并确定最终产品的预期效果，如提高客户满意度、增加销售额、降低成本等。</p>
+<p>定义具体、可衡量的目标（SMART原则：Specific, Measurable, Achievable, Relevant, Time-bound），例如“提高客户留存率10%”或“将预测误差降低到5%以下”。</p>
+<h3 id="确定问题类型">3. 确定问题类型</h3>
+<h4 id="目的-2">目的</h4>
+<p>根据目标明确要解决的问题是分类、回归、聚类、降维还是其他类型的问题。</p>
+<h4 id="步骤-2">步骤</h4>
+<p>确定输出结果的类型：离散值（分类）还是连续值（回归）。</p>
+<p>如果是分类问题，确定是二分类、多分类还是多标签分类。</p>
+<p>如果是聚类问题，明确是硬聚类还是软聚类。</p>
+<h3 id="界定范围">4. 界定范围</h3>
+<h4 id="目的-3">目的</h4>
+<p>明确问题的范围和边界，防止范围过大导致项目复杂度增加或不可控。</p>
+<h4 id="步骤-3">步骤</h4>
+<p>列出项目的边界条件，明确哪些是项目要解决的，哪些是项目不涉及的。</p>
+<p>确定时间范围和资源限制，例如“在6个月内完成模型开发并部署”或“利用现有的硬件资源进行计算”。</p>
+<h3 id="确定评估标准">5. 确定评估标准</h3>
+<h4 id="目的-4">目的</h4>
+<p>定义项目成功的标准和衡量指标，以便在后续阶段进行评估。</p>
+<h4 id="步骤-4">步骤</h4>
+<p>确定关键绩效指标（KPIs），如准确率、精确率、召回率、F1值、均方误差等。</p>
+<p>定义业务层面的评估标准，例如“提升销售额”或“减少客户投诉”。</p>
+<h3 id="确定数据需求">6. 确定数据需求</h3>
+<h4 id="目的-5">目的</h4>
+<p>确认所需的数据类型和数据源，确保数据的可用性和质量。</p>
+<h4 id="步骤-5">步骤</h4>
+<p>确定需要收集哪些数据，包括历史数据、实时数据等。</p>
+<p>确认数据源，如数据库、外部API、传感器等，并评估数据的可访问性和质量。</p>
+<p>确定数据的粒度和频率，例如每日数据还是每分钟数据。</p>
+<h3 id="风险评估">7. 风险评估</h3>
+<h4 id="目的-6">目的</h4>
+<p>识别可能影响项目成功的风险，并制定应对策略。</p>
+<h4 id="步骤-6">步骤</h4>
+<p>列出潜在风险，如数据质量问题、算法选择不当、资源不足等。</p>
+<p>制定风险管理计划，包括风险的监控、预防措施和应急预案。</p>
+<h3 id="项目计划">8. 项目计划</h3>
+<h4 id="目的-7">目的</h4>
+<p>制定详细的项目计划和时间表，确保项目按时、按质完成。</p>
+<h4 id="步骤-7">步骤</h4>
+<p>确定各个阶段的任务和时间节点，如数据收集、模型开发、模型评估、模型部署等。</p>
+<p>分配团队成员的职责和任务，确保每个环节都有专人负责。</p>
+<h3 id="文档化">9. 文档化</h3>
+<h4 id="目的-8">目的</h4>
+<p>将问题定义的各个方面记录下来，形成书面的项目计划和问题定义文档，确保所有参与者都能参考。</p>
+<h4 id="步骤-8">步骤</h4>
+<p>编写详细的项目需求文档，包含以上各个方面的内容。</p>
+<p>定期更新文档，记录项目的进展和变化。</p>
+<h3 id="沟通与反馈">10. 沟通与反馈</h3>
+<h4 id="目的-9">目的</h4>
+<p>与所有相关方保持沟通，确保项目的各个阶段都能得到及时的反馈和调整。</p>
+<h4 id="步骤-9">步骤</h4>
+<p>定期举行会议，汇报项目进展和问题，听取相关方的意见和建议。</p>
+<p>根据反馈及时调整项目计划和问题定义，确保项目的灵活性和适应性。</p>
+<p>通过以上步骤，可以深入、详细地定义机器学习项目中的问题，确保项目有一个清晰的方向和明确的目标，从而提高项目的成功率和最终的业务价值。</p>
+<h2 id="二数据收集">二、数据收集</h2>
+<p>收集与问题相关的数据，这些数据可以来源于数据库、文件、API等各种途径。数据的质量和数量对模型的效果有重要影响。</p>
+<h2 id="三数据预处理">三、数据预处理</h2>
+<p>包括数据清洗、处理缺失值、异常值处理、数据变换、特征工程等步骤。数据预处理的好坏直接影响模型的效果。</p>
+<h3 id="数据清洗">1. 数据清洗</h3>
+<p>处理数据中的缺失值、异常值、重复值等问题，确保数据的质量和一致性。</p>
+<p><strong>[[缺失值处理]]</strong>：</p>
+<p><strong>删除缺失值</strong>：当缺失值占比很小且不影响整体数据时，可以直接删除包含缺失值的记录。</p>
+<p><strong>填补缺失值</strong>：用平均值、中位数、众数、前一个值、后一个值等填补缺失值。对于时间序列数据，可以使用插值方法。</p>
+<p><strong>预测缺失值</strong>：利用回归、KNN等算法预测缺失值。</p>
+<p><strong>异常值处理</strong>：</p>
+<p><strong>检测异常值</strong>：通过箱线图、z-score、IQR（四分位距）等方法检测异常值。</p>
+<p><strong>处理异常值</strong>：删除异常值、替换为合理值或使用插值方法处理异常值。</p>
+<p><strong>重复值处理</strong>：</p>
+<p>检测并删除重复的记录，确保每条数据都是唯一的。</p>
+<h3 id="数据变换">2. 数据变换</h3>
+<h4 id="目的-10">目的</h4>
+<p>对数据进行标准化、归一化、离散化等处理，使数据符合模型的输入要求。</p>
+<h4 id="步骤-10">步骤</h4>
+<p><strong>标准化（Standardization）</strong>：</p>
+<p>将数据转换为均值为0、标准差为1的标准正态分布，常用方法为z-score标准化： <span class="math display">\[
+              x&#39; = \frac{x - \mu}{\sigma}
+\]</span></p>
+<p>标准化适用于假设数据服从正态分布的算法，如线性回归、SVM等。</p>
+<p><strong>归一化（Normalization）</strong>：</p>
+<p>将数据缩放到[0, 1]或[-1, 1]范围，常用方法为最小-最大归一化： <span class="math display">\[
+              x&#39; = \frac{x - x_{\min}}{x_{\max} - x_{\min}}
+\]</span></p>
+<p>归一化适用于基于距离度量的算法，如KNN、神经网络等。</p>
+<p><strong>离散化（Discretization）</strong>：</p>
+<p>将连续变量转换为离散变量，可以使用等宽分箱、等频分箱、K-means分箱等方法。</p>
+<p>离散化有助于处理具有非线性关系的数据。</p>
+<h3 id="特征工程">3. 特征工程</h3>
+<h4 id="目的-11">目的</h4>
+<p>提取、选择和创建特征，提高模型的表现力和泛化能力。</p>
+<h4 id="步骤-11">步骤</h4>
+<p><strong>特征提取</strong>：</p>
+<p>从原始数据中提取有用的特征，例如从时间戳提取出年、月、日、小时等。</p>
+<p><strong>特征选择</strong>：</p>
+<p><strong>过滤法（Filter）</strong>：根据统计量（如相关系数、卡方检验、互信息等）选择特征。</p>
+<p><strong>包装法（Wrapper）</strong>：使用特定的模型（如递归特征消除RFE）进行特征选择。</p>
+<p><strong>嵌入法（Embedded）</strong>：在模型训练过程中自动选择特征（如L1正则化、决策树的重要性）。</p>
+<p><strong>特征创建</strong>：</p>
+<p>通过组合、变换原始特征创建新的特征，例如特征交互、多项式特征、对数变换等。</p>
+<p><strong>特征删除</strong>：</p>
+<p>查看特征的方差，如果特征的方差很小，说明大多数样本的取值相同，这样的特征对模型的贡献很小。因此可以删除。（需要特征是数值型才可以）</p>
+<h3 id="类别编码">4. 类别编码</h3>
+<h4 id="目的-12">目的</h4>
+<p>将类别型数据转换为数值型数据，适应模型的输入要求。</p>
+<h4 id="步骤-12">步骤</h4>
+<p><strong>标签编码（Label Encoding）</strong>：</p>
+<p>将类别值转换为整数值，每个类别对应一个唯一的整数。</p>
+<p>适用于有序类别数据，但不适用于无序类别数据，因为会引入虚假的顺序关系。</p>
+<p><strong>独热编码（One-Hot Encoding）</strong>：</p>
+<p>将每个类别转换为一个二进制向量，其中一个位置为1，其余位置为0。</p>
+<p>适用于无序类别数据，但会导致高维数据，稀疏表示。</p>
+<p><strong>目标编码（Target Encoding）</strong>：</p>
+<p>将类别值替换为其对应的目标变量的平均值，适用于高基数类别数据，但需要防止过拟合。</p>
+<h3 id="数据分割">5. 数据分割</h3>
+<h4 id="目的-13">目的</h4>
+<p>将数据集分为训练集、验证集和测试集，以便模型训练、调优和评估。</p>
+<h4 id="步骤-13">步骤</h4>
+<p><strong>训练集</strong>：用于训练模型，占数据集的60%-80%。</p>
+<p><strong>验证集</strong>：用于模型选择和超参数调优，占数据集的10%-20%。</p>
+<p><strong>测试集</strong>：用于评估模型的泛化能力，占数据集的10%-20%。</p>
+<p><strong>交叉验证</strong>：通过K折交叉验证等方法，充分利用数据进行训练和评估，提高模型的稳定性和可靠性。</p>
+<h3 id="数据平衡">6. 数据平衡</h3>
+<h4 id="目的-14">目的</h4>
+<p>处理类别不平衡问题，防止模型偏向于多数类。</p>
+<h4 id="步骤-14">步骤</h4>
+<p><strong>欠采样（Under-sampling）</strong>：减少多数类样本数量，使其与少数类样本数量接近。</p>
+<p><strong>过采样（Over-sampling）</strong>：增加少数类样本数量，使其与多数类样本数量接近，常用方法如SMOTE（合成少数类过采样技术）。</p>
+<p><strong>使用惩罚项</strong>：在模型训练中引入类别权重，增加对少数类样本的关注。</p>
+<h3 id="数据增强">7. 数据增强</h3>
+<h4 id="目的-15">目的</h4>
+<p>通过数据变换生成新的样本，增强数据集的多样性和规模。</p>
+<h4 id="步骤-15">步骤</h4>
+<p><strong>图像数据增强</strong>：旋转、平移、缩放、翻转、颜色变换等。</p>
+<p><strong>时间序列数据增强</strong>：加噪声、时间切片、滑动窗口等。</p>
+<p><strong>文本数据增强</strong>：同义词替换、随机插入、随机删除等。</p>
+<p>通过上述详细步骤，数据预处理可以确保输入数据的质量和适用性，为模型的训练和预测奠定坚实基础。</p>
+<h3 id="数据分割-1">4. 数据分割</h3>
+<p>将数据集分为训练集、验证集和测试集，一般的比例是8:1:1或7:2:1，以便对模型进行训练、验证和评估。</p>
+<h3 id="模型选择">5. 模型选择</h3>
+<p>根据问题类型选择合适的机器学习算法。例如，分类问题可以选择逻辑回归、支持向量机、随机森林等；回归问题可以选择线性回归、决策树、梯度提升等。</p>
+<h3 id="模型训练">6. 模型训练</h3>
+<p>使用训练集数据训练模型，通过调整模型参数（例如学习率、正则化参数等）使模型能够较好地拟合训练数据。</p>
+<h3 id="模型评估">7. 模型评估</h3>
+<p>使用验证集数据评估模型的性能，通过指标如准确率、精确率、召回率、F1值、均方误差等来判断模型的好坏，并进行超参数调优。</p>
+<h3 id="模型优化">8. 模型优化</h3>
+<p>根据评估结果对模型进行调整和优化，可能涉及到重新选择特征、调整模型参数、选择其他算法等。</p>
+<h3 id="模型测试">9. 模型测试</h3>
+<p>使用测试集对最终模型进行测试，评估其在未见过的数据上的表现，以确保模型的泛化能力。</p>
+<h3 id="模型部署">10. 模型部署</h3>
+<p>将模型部署到生产环境中，集成到实际应用中，使其能够处理实际业务中的数据。</p>
+<h3 id="模型监控与维护">11. 模型监控与维护</h3>
+<p>对部署后的模型进行持续监控，确保其性能稳定。如果模型性能下降，可能需要重新训练模型或更新数据。</p>
+<h3 id="模型迭代">12. 模型迭代</h3>
+<p>根据实际情况和业务需求，不断迭代和改进模型，以适应新的数据和变化的需求。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/05/c770a3b0d697/" rel="prev" title="STAT313 chap1&2 Nonparametric Regression">
+      <i class="fa fa-chevron-left"></i> STAT313 chap1&2 Nonparametric Regression
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/9718319218df/" rel="next" title="sklearn数据归一化和标准化">
+      sklearn数据归一化和标准化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%AE%9A%E4%B9%89%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">一、定义问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E4%B8%9A%E5%8A%A1%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">1. 了解业务背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%8E%E7%A1%AE%E7%9B%AE%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">2. 明确目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E9%97%AE%E9%A2%98%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.</span> <span class="nav-text">3. 确定问题类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%95%8C%E5%AE%9A%E8%8C%83%E5%9B%B4"><span class="nav-number">1.4.</span> <span class="nav-text">4. 界定范围</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E8%AF%84%E4%BC%B0%E6%A0%87%E5%87%86"><span class="nav-number">1.5.</span> <span class="nav-text">5. 确定评估标准</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-4"><span class="nav-number">1.5.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AE%E5%AE%9A%E6%95%B0%E6%8D%AE%E9%9C%80%E6%B1%82"><span class="nav-number">1.6.</span> <span class="nav-text">6. 确定数据需求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-5"><span class="nav-number">1.6.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0"><span class="nav-number">1.7.</span> <span class="nav-text">7. 风险评估</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-6"><span class="nav-number">1.7.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%AE%A1%E5%88%92"><span class="nav-number">1.8.</span> <span class="nav-text">8. 项目计划</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-7"><span class="nav-number">1.8.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-7"><span class="nav-number">1.8.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%8C%96"><span class="nav-number">1.9.</span> <span class="nav-text">9. 文档化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-8"><span class="nav-number">1.9.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-8"><span class="nav-number">1.9.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%9F%E9%80%9A%E4%B8%8E%E5%8F%8D%E9%A6%88"><span class="nav-number">1.10.</span> <span class="nav-text">10. 沟通与反馈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-9"><span class="nav-number">1.10.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-9"><span class="nav-number">1.10.2.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">二、数据收集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">三、数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97"><span class="nav-number">3.1.</span> <span class="nav-text">1. 数据清洗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8F%98%E6%8D%A2"><span class="nav-number">3.2.</span> <span class="nav-text">2. 数据变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-10"><span class="nav-number">3.2.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-10"><span class="nav-number">3.2.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B"><span class="nav-number">3.3.</span> <span class="nav-text">3. 特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-11"><span class="nav-number">3.3.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-11"><span class="nav-number">3.3.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB%E7%BC%96%E7%A0%81"><span class="nav-number">3.4.</span> <span class="nav-text">4. 类别编码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-12"><span class="nav-number">3.4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-12"><span class="nav-number">3.4.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2"><span class="nav-number">3.5.</span> <span class="nav-text">5. 数据分割</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-13"><span class="nav-number">3.5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-13"><span class="nav-number">3.5.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%B9%B3%E8%A1%A1"><span class="nav-number">3.6.</span> <span class="nav-text">6. 数据平衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-14"><span class="nav-number">3.6.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-14"><span class="nav-number">3.6.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="nav-number">3.7.</span> <span class="nav-text">7. 数据增强</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-15"><span class="nav-number">3.7.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-15"><span class="nav-number">3.7.2.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%89%B2-1"><span class="nav-number">3.8.</span> <span class="nav-text">4. 数据分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-number">3.9.</span> <span class="nav-text">5. 模型选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">3.10.</span> <span class="nav-text">6. 模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0"><span class="nav-number">3.11.</span> <span class="nav-text">7. 模型评估</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E4%BC%98%E5%8C%96"><span class="nav-number">3.12.</span> <span class="nav-text">8. 模型优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E6%B5%8B%E8%AF%95"><span class="nav-number">3.13.</span> <span class="nav-text">9. 模型测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2"><span class="nav-number">3.14.</span> <span class="nav-text">10. 模型部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%9B%91%E6%8E%A7%E4%B8%8E%E7%BB%B4%E6%8A%A4"><span class="nav-number">3.15.</span> <span class="nav-text">11. 模型监控与维护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E8%BF%AD%E4%BB%A3"><span class="nav-number">3.16.</span> <span class="nav-text">12. 模型迭代</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2024/06/99eb3765b1cd/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2024/06/99eb3765b1cd/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

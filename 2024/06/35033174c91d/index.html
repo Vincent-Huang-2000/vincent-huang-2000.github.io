@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="岭回归（Ridge Regression），也称为Tikhonov正则化，是一种用于处理多重共线性问题的线性回归技术。岭回归通过在损失函数中加入一个L2正则化项来防止过拟合，从而提高模型的泛化能力。 其核心思想是引入一个惩罚项，使得回归系数不至于过大，从而缓解多重共线性带来的不稳定性。 岭回归的目标函数如下： \[ \min_{w} \left\{ \sum_{i&#x3D;1}^{n} (y_i - \s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="岭回归（Ridge Regression）">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2024/06/35033174c91d/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="岭回归（Ridge Regression），也称为Tikhonov正则化，是一种用于处理多重共线性问题的线性回归技术。岭回归通过在损失函数中加入一个L2正则化项来防止过拟合，从而提高模型的泛化能力。 其核心思想是引入一个惩罚项，使得回归系数不至于过大，从而缓解多重共线性带来的不稳定性。 岭回归的目标函数如下： \[ \min_{w} \left\{ \sum_{i&#x3D;1}^{n} (y_i - \s">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-24T22:58:00.000Z">
+<meta property="article:modified_time" content="2024-06-29T12:57:30.629Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="机器学习">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2024/06/35033174c91d/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>岭回归（Ridge Regression） | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2024/06/35033174c91d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          岭回归（Ridge Regression）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-25 10:58:00" itemprop="dateCreated datePublished" datetime="2024-06-25T10:58:00+12:00">2024-06-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-06-30 00:57:30" itemprop="dateModified" datetime="2024-06-30T00:57:30+12:00">2024-06-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>岭回归（Ridge Regression），也称为Tikhonov正则化，是一种用于处理多重共线性问题的线性回归技术。岭回归通过在损失函数中加入一个L2正则化项来防止过拟合，从而提高模型的泛化能力。</p>
+<p>其核心思想是引入一个惩罚项，使得回归系数不至于过大，从而缓解多重共线性带来的不稳定性。</p>
+<p>岭回归的目标函数如下：</p>
+<p><span class="math display">\[ \min_{w} \left\{ \sum_{i=1}^{n} (y_i - \sum_{j=1}^{p} x_{ij} w_j)^2 + \lambda \sum_{j=1}^{p} w_j^2 \right\} \]</span></p>
+<p>其中：</p>
+<ul>
+<li><p>$ n $ 是样本数量。</p></li>
+<li><p>$ p $ 是特征数量。</p></li>
+<li><p>$ y_i $ 是第 $ i $ 个样本的真实值。</p></li>
+<li><p>$ x_{ij} $ 是第 $ i $ 个样本的第 $ j $ 个特征值。</p></li>
+<li><p>$ w_j $ 是第 $ j $ 个特征的回归系数。</p></li>
+<li><p>$ $ 是正则化参数，控制惩罚项的权重。</p></li>
+</ul>
+<h3 id="岭回归的优点">岭回归的优点：</h3>
+<ol type="1">
+<li><p><strong>处理多重共线性</strong>：岭回归通过正则化减少了特征之间的共线性问题，使得回归系数更加稳定。</p></li>
+<li><p><strong>防止过拟合</strong>：引入的L2正则化项可以避免模型过拟合，提高模型在测试集上的表现。</p></li>
+<li><p><strong>数值稳定性</strong>：正则化项可以改善矩阵的条件数，从而提高计算的数值稳定性。</p></li>
+</ol>
+<h3 id="岭回归的缺点">岭回归的缺点：</h3>
+<ol type="1">
+<li><p><strong>偏差引入</strong>：正则化项会引入一定的偏差，导致模型的准确度有所下降。</p></li>
+<li><p><strong>参数选择</strong>：需要选择合适的正则化参数 $ $ ，这通常需要交叉验证来确定。</p></li>
+</ol>
+<h3 id="实际应用">实际应用：</h3>
+<p>在实际应用中，岭回归广泛用于高维数据集的线性回归问题中，特别是当特征数量多于样本数量或存在多重共线性时，岭回归是一种有效的回归方法。</p>
+<p>在Python中，可以使用<code>scikit-learn</code>库中的<code>Ridge</code>类来实现岭回归。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line">ridge_reg = Ridge(alpha=<span class="number">1.0</span>)  <span class="comment"># 其中 alpha 参数就是正则化参数 λ</span></span><br><span class="line">ridge_reg.fit(X_train, y_train)</span><br><span class="line">y_pred = ridge_reg.predict(X_test)</span><br></pre></td></tr></table></figure>
+<p>通过适当调整正则化参数 $ $ ，可以找到一个平衡点，在防止过拟合的同时保证模型的准确性。</p>
+<h3 id="选择合适的正则化参数">选择合适的正则化参数</h3>
+<p>常用的方法有以下几种：</p>
+<h3 id="交叉验证cross-validation">1. 交叉验证（Cross-Validation）</h3>
+<p>交叉验证是一种常用的方法，通过在训练集上进行多次训练和验证，选择能够使验证误差最小的 $ $ 值。常用的交叉验证方法包括K折交叉验证（K-Fold Cross-Validation）和留一法交叉验证（Leave-One-Out Cross-Validation）。</p>
+<h4 id="k折交叉验证步骤">K折交叉验证步骤：</h4>
+<ol type="1">
+<li>将训练数据集分成K个不重叠的子集（折）。</li>
+<li>依次用K-1个子集进行训练，用剩下的一个子集进行验证，计算验证误差。</li>
+<li>对每个 $ $ 值重复上述过程，计算所有K次验证误差的平均值。</li>
+<li>选择验证误差最小的 $ $ 值作为最佳参数。</li>
+</ol>
+<p>在<code>scikit-learn</code>中，可以使用<code>RidgeCV</code>类来自动进行交叉验证：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> RidgeCV</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义候选的λ值列表</span></span><br><span class="line">alphas = [<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">100.0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用K折交叉验证选择最优的λ值</span></span><br><span class="line">ridge_cv = RidgeCV(alphas=alphas, cv=<span class="number">5</span>)  <span class="comment"># 这里的cv=5表示使用5折交叉验证</span></span><br><span class="line">ridge_cv.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最佳的λ值</span></span><br><span class="line">best_lambda = ridge_cv.alpha_</span><br><span class="line">print(<span class="string">&quot;Best λ:&quot;</span>, best_lambda)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = ridge_cv.predict(X_test)</span><br></pre></td></tr></table></figure>
+<h3 id="网格搜索grid-search">2. 网格搜索（Grid Search）</h3>
+<p>网格搜索是一种系统的超参数调优方法，通过遍历所有可能的参数组合，选择最佳的参数。可以与交叉验证结合使用，以确保选择出的参数能在不同的数据集上有良好的表现。</p>
+<p>在<code>scikit-learn</code>中，可以使用<code>GridSearchCV</code>来实现网格搜索：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Ridge</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义参数网格</span></span><br><span class="line">param_grid = &#123;<span class="string">&#x27;alpha&#x27;</span>: [<span class="number">0.1</span>, <span class="number">1.0</span>, <span class="number">10.0</span>, <span class="number">100.0</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建Ridge模型</span></span><br><span class="line">ridge = Ridge()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建GridSearchCV对象，使用交叉验证</span></span><br><span class="line">grid_search = GridSearchCV(ridge, param_grid, cv=<span class="number">5</span>)</span><br><span class="line">grid_search.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最佳参数</span></span><br><span class="line">best_lambda = grid_search.best_params_[<span class="string">&#x27;alpha&#x27;</span>]</span><br><span class="line">print(<span class="string">&quot;Best λ:&quot;</span>, best_lambda)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测</span></span><br><span class="line">y_pred = grid_search.predict(X_test)</span><br></pre></td></tr></table></figure>
+<h3 id="信息准则information-criterion">3. 信息准则（Information Criterion）</h3>
+<p>信息准则（如AIC和BIC）也是选择正则化参数的一种方法，通过最小化信息准则来选择最佳的 $ $ 值。这些方法通常需要计算模型的似然函数，对计算复杂度要求较高。</p>
+<h3 id="数据驱动方法">4. 数据驱动方法</h3>
+<p>某些情况下，可以基于数据本身的特性来选择 $ $ 。例如，如果知道特征之间的相关性非常高，可以选择较大的 $ $ 以更强地正则化。如果数据量非常大，可以适当减少正则化强度。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/c4f2eaabfc4c/" rel="prev" title="泊松回归（Poisson Regression）">
+      <i class="fa fa-chevron-left"></i> 泊松回归（Poisson Regression）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/8935c98f42dc/" rel="next" title="Lasso 回归">
+      Lasso 回归 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">岭回归的优点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B2%AD%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">岭回归的缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">实际应用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%AD%A3%E5%88%99%E5%8C%96%E5%8F%82%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">选择合适的正则化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81cross-validation"><span class="nav-number">5.</span> <span class="nav-text">1. 交叉验证（Cross-Validation）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#k%E6%8A%98%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.1.</span> <span class="nav-text">K折交叉验证步骤：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E6%A0%BC%E6%90%9C%E7%B4%A2grid-search"><span class="nav-number">6.</span> <span class="nav-text">2. 网格搜索（Grid Search）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E5%87%86%E5%88%99information-criterion"><span class="nav-number">7.</span> <span class="nav-text">3. 信息准则（Information Criterion）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8%E6%96%B9%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">4. 数据驱动方法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2024/06/35033174c91d/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2024/06/35033174c91d/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

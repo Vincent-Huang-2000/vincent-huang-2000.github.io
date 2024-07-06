@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/v/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/v/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/v/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"vincent-huang-2000.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"apiKey":"38382cad2f06554c640fbab72a58e2ca","indexName":"my-hexo-blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="R语言中使用矩阵（matrix） 创建矩阵 可以使用 matrix() 函数来创建一个矩阵。 123# 创建一个3x3矩阵mat &lt;- matrix(1:9, nrow &#x3D; 3)print(mat) 输出： 1234     [,1] [,2] [,3][1,]    1    4    7[2,]    2    5    8[3,]    3    6    9 矩阵的维度和结构  nr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言矩阵学习笔记">
+<meta property="og:url" content="https://vincent-huang-2000.github.io/2023/08/197d59b49329/index.html">
+<meta property="og:site_name" content="Vincent&#39;s Blog">
+<meta property="og:description" content="R语言中使用矩阵（matrix） 创建矩阵 可以使用 matrix() 函数来创建一个矩阵。 123# 创建一个3x3矩阵mat &lt;- matrix(1:9, nrow &#x3D; 3)print(mat) 输出： 1234     [,1] [,2] [,3][1,]    1    4    7[2,]    2    5    8[3,]    3    6    9 矩阵的维度和结构  nr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-06T06:58:00.000Z">
+<meta property="article:modified_time" content="2024-07-05T12:54:24.554Z">
+<meta property="article:author" content="Vincent Huang">
+<meta property="article:tag" content="R语言">
+<meta property="article:tag" content="矩阵">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://vincent-huang-2000.github.io/2023/08/197d59b49329/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>R语言矩阵学习笔记 | Vincent's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Vincent's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://vincent-huang-2000.github.io/2023/08/197d59b49329/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vincent Huang">
+      <meta itemprop="description" content="A student studying in New Zealand, majoring in computer science.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Vincent's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R语言矩阵学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-08-06 18:58:00" itemprop="dateCreated datePublished" datetime="2023-08-06T18:58:00+12:00">2023-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-06 00:54:24" itemprop="dateModified" datetime="2024-07-06T00:54:24+12:00">2024-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/R%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">R语言</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>R语言中使用矩阵（matrix）</p>
+<h2 id="创建矩阵">创建矩阵</h2>
+<p>可以使用 <code>matrix()</code> 函数来创建一个矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个3x3矩阵</span></span><br><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">9</span>, nrow = <span class="number">3</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2] [,3]</span><br><span class="line">[1,]    1    4    7</span><br><span class="line">[2,]    2    5    8</span><br><span class="line">[3,]    3    6    9</span><br></pre></td></tr></table></figure>
+<h2 id="矩阵的维度和结构">矩阵的维度和结构</h2>
+<ul>
+<li><code>nrow(mat)</code> 和 <code>ncol(mat)</code> 分别获取矩阵的行数和列数。</li>
+<li><code>dim(mat)</code> 获取矩阵的维度。</li>
+<li><code>str(mat)</code> 查看矩阵的结构。</li>
+</ul>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2]</span><br><span class="line">[1,]    1    4</span><br><span class="line">[2,]    2    5</span><br><span class="line">[3,]    3    6</span><br></pre></td></tr></table></figure>
+<p>查看这个矩阵的维度：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dim</span>(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1] 3 2</span><br></pre></td></tr></table></figure>
+<p>查看矩阵的结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int [1:3, 1:2] 1 2 3 4 5 6</span><br></pre></td></tr></table></figure>
+<h2 id="访问矩阵的元素">访问矩阵的元素</h2>
+<p>获取第二行第一列的元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">&gt; mat</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[2, 1]</span><br><span class="line">[1] 2</span><br></pre></td></tr></table></figure>
+<p>注意这里的第一行不像是其他编程语言从0开始。</p>
+<p>还可以选择某一行的所有元素（默认情况下，会将这些看作一个向量）：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[<span class="number">3</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">6</span></span><br><span class="line">&gt; mat[<span class="number">2</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>或者是选择某一列的所有元素：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[,<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line">&gt; mat[,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>或者是选择除了某一行的所有元素，例如下面就是选择除了第一行的所有元素，返回的是一个矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat[-<span class="number">1</span>,]</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>上面的选择元素，都是将某一行或者某一列所有的元素，看成一个向量，而不是一个矩阵。通过 <code>dim()</code> 可以查看到维度不存在（NULL），这说明 <code>x</code> 是一个向量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; A &lt;- matrix(1:6, nrow&#x3D;3)</span><br><span class="line">&gt; A[,2]</span><br><span class="line">[1] 4 5 6</span><br><span class="line">&gt; x &lt;- A[,2]</span><br><span class="line">&gt; dim(x)</span><br><span class="line">NULL</span><br></pre></td></tr></table></figure>
+<h2 id="保持矩阵结构">保持矩阵结构</h2>
+<p>先来看一个例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; A &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow=<span class="number">3</span>)</span><br><span class="line">&gt; x2 &lt;- A[, <span class="number">2</span>]</span><br><span class="line">&gt; x2</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">&gt; <span class="built_in">dim</span>(x2)</span><br><span class="line"><span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<p>上面的 <code>x2</code> 不是一个矩阵。</p>
+<p>如果我们希望保留矩阵的结构，则需要用 <code>drop</code> ：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; x2 &lt;- A[, <span class="number">2</span>, drop=<span class="literal">FALSE</span>]</span><br><span class="line">&gt; <span class="built_in">dim</span>(x2)</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>使用了 <code>drop=FALSE</code> 之后，<code>x2</code> 仍然是一个矩阵。</p>
+<h2 id="矩阵的运算">矩阵的运算</h2>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat1 &lt;- matrix(<span class="number">1</span>:<span class="number">4</span>, nrow = <span class="number">2</span>)</span><br><span class="line">mat2 &lt;- matrix(<span class="number">5</span>:<span class="number">8</span>, nrow = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>先打印出来矩阵</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(mat1)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line"></span><br><span class="line">&gt; print(mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">5</span>    <span class="number">7</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">6</span>    <span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩阵相加</span></span><br><span class="line">&gt; print(mat1 + mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">6</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">8</span>   <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 矩阵乘法（内积）</span></span><br><span class="line">&gt; print(mat1 %*% mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   <span class="number">23</span>   <span class="number">31</span></span><br><span class="line">[<span class="number">2</span>,]   <span class="number">34</span>   <span class="number">46</span></span><br></pre></td></tr></table></figure>
+<h2 id="应用在矩阵上的函数">应用在矩阵上的函数</h2>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">print(mat)</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     [,1] [,2]</span><br><span class="line">[1,]    1    4</span><br><span class="line">[2,]    2    5</span><br><span class="line">[3,]    3    6</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算每列的总和</span></span><br><span class="line">&gt; colSums(mat)</span><br><span class="line">[<span class="number">1</span>]  <span class="number">6</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算每行的平均值</span></span><br><span class="line">&gt; rowMeans(mat)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2.5</span> <span class="number">3.5</span> <span class="number">4.5</span></span><br></pre></td></tr></table></figure>
+<p>此外还有一些常用的</p>
+<h3 id="diag">diag()</h3>
+<p><code>diag()</code> 函数在处理矩阵时有两个主要用途：</p>
+<ul>
+<li>当它的参数是一个矩阵时，它会返回矩阵的对角线元素组成的向量。</li>
+<li>当它的参数是一个数值或向量时，它会返回一个以该数值或向量为对角线的对角矩阵。</li>
+</ul>
+<p>举一个参数为矩阵的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="number">1</span>:<span class="number">9</span>, nrow=<span class="number">3</span>)</span><br><span class="line">&gt; diag(B)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">5</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>参数为数值：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; diag(<span class="number">5</span>)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>] [,<span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>参数为向量的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- <span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">&gt; diag(B)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">0</span>    <span class="number">2</span>    <span class="number">0</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">3</span>    <span class="number">0</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">0</span>    <span class="number">0</span>    <span class="number">0</span>    <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h3 id="det">det()</h3>
+<p><code>det()</code> 函数计算给定矩阵的行列式。</p>
+<p>行列式是一个可以从方阵（即行数和列数相同的矩阵）中得到的数值，它在线性代数中具有多种重要的应用，如判断矩阵是否可逆、求解线性方程组等。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; B</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">4</span></span><br><span class="line">&gt; det(B)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="solve">solve()</h3>
+<p>此函数可求解 <code>x</code> 的方程 <code>a %*% x = b</code>，其中 <code>b</code> 可以是向量或矩阵。换言之，就是求逆矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; solve(B)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]   -<span class="number">2</span>  <span class="number">1.5</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">1</span> -<span class="number">0.5</span></span><br></pre></td></tr></table></figure>
+<h3 id="dim">dim()</h3>
+<p>用于获取或设置指定矩阵、数组或 DataFrame 的维数。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; B &lt;- matrix(<span class="built_in">c</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>), nrow=<span class="number">2</span>)</span><br><span class="line">&gt; <span class="built_in">dim</span>(B)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="绑定矩阵">绑定矩阵</h2>
+<p>还是用上面的例子：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mat1 &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>)</span><br><span class="line">mat2 &lt;- matrix(<span class="number">6</span>:<span class="number">11</span>, nrow = <span class="number">3</span>)</span><br><span class="line">&gt; print(mat1)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line">&gt; print(mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将两个矩阵按行绑定</span></span><br><span class="line">&gt; rbind(mat1, mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">5</span>,]    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">6</span>,]    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将两个矩阵按列绑定</span></span><br><span class="line">&gt; cbind(mat1, mat2)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>] [,<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span>    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span>    <span class="number">7</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span>    <span class="number">8</span>   <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<h2 id="转置矩阵">转置矩阵</h2>
+<p>例子如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; mat &lt;- matrix(<span class="number">1</span>:<span class="number">6</span>, nrow = <span class="number">3</span>, ncol = <span class="number">2</span>)</span><br><span class="line">&gt; print(mat)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>t()</code> 函数来转置矩阵。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; t(mat)</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag"># R语言</a>
+              <a href="/tags/%E7%9F%A9%E9%98%B5/" rel="tag"># 矩阵</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/28cc012fe1f4/" rel="prev" title="R语言的向量">
+      <i class="fa fa-chevron-left"></i> R语言的向量
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/61d9a5089dd3/" rel="next" title="R语言List学习笔记">
+      R语言List学习笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%9F%A9%E9%98%B5"><span class="nav-number">1.</span> <span class="nav-text">创建矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E7%BB%B4%E5%BA%A6%E5%92%8C%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">矩阵的维度和结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">访问矩阵的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%9D%E6%8C%81%E7%9F%A9%E9%98%B5%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">保持矩阵结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">矩阵的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%A8%E7%9F%A9%E9%98%B5%E4%B8%8A%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">应用在矩阵上的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#diag"><span class="nav-number">6.1.</span> <span class="nav-text">diag()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#det"><span class="nav-number">6.2.</span> <span class="nav-text">det()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#solve"><span class="nav-number">6.3.</span> <span class="nav-text">solve()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dim"><span class="nav-number">6.4.</span> <span class="nav-text">dim()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">7.</span> <span class="nav-text">绑定矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E7%BD%AE%E7%9F%A9%E9%98%B5"><span class="nav-number">8.</span> <span class="nav-text">转置矩阵</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vincent Huang</p>
+  <div class="site-description" itemprop="description">A student studying in New Zealand, majoring in computer science.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Vincent-Huang-2000" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Vincent-Huang-2000" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical="">
+      
+        <option value="zh-CN" data-href="/2023/08/197d59b49329/" selected="">
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2023/08/197d59b49329/" selected="">
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vincent Huang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
